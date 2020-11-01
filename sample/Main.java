@@ -9,12 +9,14 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    public Scene scene;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
 
         Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
         primaryStage.setTitle("Monopoly");
-        Scene scene = new Scene(root);
+        scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
