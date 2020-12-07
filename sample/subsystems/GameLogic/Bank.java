@@ -21,7 +21,7 @@ public class Bank {
     // Add player and playerOfferAmount parameters.
     public void auctionProperty(Property prp ,Player p , int playerOfferAmount)  {
         if (p.getBalance () >= playerOfferAmount && !prp.isOwned()){
-            p.setBalance(p.getBalance()- playerOfferAmount);
+            p.updateBalance(-playerOfferAmount);
             prp.setOwner(p);
         }
         else
