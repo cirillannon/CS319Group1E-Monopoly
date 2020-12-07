@@ -1,16 +1,15 @@
 package sample.subsystems.GameLogic;
 
-public class Bank 
-{
+public class Bank {
     private int numberOfHouses;
     private int numberOfHotels;
     public Bank(){
-        numberOfHouses= 32;
-        numberOfHotels= 12;
+        numberOfHouses = 32;
+        numberOfHotels = 12;
     }
-    // Add price variable for property.
+    // Add getprice() function for property.
     public boolean buyProperty(Property prp ,Tile t , Player p  ) {
-        if (!prp.isOwned() && p.location == t.tileLocation && p.getBalance() >= prp.price)
+        if (!prp.isOwned() && p.getLocation() == t.getTileLocation() && p.getBalance() >= prp.getPrice())
         {
             prp.setOwner(p);
             return true;
@@ -20,10 +19,12 @@ public class Bank
     }
     // Add player and playerOfferAmount parameters.
     public void auctionProperty(Property prp ,Player p , int playerOfferAmount)  {
-        if (p.getBalance () >= playerOfferAmount){
-            p.balance = p.balance- playerOfferAmount;
+        if (p.getBalance () >= playerOfferAmount && !prp.isOwned()){
+            p.setBalance(p.getBalance()- playerOfferAmount);
             prp.setOwner(p);
         }
+        else
+            return;
     }
     // Add tradeAmount parameter and removeOwner() for property
     public boolean tradeProperty(Property prp, Player owner, Player target , int tradeAmount) {
@@ -31,52 +32,57 @@ public class Bank
         {
          prp.setOwner(target);
          prp.removeOwner(owner);
-         target.balance = target.balance - tradeAmount;
-         owner.balance = owner.balance + tradeAmount;
+         target.setBalance(target.getBalance() - tradeAmount);
+         owner.setBalance = (owner.getBalance() + tradeAmount);
          return true;
         }
         else
             return false;
     }
+
     // Add mortgageAmount() for property
     public boolean mortgageProperty(Property prp, Player p) {
         if (!prp.isMortgaged()) {
             prp.setMortgaged(true);
-            p.balance =  p.balance + prp.mortgageAmount() ;
+            p.setBalance(p.getBalance + prp.mortgageAmount()) ;
             return true;
         }
         else
             return false;
     }
+
     // Add mortgageAmount() for property
     public boolean unMortgageProperty(Property prp, Player p) {
         if (prp.isMortgaged() && p.getBalance() >= prp.mortgageAmount()) {
             prp.setMortgaged(false);
-            p.balance =  p.balance - prp.mortgageAmount() ;
+            p.setBalance(p.getBalance() - prp.mortgageAmount());
             return true;
         }
         else
             return false;
     }
-    // Add buildingCount parameter. HouseCost, hotelCost ,setRentAmount() for each property.
+
+    // Add buildingCount parameter. getHouseCost(), gethotelCost() ,setRentAmount() for each property.
     public boolean buyBuilding(Player p, Building type, Property prp , int buildingCount) {
         if (type == "House") {
-            if (p.hasMonopoly() && p.getBalance() >= (buildingCount * prp.houseCost))
+            if (p.hasMonopoly() && p.getBalance() >= (buildingCount * prp.gethouseCost()))
             {
-                p.balance = p.balance - (buildingCount * prp.houseCost);
+                p.setBalance(p.getBalance() - (buildingCount * prp.gethouseCost()));
                 numberOfHouses = numberOfHouses - buildingCount;
+                setNumberOfHouses(numberOfHouses);
                 prp.setNumOfHouse (buildingCount);
-                prp.setRentAmount();
+                prp.setRentAmount(); // Add setRentAmount function to Property class.
                 return true;
             }
             else
                 return false;
         }
-        if (type=="Hotel") {
-            if (p.hasMonopoly() && p.getBalance() >= (buildingCount * prp.hotelCost) && prp.getNumOfHouse() = 4)
+        if (type == "Hotel") {
+            if (p.hasMonopoly() && p.getBalance() >= (buildingCount * prp.gethotelCost()) && prp.getNumOfHouse () = 4)
             {
-                p.balance = p.balance - (buildingCount * prp.hotelCost);
+                p.setBalance(p.getBalance() - (buildingCount * prp.gethotelCost()));
                 numberOfHotels = numberOfHotels - buildingCount;
+                setNumberOfHotels(numberOfHotels);
                 prp.setNumOfHotel (buildingCount);
                 prp.setRentAmount(); // Add setRentAmount function to Property class.
                 return true;
@@ -85,20 +91,21 @@ public class Bank
                 return false;
         }
     }
-    public boolean tradeCard(int cardID, Player owner, Player target) {
-        boolean flag = false;
-        for (int i = 0 ; i< owner.cardsOwned.size(); i++) {
-            if (owner.cardsOwned[i] == cardID){
-                owner.cardsOwned.remove(i);
-                target.cardsOwned.add(cardID);
-                flag= true;
-                break;
-            }
-            else
-                flag = false;
+    // Add getNumOfJailCards()  hasJailCard()
+    
+    public boolean tradeJailCard( Player owner, Player target, int moneyAmount) {
+        if(owners.hasJailCard() & target.getBalance () >= moneyAmount) {
+            owner.removeJailCard();
+            target.addJailCard();
+            owner.balance = owner.balance + moneyAmount;
+            target.balance = target.balance - moneyAmount;
+            return true;
         }
-        return flag;
+        else
+            return false;
+
     }
+
     public boolean tradeMoney(int moneyAmount, Player owner, Player target) {
         if (owner.getBalance () >= moneyAmount) {
             owner.balance = owner.balance - moneyAmount;
@@ -108,6 +115,20 @@ public class Bank
         else
             return false;
     }
+    // Add new function tradeProperty() to bank class.
+    public boolean tradeProperty(int tradeMoneyAmount, Player owner, Player buyer , Property prp)
+    {
+        if (buyer.getBalance() >= tradeMoneyAmount && prp.isOwned()) {
+            prp.removeOwner(owner);
+            prp.setOwner(buyer);
+            owner.setBalance(owner.getBalance() + tradeMoneyAmount);
+            buyer.setBalance(buyer.getBalance() - tradeMoneyAmount);
+            return true;
+        }
+        else
+            return false;
+    }
+
     public int getNumberOfHouses(){
         return this.numberOfHouses;
     }
@@ -120,5 +141,5 @@ public class Bank
     public void setNumberOfHotels(int numberOfHotels){
         this.numberOfHotels = numberOfHotels;
     }
-    
+
 }
