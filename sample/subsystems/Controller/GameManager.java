@@ -13,11 +13,11 @@ public class GameManager {
 
     private boolean gameStarted;
     private boolean gameOver;
-    private int numOfPlayers;
-    private ArrayList<Card> chanceCards;
-    private ArrayList<Card> communityChestCards;
-    private Tile[] tiles; // index 0 is empty, we have tiles between 1-40
-    private Player[] players; // max 4 players with playerID's between 0-3
+    private static int numOfPlayers;
+    private static ArrayList<Card> chanceCards;
+    private static ArrayList<Card> communityChestCards;
+    private static Tile[] tiles; // index 0 is empty, we have tiles between 1-40
+    private static Player[] players; // max 4 players with playerID's between 0-3
 
     // constructor
     public GameManager() {
@@ -32,18 +32,12 @@ public class GameManager {
 
     // methods
     public boolean initGame(int startMoney) {
-        setPlayersStartMoney(startMoney);
         initBank();
         initCards();
         setPawnStartPosition();
         startPawnSelection();
         // static or instance???
         // initBoard();
-    }
-
-    // give players money - through gameBoard?
-    public void setPlayersStartMoney(int startMoney) {
-        this.playerStartMoney = startMoney;
     }
 
     // how to reach pawns?
