@@ -19,4 +19,6 @@ public abstract class Tile {
     public int getTileLocation() {
         return tileLocation;
     }
+
+
 }

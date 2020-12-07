@@ -1,16 +1,29 @@
 package sample.subsystems.Controller;
 
 import sample.subsystems.GameLogic.GameBoard;
+import sample.subsystems.GameLogic.Tile;
+
+import java.util.ArrayList;
+
 // communicates with Server ?
 public class GameManager {
     // properties
 
-    int playerStartMoney;
-    boolean gameStarted;
-    boolean gameOver;
+    private int playerStartMoney;
+    private boolean gameStarted;
+    private boolean gameOver;
+    private ArrayList<Integer> chanceCards;
+    private ArrayList<Integer> communityChestCards;
+    private Tile[] tiles; // index 0 is empty, we have tiles between 1-40
 
     // constructor
-    public Controller() {
+    public GameManager() {
+
+
+
+
+
+
 
     }
 
@@ -18,6 +31,7 @@ public class GameManager {
     public boolean initGame(int startMoney) {
         setPlayersStartMoney(startMoney);
         initBank();
+        initCards();
         setPawnStartPosition();
         startPawnSelection();
         // static or instance???
@@ -52,6 +66,22 @@ public class GameManager {
     }
 
     public boolean isGameOver() {
+
+    }
+
+    public static ArrayList<Integer> getChanceCards(){
+        return chanceCards;
+    }
+
+    public static ArrayList<Integer> getCommunityChestCards() {
+        return communityChestCards;
+    }
+
+    public static Tile[] getTiles(){
+        return tiles;
+    }
+
+    private void initCards(){
 
     }
 }

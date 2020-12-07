@@ -13,6 +13,7 @@ public class Player {
     private int numberOfStations;
     private boolean playerHasTurn;
     private ArrayList<Integer> cardsOwned;
+    private int numOfJailCards;
     private boolean bothUtilities;
     private boolean outOfJailCard;
     private ArrayList<Property> propertiesOwned;
@@ -29,6 +30,7 @@ public class Player {
         cardsOwned = new ArrayList<>();
         propertiesOwned = new ArrayList<>();
         bothUtilities = false;
+        numOfJailCards = 0;
         outOfJailCard = false;
     }
 
@@ -41,6 +43,7 @@ public class Player {
 
         if(this.balance < 0)
             this.balance = 0;
+            this.setBankruptcy(true);
     }
 
     public int getLocation(){
@@ -76,7 +79,7 @@ public class Player {
     }
 
     public void move(int diceTotal){
-        this.location += diceTotal%40;
+        this.location = (this.location + diceTotal)%40;
     }
 
     public String getPlayerName(){
@@ -137,6 +140,19 @@ public class Player {
 
     public void addProperty( Property p){
         this.propertiesOwned.add(p);
+    }
+
+    public void addJailCard(){
+        this.outOfJailCard = true;
+        this.numOfJailCards++;
+    }
+
+    public void removeJailCard(){
+        if (outOfJailCard){
+            this.numOfJailCards--;
+            if (numOfJailCards == 0)
+                this.outOfJailCard = false;
+        }
     }
 
 
