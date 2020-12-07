@@ -10,6 +10,8 @@ public abstract class Tile {
         tileLocation = tLocation;
     }
 
+    public abstract void onLand(Player p);
+
     public String getTileName(){
         return tileName;
     }

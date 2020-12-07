@@ -17,7 +17,7 @@ public class Player {
     private boolean outOfJailCard;
     private ArrayList<Property> propertiesOwned;
 
-    public Player( int bal, String name){
+    public Player( String name){
         balance = 1500; // Start balance can be changed
         location = 1;
         bankruptcy = false;
