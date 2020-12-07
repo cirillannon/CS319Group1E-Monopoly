@@ -26,12 +26,11 @@ public class Bank {
         else
             return;
     }
-    // Add tradeAmount parameter and removeOwner() for property
+    // Add tradeAmount parameter 
     public boolean tradeProperty(Property prp, Player owner, Player target , int tradeAmount) {
         if (target.getBalance() >= tradeAmount)
         {
          prp.setOwner(target);
-         prp.removeOwner(owner);
          target.setBalance(target.getBalance() - tradeAmount);
          owner.setBalance = (owner.getBalance() + tradeAmount);
          return true;
