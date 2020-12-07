@@ -31,8 +31,8 @@ public class Bank {
         if (target.getBalance() >= tradeAmount)
         {
          prp.setOwner(target);
-         target.setBalance(target.getBalance() - tradeAmount);
-         owner.setBalance = (owner.getBalance() + tradeAmount);
+         target.updateBalance(-tradeAmount);
+         owner.updateBalance(tradeAmount);
          return true;
         }
         else
@@ -43,7 +43,7 @@ public class Bank {
     public boolean mortgageProperty(Property prp, Player p) {
         if (!prp.isMortgaged()) {
             prp.setMortgaged(true);
-            p.setBalance(p.getBalance + prp.mortgageAmount()) ;
+            p.updateBalance(prp.mortgageAmount()) ;
             return true;
         }
         else
@@ -54,7 +54,7 @@ public class Bank {
     public boolean unMortgageProperty(Property prp, Player p) {
         if (prp.isMortgaged() && p.getBalance() >= prp.mortgageAmount()) {
             prp.setMortgaged(false);
-            p.setBalance(p.getBalance() - prp.mortgageAmount());
+            p.updateBalance(-prp.mortgageAmount());
             return true;
         }
         else
@@ -66,7 +66,7 @@ public class Bank {
         if (type == "House") {
             if (p.hasMonopoly() && p.getBalance() >= (buildingCount * prp.gethouseCost()))
             {
-                p.setBalance(p.getBalance() - (buildingCount * prp.gethouseCost()));
+                p.updateBalance(-(buildingCount * prp.gethouseCost()));
                 numberOfHouses = numberOfHouses - buildingCount;
                 setNumberOfHouses(numberOfHouses);
                 prp.setNumOfHouse (buildingCount);
@@ -79,7 +79,7 @@ public class Bank {
         if (type == "Hotel") {
             if (p.hasMonopoly() && p.getBalance() >= (buildingCount * prp.gethotelCost()) && prp.getNumOfHouse () = 4)
             {
-                p.setBalance(p.getBalance() - (buildingCount * prp.gethotelCost()));
+                p.updateBalance(-(buildingCount * prp.gethotelCost()));
                 numberOfHotels = numberOfHotels - buildingCount;
                 setNumberOfHotels(numberOfHotels);
                 prp.setNumOfHotel (buildingCount);
@@ -96,8 +96,8 @@ public class Bank {
         if(owners.hasJailCard() & target.getBalance () >= moneyAmount) {
             owner.removeJailCard();
             target.addJailCard();
-            owner.balance = owner.balance + moneyAmount;
-            target.balance = target.balance - moneyAmount;
+            owner.updateBalance(moneyAmount);
+            target.updateBalance(moneyAmount);
             return true;
         }
         else
@@ -107,8 +107,8 @@ public class Bank {
 
     public boolean tradeMoney(int moneyAmount, Player owner, Player target) {
         if (owner.getBalance () >= moneyAmount) {
-            owner.balance = owner.balance - moneyAmount;
-            target.balance = target.balance + moneyAmount;
+            owner.updateBalance(-moneyAmount);
+            target.updateBalance(moneyAmount);
             return true;
         }
         else
@@ -120,8 +120,8 @@ public class Bank {
         if (buyer.getBalance() >= tradeMoneyAmount && prp.isOwned()) {
             prp.removeOwner(owner);
             prp.setOwner(buyer);
-            owner.setBalance(owner.getBalance() + tradeMoneyAmount);
-            buyer.setBalance(buyer.getBalance() - tradeMoneyAmount);
+            owner.updateBalance(tradeMoneyAmount);
+            buyer.updateBalance(-tradeMoneyAmount);
             return true;
         }
         else
