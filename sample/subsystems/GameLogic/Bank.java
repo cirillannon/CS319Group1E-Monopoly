@@ -115,19 +115,6 @@ public class Bank {
         else
             return false;
     }
-    // Add new function tradeProperty() to bank class.
-    public boolean tradeProperty(int tradeMoneyAmount, Player owner, Player buyer , Property prp)
-    {
-        if (buyer.getBalance() >= tradeMoneyAmount && prp.isOwned()) {
-            prp.removeOwner(owner);
-            prp.setOwner(buyer);
-            owner.updateBalance(tradeMoneyAmount);
-            buyer.updateBalance(-tradeMoneyAmount);
-            return true;
-        }
-        else
-            return false;
-    }
 
     public int getNumberOfHouses(){
         return this.numberOfHouses;
