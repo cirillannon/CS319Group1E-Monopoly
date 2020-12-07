@@ -81,7 +81,6 @@ public class Bank {
             if (p.hasMonopoly() && p.getBalance() >= (buildingCount * prp.gethotelCost()) && prp.getNumOfHouse () = 4)
             {
                 p.updateBalance(-(buildingCount * prp.gethotelCost()));
-                numberOfHotels = numberOfHotels - buildingCount;
                 setNumberOfHotels(numberOfHotels);
                 prp.setNumOfHotel (buildingCount);
                 prp.setRentAmount(); // Add setRentAmount function to Property class.
