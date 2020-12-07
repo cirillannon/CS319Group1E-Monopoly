@@ -88,8 +88,8 @@ public class Bank
     public boolean tradeCard(int cardID, Player owner, Player target) {
         boolean flag = false;
         for (int i = 0 ; i< owner.cardsOwned.size(); i++) {
-            if (cardsOwned[i] == cardID){
-                owner.cardsOwned[i].remove();
+            if (owner.cardsOwned[i] == cardID){
+                owner.cardsOwned.remove(i);
                 target.cardsOwned.add(cardID);
                 flag= true;
                 break;
