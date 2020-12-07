@@ -12,6 +12,7 @@ public class Bank {
         if (!prp.isOwned() && p.getLocation() == t.getTileLocation() && p.getBalance() >= prp.getPrice())
         {
             prp.setOwner(p);
+            p.updateBalance(-prp.getPrice());
             return true;
         }
         else
