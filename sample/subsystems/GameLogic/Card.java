@@ -2,7 +2,7 @@ package sample.subsystems.GameLogic;
 
 import sample.subsystems.Controller.GameManager;
 
-public class Card {
+public abstract class Card {
 
     private String cardType;
     private String cardDescription;
@@ -14,26 +14,32 @@ public class Card {
         this.cardID = cID;
     }
 
-    public void cardFunction1(Player p){
+    public abstract void onDraw(Player p);
+
+    public int getCardID(){
+        return cardID;
+    }
+
+    public void chanceCardFunction1(Player p){
         p.setLocation(1);
         GameManager.getTiles()[1].onLand(p);
     }
 
-    public void cardFunction2(Player p){
+    public void chanceCardFunction2(Player p){
         if (p.getLocation() > 25)
             GO.paySalary(p);
         p.setLocation(25);
         GameManager.getTiles()[25].onLand(p);
     }
 
-    public void cardFunction3(Player p){
+    public void chanceCardFunction3(Player p){
         if (p.getLocation() > 12)
             GO.paySalary(p);
         p.setLocation(12);
         GameManager.getTiles()[12].onLand(p);
     }
 
-    public void cardFunction4(Player p){
+    public void chanceCardFunction4(Player p){
         int temp = p.getLocation();
 
         // This loop finds the next utility and stores it in temp
@@ -55,7 +61,7 @@ public class Card {
             GameManager.getTiles()[temp].onLand(p);
     }
 
-    public void cardFunction5(Player p){
+    public void chanceCardFunction5(Player p){
         int temp = p.getLocation();
 
         // This loop finds the next utility and stores it in temp
@@ -77,15 +83,15 @@ public class Card {
             GameManager.getTiles()[temp].onLand(p);
     }
 
-    public void cardFunction6(Player p){
+    public void chanceCardFunction6(Player p){
         p.updateBalance(50);
     }
 
-    public void cardFunction7(Player p){
+    public void chanceCardFunction7(Player p){
         p.addJailCard();
     }
 
-    public void cardFunction8(Player p){
+    public void chanceCardFunction8(Player p){
         int temp = p.getLocation();
         if (temp <= 3)
             temp += 40;
@@ -96,33 +102,33 @@ public class Card {
         GameManager.getTiles()[temp].onLand(p);
     }
 
-    public void cardFunction9(Player p){
+    public void chanceCardFunction9(Player p){
         GoToJail.jailPlayer(p);
     }
 
-    public void cardFunction10(Player p){
+    public void chanceCardFunction10(Player p){
         int fee = (p.getHotelsOwned() * 100) + (p.getHousesOwned() * 25);
         p.updateBalance(-fee);
 
     }
 
-    public void cardFunction11(Player p){
+    public void chanceCardFunction11(Player p){
         p.updateBalance(-25);
     }
 
-    public void cardFunction12(Player p){
+    public void chanceCardFunction12(Player p){
         if (p.getLocation() > 6)
             GO.paySalary(p);
         p.setLocation(6);
         GameManager.getTiles()[6].onLand(p);
     }
 
-    public void cardFunction13(Player p){
+    public void chanceCardFunction13(Player p){
         p.setLocation(40);
         GameManager.getTiles()[40].onLand(p);
     }
 
-    public void cardFunction14(Player p){
+    public void chanceCardFunction14(Player p){
         for (int i = 0 ; i < GameManager.getNumOfPlayers(); i++){
             if ( (i != p.getPlayerID()) && (!p.getBankruptcy())){
                 GameManager.getPlayers()[i].updateBalance(50);
@@ -132,27 +138,103 @@ public class Card {
 
     }
 
-    public void cardFunction15(Player p){
+    public void chanceCardFunction15(Player p){
         p.updateBalance(150);
     }
 
-    public void cardFunction16(Player p){
+    public void chanceCardFunction16(Player p){
         p.updateBalance(100);
     }
 
-    public void cardFunction17(Player p){
+    public void chanceCardFunction17(Player p){
         // EVENT
     }
 
-    public void cardFunction18(Player p){
+    public void chanceCardFunction18(Player p){
         // EVENT
     }
 
-    public void cardFunction19(Player p){
+    public void chanceCardFunction19(Player p){
         // EVENT
     }
 
-    public void cardFunction20(Player p){
+    public void chanceCardFunction20(Player p){
         // EVENT
     }
+
+    public void communityChestCardFunction1(Player p){
+        p.setLocation(1);
+        GameManager.getTiles()[1].onLand(p);
+    }
+
+    public void communityChestCardFunction2(Player p){
+        p.updateBalance(200);
+    }
+
+    public void communityChestCardFunction3(Player p){
+        p.updateBalance(50);
+    }
+
+    public void communityChestCardFunction4(Player p){
+        p.updateBalance(-50);
+    }
+
+    public void communityChestCardFunction5(Player p){
+        p.addJailCard();
+    }
+
+    public void communityChestCardFunction6(Player p){
+        GoToJail.jailPlayer(p);
+    }
+
+    public void communityChestCardFunction7(Player p){
+        for (int i = 0 ; i < GameManager.getNumOfPlayers(); i++){
+            if ( (i != p.getPlayerID()) && !(GameManager.getPlayers()[i].getBankruptcy())){
+                GameManager.getPlayers()[i].updateBalance(-50);
+                p.updateBalance(50);
+            }
+        }
+    }
+
+    public void communityChestCardFunction8(Player p){
+        p.updateBalance(100);
+    }
+
+    public void communityChestCardFunction9(Player p){
+        p.updateBalance(20);
+    }
+
+    public void communityChestCardFunction10(Player p){
+        p.updateBalance(10);
+    }
+
+    public void communityChestCardFunction11(Player p){
+        p.updateBalance(100);
+    }
+
+    public void communityChestCardFunction12(Player p){
+        p.updateBalance(-100);
+    }
+
+    public void communityChestCardFunction13(Player p){
+        p.updateBalance(-150);
+    }
+
+    public void communityChestCardFunction14(Player p){
+        p.updateBalance(25);
+    }
+
+    public void communityChestCardFunction15(Player p){
+        int fee = (p.getHotelsOwned() * 115) + (p.getHousesOwned() * 40);
+        p.updateBalance(-fee);
+    }
+
+    public void communityChestCardFunction16(Player p){
+        p.updateBalance(10);
+    }
+
+    public void communityChestCardFunction17(Player p){
+        p.updateBalance(100);
+    }
+
 }

@@ -1,5 +1,6 @@
 package sample.subsystems.Controller;
 
+import sample.subsystems.GameLogic.Card;
 import sample.subsystems.GameLogic.GameBoard;
 import sample.subsystems.GameLogic.Player;
 import sample.subsystems.GameLogic.Tile;
@@ -13,8 +14,8 @@ public class GameManager {
     private boolean gameStarted;
     private boolean gameOver;
     private int numOfPlayers;
-    private ArrayList<Integer> chanceCards;
-    private ArrayList<Integer> communityChestCards;
+    private ArrayList<Card> chanceCards;
+    private ArrayList<Card> communityChestCards;
     private Tile[] tiles; // index 0 is empty, we have tiles between 1-40
     private Player[] players; // max 4 players with playerID's between 0-3
 
@@ -71,11 +72,11 @@ public class GameManager {
 
     }
 
-    public static ArrayList<Integer> getChanceCards(){
+    public static ArrayList<Card> getChanceCards(){
         return chanceCards;
     }
 
-    public static ArrayList<Integer> getCommunityChestCards() {
+    public static ArrayList<Card> getCommunityChestCards() {
         return communityChestCards;
     }
 
