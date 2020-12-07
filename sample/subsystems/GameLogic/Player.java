@@ -5,10 +5,13 @@ import java.util.ArrayList;
 public class Player {
 
     private int balance;
+    private int housesOwned;
+    private int hotelsOwned;
     private int location;
     private boolean bankruptcy;
     private boolean inJail;
     private String playerName;
+    private int playerID;
     private ArrayList<String> monopolyColor;
     private int numberOfStations;
     private boolean playerHasTurn;
@@ -18,12 +21,15 @@ public class Player {
     private boolean outOfJailCard;
     private ArrayList<Property> propertiesOwned;
 
-    public Player( String name){
+    public Player( String name, int ID){
         balance = 1500; // Start balance can be changed
         location = 1;
+        housesOwned = 0;
+        hotelsOwned = 0;
         bankruptcy = false;
         inJail = false;
         playerName = name;
+        playerID = ID;
         monopolyColor = new ArrayList<>();
         numberOfStations = 0;
         playerHasTurn = false;
@@ -153,6 +159,38 @@ public class Player {
             if (numOfJailCards == 0)
                 this.outOfJailCard = false;
         }
+    }
+
+    public void addHouse(){
+        this.housesOwned++;
+    }
+
+    public void addHotels(){
+        this.hotelsOwned++;
+    }
+
+    public void removeHouse(){
+        if(this.housesOwned != 0){
+            housesOwned--;
+        }
+    }
+
+    public void removeHotels(){
+        if(this.hotelsOwned != 0){
+            hotelsOwned--;
+        }
+    }
+
+    public int getHousesOwned(){
+        return this.housesOwned;
+    }
+
+    public int getHotelsOwned(){
+        return this.hotelsOwned;
+    }
+
+    public int getPlayerID(){
+        return this.playerID;
     }
 
 

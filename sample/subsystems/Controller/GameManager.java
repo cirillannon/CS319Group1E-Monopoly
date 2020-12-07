@@ -1,6 +1,7 @@
 package sample.subsystems.Controller;
 
 import sample.subsystems.GameLogic.GameBoard;
+import sample.subsystems.GameLogic.Player;
 import sample.subsystems.GameLogic.Tile;
 
 import java.util.ArrayList;
@@ -9,12 +10,13 @@ import java.util.ArrayList;
 public class GameManager {
     // properties
 
-    private int playerStartMoney;
     private boolean gameStarted;
     private boolean gameOver;
+    private int numOfPlayers;
     private ArrayList<Integer> chanceCards;
     private ArrayList<Integer> communityChestCards;
     private Tile[] tiles; // index 0 is empty, we have tiles between 1-40
+    private Player[] players; // max 4 players with playerID's between 0-3
 
     // constructor
     public GameManager() {
@@ -83,5 +85,13 @@ public class GameManager {
 
     private void initCards(){
 
+    }
+
+    public static int getNumOfPlayers(){
+        return numOfPlayers;
+    }
+
+    public static Player[] getPlayers(){
+        return players;
     }
 }

@@ -97,34 +97,62 @@ public class Card {
     }
 
     public void cardFunction9(Player p){
-
+        GoToJail.jailPlayer(p);
     }
 
     public void cardFunction10(Player p){
+        int fee = (p.getHotelsOwned() * 100) + (p.getHousesOwned() * 25);
+        p.updateBalance(-fee);
 
     }
 
     public void cardFunction11(Player p){
-
+        p.updateBalance(-25);
     }
 
     public void cardFunction12(Player p){
-
+        if (p.getLocation() > 6)
+            GO.paySalary(p);
+        p.setLocation(6);
+        GameManager.getTiles()[6].onLand(p);
     }
 
     public void cardFunction13(Player p){
-
+        p.setLocation(40);
+        GameManager.getTiles()[40].onLand(p);
     }
 
     public void cardFunction14(Player p){
+        for (int i = 0 ; i < GameManager.getNumOfPlayers(); i++){
+            if ( (i != p.getPlayerID()) && (!p.getBankruptcy())){
+                GameManager.getPlayers()[i].updateBalance(50);
+                p.updateBalance(-50);
+            }
+        }
 
     }
 
     public void cardFunction15(Player p){
-
+        p.updateBalance(150);
     }
 
     public void cardFunction16(Player p){
+        p.updateBalance(100);
+    }
 
+    public void cardFunction17(Player p){
+        // EVENT
+    }
+
+    public void cardFunction18(Player p){
+        // EVENT
+    }
+
+    public void cardFunction19(Player p){
+        // EVENT
+    }
+
+    public void cardFunction20(Player p){
+        // EVENT
     }
 }
