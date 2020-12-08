@@ -9,10 +9,10 @@ public class Bank {
     }
     // Add getprice() function for property.
     public boolean buyProperty(Property prp ,Tile t , Player p  ) {
-        if (!prp.isOwned() && p.getLocation() == t.getTileLocation() && p.getBalance() >= prp.getPrice())
+        if (!prp.isOwned() && p.getLocation() == t.getTileLocation() && p.getBalance() >= prp.getRent())
         {
             prp.setOwner(p);
-            p.updateBalance(-prp.getPrice());
+            p.updateBalance(-prp.getRent());
             return true;
         }
         else
@@ -63,37 +63,44 @@ public class Bank {
     }
 
     // Add buildingCount parameter. getHouseCost(), gethotelCost() ,setRentAmount() for each property.
-    public boolean buyBuilding(Player p, Building type, Property prp , int buildingCount) {
+    public boolean buyBuilding(Player p, String type, ColoredProperty prp ) {
+        boolean flag = false;
         if (type == "House") {
-            if (p.hasMonopoly() && p.getBalance() >= (buildingCount * prp.gethouseCost()))
+            if (p.hasMonopoly() && p.getBalance() >= (  prp.getHouseCost()))
             {
-                p.updateBalance(-(buildingCount * prp.gethouseCost()));
-                numberOfHouses = numberOfHouses - buildingCount;
+                p.updateBalance(-prp.getHouseCost());
+                numberOfHouses = numberOfHouses - 1;
                 setNumberOfHouses(numberOfHouses);
-                prp.setNumOfHouse (buildingCount);
-                prp.setRentAmount(); // Add setRentAmount function to Property class.
-                return true;
+                prp.addHouse();
+                flag = true;
+                return flag;
             }
-            else
-                return false;
+            else{
+                flag = false;
+                return flag;
+            }
         }
         if (type == "Hotel") {
-            if (p.hasMonopoly() && p.getBalance() >= (buildingCount * prp.gethotelCost()) && prp.getNumOfHouse () = 4)
+            if (p.hasMonopoly() && (p.getBalance() >= prp.getHotelCost()) && prp.getNumberOfHouses () == 4)
             {
-                p.updateBalance(-(buildingCount * prp.gethotelCost()));
+                p.updateBalance(-prp.getHotelCost());
+                numberOfHotels = numberOfHotels-1;
                 setNumberOfHotels(numberOfHotels);
-                prp.setNumOfHotel (buildingCount);
-                prp.setRentAmount(); // Add setRentAmount function to Property class.
-                return true;
+                prp.addHotel ();
+                flag = true;
+                return flag;
             }
-            else
-                return false;
+            else {
+                flag=false;
+                return flag;
+            }
         }
+        return flag;
     }
     // Add getNumOfJailCards()  hasJailCard()
     
     public boolean tradeJailCard( Player owner, Player target, int moneyAmount) {
-        if(owners.hasJailCard() & target.getBalance () >= moneyAmount) {
+        if(owner.hasOutOfJailFreeCard() & target.getBalance () >= moneyAmount) {
             owner.removeJailCard();
             target.addJailCard();
             owner.updateBalance(moneyAmount);

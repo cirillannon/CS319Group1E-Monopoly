@@ -61,6 +61,8 @@ public abstract class Property extends Tile {
         this.value = value;
     }
 
+    public int mortgageAmount (){ return baseRent/2;}
+
     @Override
     public void onLand(Player landed) {
         this.payRent(landed);
