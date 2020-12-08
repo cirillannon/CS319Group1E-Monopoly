@@ -84,7 +84,7 @@ public class Bank {
             if (p.hasMonopoly() && (p.getBalance() >= prp.getHotelCost()) && prp.getNumberOfHouses () == 4)
             {
                 p.updateBalance(-prp.getHotelCost());
-                numberOfHotels = numberOfHotels-1;
+                numberOfHotels = numberOfHotels - 1;
                 setNumberOfHotels(numberOfHotels);
                 prp.addHotel ();
                 p.addHotels();
@@ -119,7 +119,7 @@ public class Bank {
             if (p.getHotelsOwned() > 0)
             {
                 p.updateBalance(prp.getHotelCost());
-                numberOfHotels = numberOfHotels+1;
+                numberOfHotels = numberOfHotels + 1;
                 setNumberOfHotels(numberOfHotels);
                 prp.removeHotel();
                 flag = true;
@@ -139,7 +139,7 @@ public class Bank {
             owner.removeJailCard();
             target.addJailCard();
             owner.updateBalance(moneyAmount);
-            target.updateBalance(moneyAmount);
+            target.updateBalance(-moneyAmount);
             return true;
         }
         else
