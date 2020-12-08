@@ -14,7 +14,7 @@ public abstract class Card {
         this.cardID = cID;
     }
 
-    public abstract void onDraw(Player p);
+    public abstract void onDraw(Player p, ColoredProperty property);
 
     public int getCardID(){
         return cardID;
@@ -52,13 +52,15 @@ public abstract class Card {
                 flag = true;
         }while (!flag) ;
 
+        Utility u = (Utility)GameManager.getTiles()[temp];
         //It's always 10x dice roll so  we can't just call onLand here.
-        if ((Utility)(GameManager.getTiles()[temp]).isOwned()){
+        if (u.isOwned()){
             Dice.rollDice();
             p.updateBalance(-(Dice.getDiceTotal()*10));
-            GameManager.getTiles()[temp].getOwner().updateBalance(Dice.getDiceTotal()*10);
+            u.getOwner().updateBalance(Dice.getDiceTotal()*10);
         } else
             GameManager.getTiles()[temp].onLand(p);
+
     }
 
     public void chanceCardFunction5(Player p){
@@ -74,11 +76,13 @@ public abstract class Card {
                 flag = true;
         }while (!flag) ;
 
+        Station s = (Station)GameManager.getTiles()[temp];
         //It's always 2x the normal rent so we can't just call onLand here.
-        if ((Station)(GameManager.getTiles()[temp]).isOwned()){
-            int baseRent = (Station)(GameManager.getTiles()[temp].calculateRent());
-            p.updateBalance(-(baseRent*2));
-            GameManager.getTiles()[temp].getOwner().updateBalance((baseRent*2));
+        if (s.isOwned()){
+            int n = s.getOwner().getNumberOfStations();
+            int finalRent = s.getRent() * n;
+            p.updateBalance(-(finalRent*2));
+            s.getOwner().updateBalance((finalRent*2));
         } else
             GameManager.getTiles()[temp].onLand(p);
     }
@@ -146,20 +150,20 @@ public abstract class Card {
         p.updateBalance(100);
     }
 
-    public void chanceCardFunction17(Player p){
-        // EVENT
+    public void chanceCardFunction17(Player p, ColoredProperty property){
+        property.applyEvent(1);
     }
 
-    public void chanceCardFunction18(Player p){
-        // EVENT
+    public void chanceCardFunction18(Player p, ColoredProperty property){
+        property.applyEvent(2);
     }
 
-    public void chanceCardFunction19(Player p){
-        // EVENT
+    public void chanceCardFunction19(Player p,ColoredProperty property){
+        property.applyEvent(3);
     }
 
-    public void chanceCardFunction20(Player p){
-        // EVENT
+    public void chanceCardFunction20(Player p, ColoredProperty property){
+        property.applyEvent(4);
     }
 
     public void communityChestCardFunction1(Player p){

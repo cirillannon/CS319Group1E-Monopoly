@@ -7,7 +7,7 @@ public class CommunityChestCard extends Card{
     }
 
     @Override
-    public void onDraw(Player p){
+    public void onDraw(Player p, ColoredProperty property){
         if (this.getCardID() == 21) super.communityChestCardFunction1(p);
         else if (this.getCardID() == 22) super.communityChestCardFunction2(p);
         else if (this.getCardID() == 23) super.communityChestCardFunction3(p);

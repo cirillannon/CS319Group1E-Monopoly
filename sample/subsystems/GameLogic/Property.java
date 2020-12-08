@@ -2,6 +2,7 @@ package sample.subsystems.GameLogic;
 
 public abstract class Property extends Tile {
 
+    private int value;
     private Player owner;
     private int baseRent;
     private boolean owned;
@@ -10,13 +11,15 @@ public abstract class Property extends Tile {
 
     public abstract void payRent(Player landed);
 
-    public Property(int r, String tileName, int tileLocation){
+    public Property(int val, int r, String tileName, int tileLocation){
         super(tileName, tileLocation);
+        value = val;
         owner = null;
         baseRent = r;
         owned = false;
         mortgaged = false;
     }
+
 
     public boolean isOwned(){
         return owned;
@@ -44,6 +47,18 @@ public abstract class Property extends Tile {
 
     public int getRent(){
         return baseRent;
+    }
+
+    public void setRent(int rent){
+        this.baseRent = rent;
+    }
+
+    public int getValue(){
+        return value;
+    }
+
+    public void setValue(int value){
+        this.value = value;
     }
 
     @Override

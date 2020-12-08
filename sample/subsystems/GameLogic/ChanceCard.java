@@ -6,7 +6,7 @@ public class ChanceCard extends Card {
     }
 
     @Override
-    public void onDraw(Player p){
+    public void onDraw(Player p, ColoredProperty property){
         if (this.getCardID() == 1) super.chanceCardFunction1(p);
         else if (this.getCardID() == 2) super.chanceCardFunction2(p);
         else if (this.getCardID() == 3) super.chanceCardFunction3(p);
@@ -23,9 +23,9 @@ public class ChanceCard extends Card {
         else if (this.getCardID() == 14) super.chanceCardFunction14(p);
         else if (this.getCardID() == 15) super.chanceCardFunction15(p);
         else if (this.getCardID() == 16) super.chanceCardFunction16(p);
-        else if (this.getCardID() == 17) super.chanceCardFunction17(p);
-        else if (this.getCardID() == 18) super.chanceCardFunction18(p);
-        else if (this.getCardID() == 19) super.chanceCardFunction19(p);
-        else if (this.getCardID() == 20) super.chanceCardFunction20(p);
+        else if (this.getCardID() == 17) super.chanceCardFunction17(p,property);
+        else if (this.getCardID() == 18) super.chanceCardFunction18(p,property);
+        else if (this.getCardID() == 19) super.chanceCardFunction19(p,property);
+        else if (this.getCardID() == 20) super.chanceCardFunction20(p,property);
     }
 }

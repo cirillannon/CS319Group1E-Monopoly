@@ -2,8 +2,8 @@ package sample.subsystems.GameLogic;
 
 public class Station extends Property {
 
-    public Station(int rent, String tName, int tLocation){
-        super(rent, tName, tLocation);
+    public Station(int value, int rent, String tName, int tLocation){
+        super(value, rent, tName, tLocation);
     }
 
     @Override
