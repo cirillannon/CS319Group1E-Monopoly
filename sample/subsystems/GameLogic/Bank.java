@@ -51,7 +51,7 @@ public class Bank {
             return false;
     }
 
-    // Add mortgageAmount() for property
+
     public boolean unMortgageProperty(Property prp, Player p) {
         if (prp.isMortgaged() && p.getBalance() >= prp.mortgageAmount()) {
             prp.setMortgaged(false);
@@ -72,6 +72,7 @@ public class Bank {
                 numberOfHouses = numberOfHouses - 1;
                 setNumberOfHouses(numberOfHouses);
                 prp.addHouse();
+                p.addHouse();
                 flag = true;
                 return flag;
             }
@@ -87,6 +88,41 @@ public class Bank {
                 numberOfHotels = numberOfHotels-1;
                 setNumberOfHotels(numberOfHotels);
                 prp.addHotel ();
+                p.addHotels();
+                flag = true;
+                return flag;
+            }
+            else {
+                flag=false;
+                return flag;
+            }
+        }
+        return flag;
+    }
+    public boolean removeBuilding(Player p, String type, ColoredProperty prp ) {
+        boolean flag = false;
+        if (type == "House") {
+            if (p.getHousesOwned() > 0 )
+            {
+                p.updateBalance(prp.getHouseCost());
+                numberOfHouses = numberOfHouses + 1;
+                setNumberOfHouses(numberOfHouses);
+                prp.removeHouse();
+                flag = true;
+                return flag;
+            }
+            else{
+                flag = false;
+                return flag;
+            }
+        }
+        if (type == "Hotel") {
+            if (p.getHotelsOwned() > 0)
+            {
+                p.updateBalance(prp.getHotelCost());
+                numberOfHotels = numberOfHotels+1;
+                setNumberOfHotels(numberOfHotels);
+                prp.removeHotel();
                 flag = true;
                 return flag;
             }
