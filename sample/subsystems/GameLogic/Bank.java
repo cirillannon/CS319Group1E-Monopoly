@@ -7,7 +7,7 @@ public class Bank {
         numberOfHouses = 32;
         numberOfHotels = 12;
     }
-    // Add getprice() function for property.
+   
     public boolean buyProperty(Property prp ,Tile t , Player p  ) {
         if (!prp.isOwned() && p.getLocation() == t.getTileLocation() && p.getBalance() >= prp.getRent())
         {
@@ -27,7 +27,7 @@ public class Bank {
         else
             return;
     }
-    // Add tradeAmount parameter 
+    
     public boolean tradeProperty(Property prp, Player owner, Player target , int tradeAmount) {
         if (target.getBalance() >= tradeAmount)
         {
@@ -40,7 +40,7 @@ public class Bank {
             return false;
     }
 
-    // Add mortgageAmount() for property
+    
     public boolean mortgageProperty(Property prp, Player p) {
         if (!prp.isMortgaged()) {
             prp.setMortgaged(true);
@@ -62,7 +62,7 @@ public class Bank {
             return false;
     }
 
-    // Add buildingCount parameter. getHouseCost(), gethotelCost() ,setRentAmount() for each property.
+    
     public boolean buyBuilding(Player p, String type, ColoredProperty prp ) {
         boolean flag = false;
         if (type == "House") {
@@ -97,7 +97,7 @@ public class Bank {
         }
         return flag;
     }
-    // Add getNumOfJailCards()  hasJailCard()
+    
     
     public boolean tradeJailCard( Player owner, Player target, int moneyAmount) {
         if(owner.hasOutOfJailFreeCard() & target.getBalance () >= moneyAmount) {
