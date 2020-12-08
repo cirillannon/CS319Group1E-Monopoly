@@ -34,7 +34,22 @@ public class ColoredProperty extends Property{
 
     @Override
     public void payRent(Player landed) {
+        int finalRent;
+        if (numberOfHouses == 1)
+            finalRent = rentWithOne;
+        else if (numberOfHouses == 2)
+            finalRent = rentWithTwo;
+        else if (numberOfHouses == 3)
+            finalRent = rentWithThree;
+        else if (numberOfHouses == 4)
+            finalRent = rentWithFour;
+        else if (numberOfHotels == 1)
+            finalRent = rentWithHotel;
+        else
+            finalRent = super.getRent();
 
+        landed.updateBalance(-finalRent);
+        this.getOwner().updateBalance(finalRent);
     }
 
     public int getNumberOfHotels() {
@@ -79,6 +94,22 @@ public class ColoredProperty extends Property{
 
     public String getColor() {
         return color;
+    }
+
+    public void addHouse(){
+        numberOfHouses++;
+    }
+
+    public void removeHouse(){
+        numberOfHouses--;
+    }
+
+    public void addHotel(){
+        numberOfHotels++;
+    }
+
+    public void removeHotel(){
+        numberOfHotels--;
     }
 
     public void applyEvent(int eventID){
