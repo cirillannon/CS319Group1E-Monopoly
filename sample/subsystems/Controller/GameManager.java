@@ -18,6 +18,7 @@ public class GameManager {
     private static ArrayList<Card> communityChestCards;
     private static Tile[] tiles; // index 0 is empty, we have tiles between 1-40
     private static Player[] players; // max 4 players with playerID's between 0-3
+    private Card drawnCard; // The latest drawn card is held here
 
     // constructor
     public GameManager() {
@@ -95,5 +96,9 @@ public class GameManager {
             if (players[i].hasTurn())
             return players[i];
         }
+    }
+
+    public Card getDrawnCard() {
+        return drawnCard;
     }
 }
