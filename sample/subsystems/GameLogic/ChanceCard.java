@@ -1,8 +1,8 @@
 package sample.subsystems.GameLogic;
 
 public class ChanceCard extends Card {
-    public ChanceCard(String cType, String cDescription, int cID){
-        super(cType, cDescription, cID);
+    public ChanceCard(String cDescription, int cID){
+        super("Chance Card", cDescription, cID);
     }
 
     @Override

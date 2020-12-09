@@ -2,8 +2,8 @@ package sample.subsystems.GameLogic;
 
 public class IncomeTax extends TaxTile {
 
-    public IncomeTax(String tName, int tLocation){
-        super(tName, tLocation);
+    public IncomeTax(int tLocation){
+        super("Income Tax", tLocation);
     }
 
     @Override

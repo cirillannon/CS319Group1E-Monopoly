@@ -2,8 +2,8 @@ package sample.subsystems.GameLogic;
 
 public class CommunityChestCard extends Card{
 
-    public CommunityChestCard(String cType, String cDescription, int cID){
-        super(cType, cDescription, cID);
+    public CommunityChestCard(String cDescription, int cID){
+        super("Community Chest Card", cDescription, cID);
     }
 
     @Override

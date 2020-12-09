@@ -14,11 +14,10 @@ public class GameManager {
     private boolean gameStarted;
     private boolean gameOver;
     private static int numOfPlayers;
-    private static ArrayList<Card> chanceCards;
-    private static ArrayList<Card> communityChestCards;
-    private static Tile[] tiles; // index 0 is empty, we have tiles between 1-40
     private static Player[] players; // max 4 players with playerID's between 0-3
     private Card drawnCard; // The latest drawn card is held here
+
+
 
     // constructor
     public GameManager() {
@@ -34,7 +33,6 @@ public class GameManager {
     // methods
     public boolean initGame(int startMoney) {
         initBank();
-        initCards();
         setPawnStartPosition();
         startPawnSelection();
         // static or instance???
@@ -65,18 +63,6 @@ public class GameManager {
 
     public boolean isGameOver() {
 
-    }
-
-    public static ArrayList<Card> getChanceCards(){
-        return chanceCards;
-    }
-
-    public static ArrayList<Card> getCommunityChestCards() {
-        return communityChestCards;
-    }
-
-    public static Tile[] getTiles(){
-        return tiles;
     }
 
     private void initCards(){
