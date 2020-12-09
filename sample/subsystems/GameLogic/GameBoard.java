@@ -3,7 +3,7 @@ package sample.subsystems.GameLogic;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class GameBoard<tiles> {
+public class GameBoard {
 
     private static final String[] chanceCardDescriptions = {
             "Advance to Go (Collect $200)",
