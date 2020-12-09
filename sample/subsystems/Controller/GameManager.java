@@ -89,4 +89,11 @@ public class GameManager {
     public static Player[] getPlayers(){
         return players;
     }
+
+    public static Player currentTurn(){
+        for (int i = 0; i < numOfPlayers; i++){
+            if (players[i].hasTurn())
+            return players[i];
+        }
+    }
 }

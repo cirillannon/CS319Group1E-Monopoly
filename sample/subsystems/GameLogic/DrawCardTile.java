@@ -29,21 +29,25 @@ public class DrawCardTile extends Tile{
         return null; // PLACEHOLDER
     }
 
-    public static void drawChanceCard( Player p){
+    public static Card drawChanceCard( Player p){
         Card c = GameManager.getChanceCards().get(GameManager.getChanceCards().size()-1);
         if (c.getCardID()  == 17 || c.getCardID() == 18
             || c.getCardID() == 19 || c.getCardID() == 20){
             ColoredProperty property = DrawCardTile.askForTargetProperty(p);
             c.onDraw(p,property);
+            return c;
         }
         else
             c.onDraw(p,null);
+        return c;
+
 
     }
 
-    public static void drawCommunityChestCard( Player p){
+    public static Card drawCommunityChestCard( Player p){
         Card c = GameManager.getCommunityChestCards().get(GameManager.getCommunityChestCards().size()-1);
         c.onDraw(p,null);
+        return c;
     }
 
 }

@@ -161,6 +161,10 @@ public class Player {
         }
     }
 
+    public int getNumOfJailCards(){
+        return numOfJailCards;
+    }
+
     public void addHouse(){
         this.housesOwned++;
     }
