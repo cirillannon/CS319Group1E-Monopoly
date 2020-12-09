@@ -104,6 +104,10 @@ public class Player {
         return this.playerHasTurn;
     }
 
+    public void setPlayerHasTurn(boolean b){
+        playerHasTurn = b;
+    }
+
     public boolean isInJail(){
         return this.inJail;
     }

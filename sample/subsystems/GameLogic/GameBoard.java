@@ -56,7 +56,6 @@ public class GameBoard {
 
     }
 
-    // static or should GameManager have an instance???
     public static void initBoard() {
         initCards();
         initTiles();

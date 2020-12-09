@@ -1,9 +1,5 @@
 package sample.subsystems.GameLogic;
 
-import sample.subsystems.Controller.GameManager;
-
-import java.util.ArrayList;
-
 public class DrawCardTile extends Tile{
 
     public DrawCardTile( String tileName, int tileLocation){
@@ -30,7 +26,7 @@ public class DrawCardTile extends Tile{
     }
 
     public static Card drawChanceCard( Player p){
-        Card c = GameManager.getChanceCards().get(GameManager.getChanceCards().size()-1);
+        Card c = GameBoard.getChanceCards().get(GameBoard.getChanceCards().size()-1);
         if (c.getCardID()  == 17 || c.getCardID() == 18
             || c.getCardID() == 19 || c.getCardID() == 20){
             ColoredProperty property = DrawCardTile.askForTargetProperty(p);
@@ -45,7 +41,7 @@ public class DrawCardTile extends Tile{
     }
 
     public static Card drawCommunityChestCard( Player p){
-        Card c = GameManager.getCommunityChestCards().get(GameManager.getCommunityChestCards().size()-1);
+        Card c = GameBoard.getCommunityChestCards().get(GameBoard.getCommunityChestCards().size()-1);
         c.onDraw(p,null);
         return c;
     }

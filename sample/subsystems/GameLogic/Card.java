@@ -22,21 +22,21 @@ public abstract class Card {
 
     public void chanceCardFunction1(Player p){
         p.setLocation(1);
-        GameManager.getTiles()[1].onLand(p);
+        GameBoard.getTiles()[1].onLand(p);
     }
 
     public void chanceCardFunction2(Player p){
         if (p.getLocation() > 25)
             GO.paySalary(p);
         p.setLocation(25);
-        GameManager.getTiles()[25].onLand(p);
+        GameBoard.getTiles()[25].onLand(p);
     }
 
     public void chanceCardFunction3(Player p){
         if (p.getLocation() > 12)
             GO.paySalary(p);
         p.setLocation(12);
-        GameManager.getTiles()[12].onLand(p);
+        GameBoard.getTiles()[12].onLand(p);
     }
 
     public void chanceCardFunction4(Player p){
@@ -48,18 +48,18 @@ public abstract class Card {
             temp++;
             if (temp == 41) // max of 40 tiles
                 temp = 1;
-            if(GameManager.getTiles()[temp].getClass().equals(Utility.class))
+            if(GameBoard.getTiles()[temp].getClass().equals(Utility.class))
                 flag = true;
         }while (!flag) ;
 
-        Utility u = (Utility)GameManager.getTiles()[temp];
+        Utility u = (Utility)GameBoard.getTiles()[temp];
         //It's always 10x dice roll so  we can't just call onLand here.
         if (u.isOwned()){
             Dice.rollDice();
             p.updateBalance(-(Dice.getDiceTotal()*10));
             u.getOwner().updateBalance(Dice.getDiceTotal()*10);
         } else
-            GameManager.getTiles()[temp].onLand(p);
+            GameBoard.getTiles()[temp].onLand(p);
 
     }
 
@@ -72,11 +72,11 @@ public abstract class Card {
             temp++;
             if (temp == 41) // max of 40 tiles
                 temp = 1;
-            if(GameManager.getTiles()[temp].getClass().equals(Station.class))
+            if(GameBoard.getTiles()[temp].getClass().equals(Station.class))
                 flag = true;
         }while (!flag) ;
 
-        Station s = (Station)GameManager.getTiles()[temp];
+        Station s = (Station)GameBoard.getTiles()[temp];
         //It's always 2x the normal rent so we can't just call onLand here.
         if (s.isOwned()){
             int n = s.getOwner().getNumberOfStations();
@@ -84,7 +84,7 @@ public abstract class Card {
             p.updateBalance(-(finalRent*2));
             s.getOwner().updateBalance((finalRent*2));
         } else
-            GameManager.getTiles()[temp].onLand(p);
+            GameBoard.getTiles()[temp].onLand(p);
     }
 
     public void chanceCardFunction6(Player p){
@@ -103,7 +103,7 @@ public abstract class Card {
         temp -= 3;
 
         p.setLocation(temp);
-        GameManager.getTiles()[temp].onLand(p);
+        GameBoard.getTiles()[temp].onLand(p);
     }
 
     public void chanceCardFunction9(Player p){
@@ -124,12 +124,12 @@ public abstract class Card {
         if (p.getLocation() > 6)
             GO.paySalary(p);
         p.setLocation(6);
-        GameManager.getTiles()[6].onLand(p);
+        GameBoard.getTiles()[6].onLand(p);
     }
 
     public void chanceCardFunction13(Player p){
         p.setLocation(40);
-        GameManager.getTiles()[40].onLand(p);
+        GameBoard.getTiles()[40].onLand(p);
     }
 
     public void chanceCardFunction14(Player p){
@@ -168,7 +168,7 @@ public abstract class Card {
 
     public void communityChestCardFunction1(Player p){
         p.setLocation(1);
-        GameManager.getTiles()[1].onLand(p);
+        GameBoard.getTiles()[1].onLand(p);
     }
 
     public void communityChestCardFunction2(Player p){
