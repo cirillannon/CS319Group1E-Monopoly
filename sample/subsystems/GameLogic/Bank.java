@@ -7,8 +7,8 @@ public class Bank {
 
     private Bank()
     {
-        numberOfHouses = 32;
-        numberOfHotels = 12;
+        numberOfHouses = Constants.BankConstants.NO_OF_HOUSES;
+        numberOfHotels = Constants.BankConstants.NO_OF_HOTELS;
     }
 
     // static method to create instance of Singleton class

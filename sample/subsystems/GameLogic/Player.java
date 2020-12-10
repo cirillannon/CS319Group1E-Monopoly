@@ -22,7 +22,7 @@ public class Player {
     private ArrayList<Property> propertiesOwned;
 
     public Player( String name, int ID){
-        balance = 1500; // Start balance can be changed
+        balance = Constants.PlayerConstants.STARTING_AMOUNT; // Start balance can be changed
         location = 1;
         housesOwned = 0;
         hotelsOwned = 0;
@@ -49,7 +49,7 @@ public class Player {
 
         if(this.balance < 0)
             this.balance = 0;
-            this.setBankruptcy(true);
+        this.setBankruptcy(true);
     }
 
     public int getLocation(){
@@ -200,8 +200,5 @@ public class Player {
     public int getPlayerID(){
         return this.playerID;
     }
-
-
-
 
 }
