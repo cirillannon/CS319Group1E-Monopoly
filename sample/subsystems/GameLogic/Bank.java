@@ -145,7 +145,7 @@ public class Bank {
     
     
     public boolean tradeJailCard( Player owner, Player target, int moneyAmount) {
-        if(owner.hasOutOfJailFreeCard() & target.getBalance () >= moneyAmount) {
+        if(owner.hasOutOfJailFreeCard() && target.getBalance () >= moneyAmount) {
             owner.removeJailCard();
             target.addJailCard();
             owner.updateBalance(moneyAmount);
