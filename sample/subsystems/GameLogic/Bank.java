@@ -19,6 +19,7 @@ public class Bank {
             return false;
     }
     public void auctionProperty(Property prp ,Player p , int playerOfferAmount)  {
+        // I WILL REWRITE THIS FUNCTION
         if (p.getBalance () >= playerOfferAmount && !prp.isOwned()){
             p.updateBalance(-playerOfferAmount);
             prp.setOwner(p);
@@ -65,7 +66,7 @@ public class Bank {
     public boolean buyBuilding(Player p, String type, ColoredProperty prp ) {
         boolean flag = false;
         if (type == "House") {
-            if (p.hasMonopoly() && p.getBalance() >= (  prp.getHouseCost()))
+            if (p.hasMonopoly() && p.getBalance() >= prp.getHouseCost() && prp.getNumberOfHouses()<=4)
             {
                 p.updateBalance(-prp.getHouseCost());
                 numberOfHouses = numberOfHouses - 1;
@@ -81,8 +82,17 @@ public class Bank {
             }
         }
         if (type == "Hotel") {
-            if (p.hasMonopoly() && (p.getBalance() >= prp.getHotelCost()) && prp.getNumberOfHouses () == 4)
+            if (p.hasMonopoly() && (p.getBalance() >= prp.getHotelCost()) && ((prp.getNumberOfHouses () == 4 && prp.getNumberOfHotels() ==0) || (prp.getNumberOfHouses () == 0 && prp.getNumberOfHotels() <5)) )
             {
+
+                if (prp.getNumberOfHouses()==4)
+                {
+                    for (int i =0; i <4;i++){
+                        prp.removeHouse();
+                    }
+                    numberOfHouses = numberOfHouses +4;
+
+                }
                 p.updateBalance(-prp.getHotelCost());
                 numberOfHotels = numberOfHotels - 1;
                 setNumberOfHotels(numberOfHotels);
