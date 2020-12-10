@@ -66,7 +66,7 @@ public class Bank {
     public boolean buyBuilding(Player p, String type, ColoredProperty prp ) {
         boolean flag = false;
         if (type == "House") {
-            if (p.hasMonopoly() && p.getBalance() >= prp.getHouseCost() && prp.getNumberOfHouses()<=4)
+            if (p.hasMonopoly() && p.getBalance() >= prp.getHouseCost() && prp.getNumberOfHouses()<4)
             {
                 p.updateBalance(-prp.getHouseCost());
                 numberOfHouses = numberOfHouses - 1;
