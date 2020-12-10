@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 // communicates with Server ?
 public class GameManager {
-    // properties
 
+    // properties
     private boolean gameStarted;
     private static int turnOf;
     private boolean gameOver;
@@ -17,31 +17,25 @@ public class GameManager {
     private Card drawnCard; // The latest drawn card is held here
     Scanner scan = new Scanner(System.in);
 
-
     // constructor
     public GameManager() {
-
-
-
-
-
-
-
+        gameStarted = false;
+        gameOver = false;
     }
 
     // methods
     public void initGame(int playerNumber, String playerName1, String playerName2,
-                            String playerName3,String playerName4) {
+                         String playerName3, String playerName4) {
         String[] playerNames = {playerName1, playerName2, playerName3, playerName4};
         Bank bank = initBank();
         //setPawnStartPosition();
         //startPawnSelection();
         GameBoard.initBoard();
         numOfPlayers = playerNumber;
+        players = new Player[playerNumber];
         for (int i = 0; i < numOfPlayers; i++){
             players[i] = new Player(playerNames[i], i);
         }
-
     }
 
     // how to reach pawns?
@@ -55,7 +49,7 @@ public class GameManager {
     }
 
     public Bank initBank() {
-        Bank bank = new Bank();
+        Bank bank = Bank.initBank();
         return bank;
     }
 

@@ -1,13 +1,26 @@
 package sample.subsystems.GameLogic;
 
 public class Bank {
+    private static Bank instance = null;
     private int numberOfHouses;
     private int numberOfHotels;
-    public Bank(){
+
+    private Bank()
+    {
         numberOfHouses = 32;
         numberOfHotels = 12;
     }
-   
+
+    // static method to create instance of Singleton class
+    public static Bank initBank()
+    {
+        if (instance == null)
+            instance = new Bank();
+
+        return instance;
+    }
+
+    // methods
     public boolean buyProperty(Property prp ,Tile t , Player p  ) {
         if (!prp.isOwned() && p.getLocation() == t.getTileLocation() && p.getBalance() >= prp.getRent())
         {
@@ -26,20 +39,20 @@ public class Bank {
         else
             return;
     }
-    
+
     public boolean tradeProperty(Property prp, Player owner, Player target , int tradeAmount) {
         if (target.getBalance() >= tradeAmount)
         {
-         prp.setOwner(target);
-         target.updateBalance(-tradeAmount);
-         owner.updateBalance(tradeAmount);
-         return true;
+            prp.setOwner(target);
+            target.updateBalance(-tradeAmount);
+            owner.updateBalance(tradeAmount);
+            return true;
         }
         else
             return false;
     }
 
-    
+
     public boolean mortgageProperty(Property prp, Player p) {
         if (!prp.isMortgaged()) {
             prp.setMortgaged(true);
@@ -61,7 +74,7 @@ public class Bank {
             return false;
     }
 
-    
+
     public boolean buyBuilding(Player p, String type, ColoredProperty prp ) {
         boolean flag = false;
         if (type == "House") {
@@ -132,8 +145,8 @@ public class Bank {
         }
         return flag;
     }
-    
-    
+
+
     public boolean tradeJailCard( Player owner, Player target, int moneyAmount) {
         if(owner.hasOutOfJailFreeCard() & target.getBalance () >= moneyAmount) {
             owner.removeJailCard();
