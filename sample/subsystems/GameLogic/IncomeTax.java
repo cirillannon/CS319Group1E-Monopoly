@@ -8,6 +8,6 @@ public class IncomeTax extends TaxTile {
 
     @Override
     public void payTax(Player p) {
-        p.updateBalance(-200);
+        p.updateBalance(Constants.TileConstants.INCOME_TAX);
     }
 }

@@ -8,6 +8,6 @@ public class SuperTax extends TaxTile {
 
     @Override
     public void payTax(Player p) {
-        p.updateBalance(-100);
+        p.updateBalance(Constants.TileConstants.SUPER_TAX);
     }
 }
