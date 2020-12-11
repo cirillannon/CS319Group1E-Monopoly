@@ -1,175 +1,280 @@
 package sample.subsystems.Controller;
 
 import sample.subsystems.GameLogic.*;
+import sample.subsystems.communication.*;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 // communicates with Server ?
 public class GameManager {
 
-    // properties
-    private boolean gameStarted;
-    private static int turnOf;
-    private boolean gameOver;
-    private static int numOfPlayers;
-    private static Player[] players; // max 4 players with playerID's between 0-3
-    private Card drawnCard; // The latest drawn card is held here
-    Scanner scan = new Scanner(System.in);
+    private Client client;
+    public Gson gson;
+    private Gson playerGson;
 
-    // constructor
-    public GameManager() {
-        gameStarted = false;
-        gameOver = false;
+    public Player[] players;
+    public int currentSeason; //1=Summer, 2=Autumn, 3=Winter, 4=Spring
+    public int currentAge = 1;
+    public Scoreboard scoreboard;
+
+    public GameEngine(){
+        gson = new Gson();
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.registerTypeAdapter(Player.class, new PlayerDeserializer());
+        playerGson = gsonBuilder.create();
+
     }
 
-    // methods
-    public void initGame(int playerNumber, String playerName1, String playerName2,
-                         String playerName3, String playerName4) {
-        String[] playerNames = {playerName1, playerName2, playerName3, playerName4};
-        Bank bank = initBank();
-        //setPawnStartPosition();
-        //startPawnSelection();
-        GameBoard.initBoard();
-        numOfPlayers = playerNumber;
-        players = new Player[playerNumber];
-        for (int i = 0; i < numOfPlayers; i++){
-            players[i] = new Player(playerNames[i], i);
+
+    public void initClient( String ip){
+        (new Thread(() -> {
+            this.client = new GameClient( ip, this);
+            this.client.startClient();
+        })).start();
+    }
+
+    public Player getCurrentPlayer(){
+        return this.players.get( this.client.id);
+    }
+
+    public int checkCardRequirements( Card card){
+        return 1;
+    }
+
+    public void updateSeason( int season){
+        this.currentSeason = season;
+        PlayScreenController.updateSeasonImage( season);
+    }
+    public void updateAge( int age){
+        this.currentAge = age;
+        PlayScreenController.updateAgeImage( age);
+    }
+    public void updateScoreboard( Scoreboard scoreboard){
+        this.scoreboard = scoreboard;
+        PlayScreenController.updateScoreboard(scoreboard);
+    }
+    public void updateNeighbors(){
+        for( int i = 0; i < players.size(); i++){
+            Player p = players.get( i);
+            int leftIndex = (i - 1) < 0 ? (players.size() - 1) : (i - 1);
+            int rightIndex = (i + 1) > (players.size() - 1) ? 0 : (i + 1);
+            p.neighbors.left = players.get( leftIndex);
+            p.neighbors.right = players.get( rightIndex);
         }
     }
 
-    // how to reach pawns?
-    public void setPawnStartPosition() {
-
+    public void endGame(){
+        PlayScreenController.endGame();
     }
 
-    //
-    public void startPawnSelection() {
-
-    }
-
-    public Bank initBank() {
-        Bank bank = Bank.initBank();
-        return bank;
-    }
-
-    public void startGame() {
-        turnOf = 0;
-        char input;
-        while(!isGameOver()){
-            if(GameManager.currentTurn().isInJail()){
-                Dice.rollDice();
-                if(Dice.getDoubles())
-                    players[turnOf].move(Dice.getDiceTotal());
-                else if (players[turnOf].hasOutOfJailFreeCard()) {
-                    System.out.println("Use out of jail card ? Y/N");
-                    input = scan.next().charAt(0);
-                    if ( input == 'Y' || input == 'y'){
-                        players[turnOf].removeJailCard();
-                        GoToJail.releasePlayer(players[turnOf]);
-                        Dice.rollDice();
-                        players[turnOf].move(Dice.getDiceTotal());
-                        if (Dice.getDoubles()){
-                            Dice.rollDice();
-                            players[turnOf].move(Dice.getDiceTotal());
-                            if (Dice.getDoubles()){
-                                Dice.rollDice();
-                                players[turnOf].move(Dice.getDiceTotal());
-                                if(Dice.getDoubles()){
-                                    GoToJail.jailPlayer(players[turnOf]);
-                                    passTurn();
-                                    continue;
-                                }
-                            }
-                        }
+    public void showMilitaryConflict(){
+        PlayScreenController.showMilitaryConflict();
+        SoundController.playBattleSound();
+        new Thread(new Runnable() {
+            public void run() {
+                new Timer().schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        PlayScreenController.hideMilitaryConflict();
                     }
-                }
-                else if(players[turnOf].getBalance() >= 50){
-                    System.out.println("Pay $50 to leave jail ? Y/N");
-                    input = scan.next().charAt(0);
-                    if ( input == 'Y' || input == 'y'){
-                        players[turnOf].updateBalance(-50);
-                        GoToJail.releasePlayer(players[turnOf]);
-                        Dice.rollDice();
-                        players[turnOf].move(Dice.getDiceTotal());
-                        GameBoard.getTiles()[players[turnOf].getLocation()].onLand(players[turnOf]);
-                        if (Dice.getDoubles()){
-                            Dice.rollDice();
-                            players[turnOf].move(Dice.getDiceTotal());
-                            GameBoard.getTiles()[players[turnOf].getLocation()].onLand(players[turnOf]);
-                            if (Dice.getDoubles()){
-                                Dice.rollDice();
-                                players[turnOf].move(Dice.getDiceTotal());
-                                GameBoard.getTiles()[players[turnOf].getLocation()].onLand(players[turnOf]);
-                                if(Dice.getDoubles()){
-                                    GoToJail.jailPlayer(players[turnOf]);
-                                    passTurn();
-                                    continue;
-                                }
-                            }
-                        }
-                    }
-                    else passTurn();
-                    continue;
-                }
+                }, 3000);
             }
-            Dice.rollDice();
-            players[turnOf].move(Dice.getDiceTotal());
-            GameBoard.getTiles()[players[turnOf].getLocation()].onLand(players[turnOf]);
-            if (Dice.getDoubles()){
-                Dice.rollDice();
-                players[turnOf].move(Dice.getDiceTotal());
-                GameBoard.getTiles()[players[turnOf].getLocation()].onLand(players[turnOf]);
-                if (Dice.getDoubles()){
-                    Dice.rollDice();
-                    players[turnOf].move(Dice.getDiceTotal());
-                    GameBoard.getTiles()[players[turnOf].getLocation()].onLand(players[turnOf]);
-                    if(Dice.getDoubles()){
-                        GoToJail.jailPlayer(players[turnOf]);
-                        passTurn();
-                        continue;
-                    }
-                }
+        }).start();
+
+    }
+    public void startMilitaryConflict( int cardIndex){
+        this.getCurrentPlayer().cards.remove(cardIndex);
+
+        getCurrentPlayer().neighbors.left = null;
+        getCurrentPlayer().neighbors.right = null;
+
+        JsonObject req = new JsonObject();
+        req.addProperty("op_code", 4);
+        req.addProperty("player", gson.toJson( getCurrentPlayer()));
+
+        Main.gameEngine.client.sendRequest( req);
+    }
+
+    public void discardCard(int cardIndex) {
+        this.getCurrentPlayer().house.coins += 3;
+        this.cardPlayed(cardIndex);
+    }
+
+    public void buildWonder(int cardIndex) {
+        this.getCurrentPlayer().house.buildWonder();
+        this.cardPlayed(cardIndex);
+    }
+
+    public void playCard( int cardIndex){
+        Card card = getCurrentPlayer().cards.get( cardIndex);
+        getCurrentPlayer().house.coins -= card.cost.coins;
+        if( card == null)
+            return;
+
+        if (card.isResource()) {
+            this.getCurrentPlayer().playResource((Resource) card);
+        }
+        else if (card.isMilitary()) {
+            this.getCurrentPlayer().playMilitary((Military) card);
+        }
+        else if (card.isCommerce()) {
+            this.getCurrentPlayer().playCommerce((Commerce) card);
+        }
+        else if (card.isScience()) {
+            this.getCurrentPlayer().playScience((Science) card);
+        }
+        else if (card.isCivic()) {
+            this.getCurrentPlayer().playCivic((Civic) card);
+        }
+        else if (card.isCrisis()) {
+            this.getCurrentPlayer().getPlayedCards().add(card);
+            this.startMilitaryConflict( cardIndex);
+            return;
+        } else {
+            System.out.println("Failed to determine the type of the card");
+            // do something
+        }
+        this.getCurrentPlayer().getPlayedCards().add(card);
+        this.cardPlayed(cardIndex);
+    }
+
+    public void cardPlayed(int cardIndex) {
+        System.out.println("CARDPLAYED CAR, size: " + this.getCurrentPlayer().cards.size());
+
+        this.getCurrentPlayer().cards.remove(cardIndex);
+
+        System.out.println("AFTER CALL, size: " + this.getCurrentPlayer().cards.size());
+
+        getCurrentPlayer().neighbors.left = null;
+        getCurrentPlayer().neighbors.right = null;
+
+        JsonObject req = new JsonObject();
+        req.addProperty("op_code", 2);
+        req.addProperty("player", gson.toJson( getCurrentPlayer()));
+
+        Main.gameEngine.client.sendRequest( req);
+    }
+
+    public void summerInEffect(){ //1
+        /*for(Player p: players) {
+            if (p.house.name.equalsIgnoreCase("stark"))
+                //halve resources
+        }*/
+    }
+
+    public void springInEffect(){ //4
+        /*for(Player p: players) {
+            if (p.house.name.equalsIgnoreCase("tyrell"))
+            //trading change
+        }*/
+    }
+
+    public void winterInEffect(){ //3
+
+    }
+
+    public void autumnInEffect(){ //2
+
+    }
+
+    public int canBuild(Card card) {
+        return getCurrentPlayer().canBuild(card);
+    }
+
+    //precondition: current player needs (and can) trade with left neighbor
+    public void tradeLeft(int index) {
+        Card card = getCurrentPlayer().cards.get(index);
+        payTrade(0, card.getCost());
+        playCard(index);
+    }
+
+    //precondition: current player needs (and can) trade with right neighbor
+    public void tradeRight(int index) {
+        Card card = getCurrentPlayer().cards.get(index);
+        payTrade(1, card.getCost());
+        playCard(index);
+    }
+
+    public void payTrade(int neighbor, Cost cost) {
+        // 0 - left
+        // 1 - right
+        CostResult costResult = this.getCurrentPlayer().house.canAfford(cost);
+        ArrayList<Integer> resourcesToBuy = this.getCurrentPlayer().factorizeResources(costResult.remaining);
+        int payment = 0;
+        for (Integer res : resourcesToBuy) {
+            if (neighbor == 0) {
+                payment += this.getCurrentPlayer().agreements.getLeft().getCost(res);
+                int leftIndex = (getCurrentPlayer().id - 1) < 0 ? (players.size() - 1) : (getCurrentPlayer().id - 1);
+                notifyTrade( leftIndex,  payment);
+            }
+            else {
+                payment += this.getCurrentPlayer().agreements.getRight().getCost(res);
+
+                int rightIndex = (getCurrentPlayer().id + 1) > (players.size() - 1) ? 0 : (getCurrentPlayer().id + 1);
+                notifyTrade( rightIndex,  payment);
             }
         }
+        this.getCurrentPlayer().house.addCoins((-1 * payment));
     }
 
-    public void startBank(){
+    //if trade is not required, return 1
+    //if trade is required, return 2.
+    //otherwise, return 0
+    public int canBuildWonder() {
 
+        Wonder wonderToBuild = null;
+        for (Wonder wonder : this.getCurrentPlayer().house.getWonders()) {
+            if (!wonder.isBuilt()) {
+                wonderToBuild = wonder;
+                break;
+            }
+        }
+        if (wonderToBuild == null)
+            return 0;
+
+        int ret = this.getCurrentPlayer().canBuild(wonderToBuild.getCost());
+        if (ret <= 1)
+            return ret;
+        else
+            return 2;
     }
 
-    public void endGame() {
+    public void notifyTrade(int p, int cost){
 
+        JsonObject req = new JsonObject();
+        req.addProperty("op_code", 5);
+        req.addProperty("player_id", p);
+        req.addProperty("cost", cost);
+        Main.gameEngine.client.sendRequest( req);
     }
 
-    public boolean isGameOver() {
-        return false;
+    public String getCoins(){
+        return "" + getCurrentPlayer().getCoins();
     }
 
-    private void initCards(){
-
+    public String getShields(){
+        return "" + getCurrentPlayer().getShieldCount();
     }
 
-    private void passTurn(){
-        players[turnOf].setPlayerHasTurn(false);
-        turnOf++;
-        turnOf = turnOf % numOfPlayers;
-        players[turnOf].setPlayerHasTurn(true);
+    public ArrayList<Card> getCards(){
+        return getCurrentPlayer().cards;
     }
 
-    public static int getNumOfPlayers(){
-        return numOfPlayers;
+    public ArrayList<Card> getPlayedCards(){
+        return getCurrentPlayer().getPlayedCards();
     }
 
-    public static Player[] getPlayers(){
-        return players;
-    }
-
-    public static Player currentTurn(){
-        return players[turnOf];
-    }
-
-    public Card getDrawnCard() {
-        return drawnCard;
+    public void initClient( String ip){
+        (new Thread(() -> {
+            this.client = new GameClient( ip, this);
+            this.client.startClient();
+        })).start();
     }
 }

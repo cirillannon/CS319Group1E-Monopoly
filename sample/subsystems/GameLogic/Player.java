@@ -20,6 +20,7 @@ public class Player {
     private boolean bothUtilities;
     private boolean outOfJailCard;
     private ArrayList<Property> propertiesOwned;
+    // private Pawn pawn;
 
     public Player( String name, int ID){
         balance = Constants.PlayerConstants.STARTING_AMOUNT; // Start balance can be changed
@@ -38,6 +39,7 @@ public class Player {
         bothUtilities = false;
         numOfJailCards = 0;
         outOfJailCard = false;
+        // this.pawn = pawn;
     }
 
     public int getBalance(){
@@ -49,7 +51,7 @@ public class Player {
 
         if(this.balance < 0)
             this.balance = 0;
-        this.setBankruptcy(true);
+            this.setBankruptcy(true);
     }
 
     public int getLocation(){
@@ -200,5 +202,8 @@ public class Player {
     public int getPlayerID(){
         return this.playerID;
     }
+
+
+
 
 }
