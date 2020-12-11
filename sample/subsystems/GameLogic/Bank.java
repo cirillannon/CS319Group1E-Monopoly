@@ -37,8 +37,6 @@ public class Bank {
             p.updateBalance(-playerOfferAmount);
             prp.setOwner(p);
         }
-        else
-            return;
     }
 
     public boolean tradeProperty(Property prp, Player owner, Player target , int tradeAmount) {
