@@ -33,7 +33,7 @@ public class Bank {
     }
     public void auctionProperty(Property prp ,Player p , int playerOfferAmount)  {
         int initialAmount = 0;
-        Player winnerOfAuction;
+        Player winnerOfAuction = null;
         do {
             if (!prp.isOwned() && playerOfferAmount>initialAmount) {
                 if (p.getBalance() >= playerOfferAmount) {
@@ -42,10 +42,15 @@ public class Bank {
                     p.updateBalance(-playerOfferAmount);
                     prp.setOwner(winnerOfAuction);
                 }
+                continue;
             }
             else
-                return;
+                continue;
         } while (prp.isOwned());
+        if (winnerOfAuction==null)
+        {
+            prp.setOwned(null);
+        }
     }
 
     public boolean tradeProperty(Property prp, Player owner, Player target , int tradeAmount) {
