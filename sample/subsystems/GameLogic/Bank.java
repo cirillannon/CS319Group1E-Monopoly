@@ -32,11 +32,20 @@ public class Bank {
             return false;
     }
     public void auctionProperty(Property prp ,Player p , int playerOfferAmount)  {
-        // I WILL REWRITE THIS FUNCTION
-        if (p.getBalance () >= playerOfferAmount && !prp.isOwned()){
-            p.updateBalance(-playerOfferAmount);
-            prp.setOwner(p);
-        }
+        int initialAmount = 0;
+        Player winnerOfAuction;
+        do {
+            if (!prp.isOwned() && playerOfferAmount>initialAmount) {
+                if (p.getBalance() >= playerOfferAmount) {
+                    initialAmount = playerOfferAmount;
+                    winnerOfAuction = p;
+                    p.updateBalance(-playerOfferAmount);
+                    prp.setOwner(winnerOfAuction);
+                }
+            }
+            else
+                return;
+        } while (prp.isOwned());
     }
 
     public boolean tradeProperty(Property prp, Player owner, Player target , int tradeAmount) {
@@ -122,7 +131,7 @@ public class Bank {
 
     public boolean removeBuilding(Player p, String type, ColoredProperty prp ) {
         boolean flag = false;
-        if (type == "House") {
+        if (type.equals( "House") ){
             if (p.getHousesOwned() > 0 )
             {
                 p.updateBalance(prp.getHouseCost());
@@ -137,7 +146,7 @@ public class Bank {
                 return flag;
             }
         }
-        if (type == "Hotel") {
+        if (type.equals( "Hotel")) {
             if (p.getHotelsOwned() > 0)
             {
                 p.updateBalance(prp.getHotelCost());
