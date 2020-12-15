@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="9c3580b1-06ea-4386-977c-6f3b19ecc64b" name="Default Changelist" comment="try_game_logic should work now">
+      <change beforePath="$PROJECT_DIR$/1E-319 Design Report.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/319 Design Report.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/Analysis Report .pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/Analysis Report Iteration 2 .pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/Design Report Iteration 2.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/board.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/border.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/border2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/coin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/creategame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/exit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/exitgame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/help.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/joingame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/language.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/logoname.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/password.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/property.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/volume.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/Controller/GameManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/Controller/GameStateManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Bank.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Card.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/ChanceCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/ColoredProperty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/CommunityChestCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Dice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/DrawCardTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/ElectricCompany.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/FreeParking.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/GO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/GameBoard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/GoToJail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/IncomeTax.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Jail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Pawn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Property.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Station.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/SuperTax.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/TaxTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Tile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Utility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Waterworks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/MenuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/NewGameController$PawnMover.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/NewGameController$Roller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/NewGameController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/board.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/dice/dice1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/dice/dice2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/dice/dice3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/dice/dice4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/dice/dice5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/dice/dice6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/mainMenuBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/pawns/orangePawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/pawns/yellowPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/newGame.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/settings.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/soundEffects/buttonClick.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/soundEffects/buttonEntered.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/soundEffects/mainMenuTheme.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/MenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/NewGameController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/board.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/dice/dice1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/dice/dice2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/dice/dice3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/dice/dice4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/dice/dice5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/dice/dice6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/mainMenuBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/pawns/orangePawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/pawns/yellowPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/newGame.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/settings.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/soundEffects/buttonClick.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/soundEffects/buttonEntered.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/soundEffects/mainMenuTheme.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/communication/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/communication/ClientThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/communication/Host.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/communication/PlayerDeserializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/communication/ServerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/subsystems/libraries/gson-2.8.6.jar" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="TaskManager">
+    <task id="LOCAL-00001" summary="try_game_logic should work now">
+      <created>1608070380698</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608070380698</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="try_game_logic should work now" />
+    <option name="LAST_COMMIT_MESSAGE" value="try_game_logic should work now" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="462" y="105" key="FileChooserDialogImpl" timestamp="1608070585280">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="462" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1608070585280" />
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1608070384627">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1608070384627" />
+    <state x="65" y="0" key="new project wizard" timestamp="1608070595176">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1608070595176" />
+  </component>
+</project>
