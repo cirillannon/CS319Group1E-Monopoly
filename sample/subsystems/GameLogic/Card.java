@@ -14,10 +14,18 @@ public abstract class Card {
         this.cardID = cID;
     }
 
-    public abstract void onDraw(Player p, ColoredProperty property);
+    public abstract void onDraw(Player p, Property property);
 
     public int getCardID(){
         return cardID;
+    }
+
+    public String getCardType() {
+        return cardType;
+    }
+
+    public String getCardDescription() {
+        return cardDescription;
     }
 
     public void chanceCardFunction1(Player p){
@@ -150,19 +158,18 @@ public abstract class Card {
         p.updateBalance(100);
     }
 
-    public void chanceCardFunction17(Player p, ColoredProperty property){
-        property.applyEvent(1);
+    public void chanceCardFunction17(Player p, Property property){ property.applyEvent(1);
     }
 
-    public void chanceCardFunction18(Player p, ColoredProperty property){
+    public void chanceCardFunction18(Player p, Property property){
         property.applyEvent(2);
     }
 
-    public void chanceCardFunction19(Player p,ColoredProperty property){
+    public void chanceCardFunction19(Player p,Property property){
         property.applyEvent(3);
     }
 
-    public void chanceCardFunction20(Player p, ColoredProperty property){
+    public void chanceCardFunction20(Player p, Property property){
         property.applyEvent(4);
     }
 

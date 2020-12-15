@@ -3,6 +3,8 @@ package sample.subsystems.GameLogic;
 public class Dice {
 
     private static int diceTotal;
+    private static int d1;
+    private static int d2;
     private static boolean isDoubles;
 
     public Dice(){
@@ -14,13 +16,21 @@ public class Dice {
         return diceTotal;
     }
 
+    public static int d1() {
+        return d1;
+    }
+
+    public static int d2() {
+        return d2;
+    }
+
     public static boolean getDoubles(){
         return isDoubles;
     }
 
     public static void rollDice(){
-        int d1 = (int)(Math.random()*6 + 1);
-        int d2 = (int)(Math.random()*6 + 1);
+        d1 = (int)(Math.random()*6 + 1);
+        d2 = (int)(Math.random()*6 + 1);
 
         diceTotal = d1 + d2;
         isDoubles = (d1 == d2);

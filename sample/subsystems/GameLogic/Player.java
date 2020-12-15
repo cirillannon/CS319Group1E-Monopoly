@@ -1,6 +1,10 @@
 package sample.subsystems.GameLogic;
 
+// import sample.subsystems.Controller.GameManager;
+
+import java.util.Scanner;
 import java.util.ArrayList;
+import java.lang.*;
 
 public class Player {
 
@@ -20,8 +24,9 @@ public class Player {
     private boolean bothUtilities;
     private boolean outOfJailCard;
     private ArrayList<Property> propertiesOwned;
+    private Pawn pawn;
 
-    public Player( String name, int ID){
+    public Player( String name, int ID, String pawnColor){
         balance = Constants.PlayerConstants.STARTING_AMOUNT; // Start balance can be changed
         location = 1;
         housesOwned = 0;
@@ -38,18 +43,38 @@ public class Player {
         bothUtilities = false;
         numOfJailCards = 0;
         outOfJailCard = false;
+        pawn = new Pawn(this, pawnColor);
+    }
+
+    //for console testing
+    public String toString() {
+        String props = "Properties owned:\n";
+        for (int count = 0; count < propertiesOwned.size(); count++) {
+            props = props + "   " + propertiesOwned.get(count) + "\n";
+        }
+        return props + "Balance: " + balance;
     }
 
     public int getBalance(){
         return this.balance;
     }
 
-    public void updateBalance(int changeBalance){
+    public boolean updateBalance(int changeBalance){
+        System.out.println("in updateBalance");
         this.balance += changeBalance;
-
-        if(this.balance < 0)
+        if(this.balance < 0 && propertiesOwned.size() == 0) {
             this.balance = 0;
-        this.setBankruptcy(true);
+            this.setBankruptcy(true);
+            System.out.println("bankrupted.");
+            return false;
+        } else if (balance < 0) {
+            this.balance -= changeBalance;
+            System.out.println("not enough money. ");
+            return false;
+        } else {
+            System.out.println("player " + getPlayerName() + " balance updated: " + balance);
+            return true;
+        }
     }
 
     public int getLocation(){
@@ -57,6 +82,7 @@ public class Player {
     }
 
     public void setLocation( int loc){
+        pawn.setPawnLocation(loc);
         this.location = loc;
     }
 
@@ -85,7 +111,11 @@ public class Player {
     }
 
     public void move(int diceTotal){
-        this.location = (this.location + diceTotal)%40;
+        this.location = (this.location + diceTotal)%40 + 1;
+        System.out.println(getPlayerName() + " in " + GameBoard.getTile(location).toString());
+        System.out.println(toString());
+        GameBoard.getTile(location).onLand(this);
+
     }
 
     public String getPlayerName(){
@@ -120,16 +150,26 @@ public class Player {
         this.outOfJailCard = b;
     }
 
-    public boolean hasMonopoly(){
-        return !(this.monopolyColor.isEmpty());
+    public boolean hasMonopoly( String color ){
+        return this.monopolyColor.contains(color);
     }
 
-    public void addMonopoly( String color){
-        this.monopolyColor.add(color);
+    public boolean addMonopoly( String color){
+        if (monopolyColor.contains(color)){
+            return false;
+        } else {
+            this.monopolyColor.add(color);
+            return true;
+        }
     }
 
-    public void removeMonopoly( String color){
-        this.monopolyColor.remove(color);
+    public boolean removeMonopoly( String color){
+        if (monopolyColor.contains(color)) {
+            this.monopolyColor.remove(color);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public int getNumberOfStations(){
@@ -148,8 +188,67 @@ public class Player {
         this.cardsOwned.remove(cardID);
     }
 
+    public ArrayList<Property> getProperties() {
+        return propertiesOwned;
+    }
     public void addProperty( Property p){
         this.propertiesOwned.add(p);
+        p.setOwner(this);
+        p.setOwned(true);
+        if (p instanceof ColoredProperty) {
+            boolean hasMonopoly = true;
+            String color = ((ColoredProperty) p).getColor();
+            ColoredProperty[] neighborhood = GameBoard.getPropertiesOfColor(color);
+            for (ColoredProperty property : neighborhood) {
+                if (property.getOwner() != this) {
+                    hasMonopoly = false;
+                }
+            }
+            if (hasMonopoly){
+                addMonopoly(color);
+            }
+        }
+    }
+
+    public void removeProperty( Property p){
+        this.propertiesOwned.remove(p);
+        p.setOwner(null);
+        p.setOwned(false);
+        if (p instanceof ColoredProperty) {
+            String color = ((ColoredProperty) p).getColor();
+            removeMonopoly(color);
+        }
+    }
+
+    public boolean sellProperty( Property p, Player buyer, int price) {
+        if (p.getOwner() != this) {
+            return false;
+        }
+        return buyer.buyProperty(p, this, price);
+    }
+
+    public boolean buyProperty( Property p, Player from, int price) {
+        Scanner scan = new Scanner(System.in);
+        if (updateBalance(p.getValue() * -1)) {
+            System.out.println(this.getPlayerName() + ": will you buy " + p.getTileName() + " from "
+                    + from.getPlayerName() + " for " + price + "? (yes/no)");
+            String choose = scan.next();
+            if (choose.equals("yes")) {
+                addProperty(p);
+                from.removeProperty(p);
+                return true;
+            }
+            return false;
+        } return false;
+    }
+
+    public boolean buyProperty( Property p) {
+        System.out.println("in buyProperty");
+        if (updateBalance(p.getValue() * -1)) {
+            addProperty(p);
+            System.out.println("property added");
+            return true;
+        } return false;
     }
 
     public void addJailCard(){
@@ -201,4 +300,89 @@ public class Player {
         return this.playerID;
     }
 
+    public boolean hasLeft() {
+        // return true depending on the input from UI
+        return false;
+    }
+
+    public void playTurn() {
+        Scanner scan = new Scanner(System.in);
+        if(isInJail()){
+            Dice.rollDice();
+            System.out.println(getPlayerName() + " rolled dice: " + Dice.d1() + ", " + Dice.d2());
+            if(Dice.getDoubles()) {
+                move(Dice.getDiceTotal());
+                System.out.println("Doubles.. getting out of jail");
+            }
+            else if (hasOutOfJailFreeCard()) {
+                System.out.println("Use out of jail card ? Y/N");
+                Character input = scan.next().charAt(0);
+                if ( input.equals('Y') || input.equals('y')){
+                    removeJailCard();
+                    GoToJail.releasePlayer(this);
+                    System.out.println("out fo jail card used.. rolling dice");
+                    Dice.rollDice();
+                    System.out.println(getPlayerName() + " rolled dice: " + Dice.d1() + ", " + Dice.d2());
+                    move(Dice.getDiceTotal());
+                    if (Dice.getDoubles()){
+                        Dice.rollDice();
+                        System.out.println(getPlayerName() + " rolled dice: " + Dice.d1() + ", " + Dice.d2());
+                        move(Dice.getDiceTotal());
+                        if (Dice.getDoubles()){
+                            Dice.rollDice();
+                            System.out.println(getPlayerName() + " rolled dice: " + Dice.d1() + ", " + Dice.d2());
+                            move(Dice.getDiceTotal());
+                            if(Dice.getDoubles()){
+                                System.out.println("three doubles.. player goes to jail");
+                                GoToJail.jailPlayer(this);
+                            }
+                        }
+                    }
+                }
+            }
+            else if(getBalance() >= 50){
+                System.out.println("Pay $50 to leave jail ? Y/N");
+                Character input = scan.next().charAt(0);
+                if ( input.equals('Y') || input.equals('y')){
+                    updateBalance(-50);
+                    GoToJail.releasePlayer(this);
+                    Dice.rollDice();
+                    System.out.println(getPlayerName() + " rolled dice: " + Dice.d1() + ", " + Dice.d2());
+                    move(Dice.getDiceTotal());
+                    if (Dice.getDoubles()){
+                        Dice.rollDice();
+                        System.out.println(getPlayerName() + " rolled dice: " + Dice.d1() + ", " + Dice.d2());
+                        move(Dice.getDiceTotal());
+                        if (Dice.getDoubles()){
+                            Dice.rollDice();
+                            System.out.println(getPlayerName() + " rolled dice: " + Dice.d1() + ", " + Dice.d2());
+                            move(Dice.getDiceTotal());
+                            if(Dice.getDoubles()){
+                                System.out.println("three doubles.. player goes to jail");
+                                GoToJail.jailPlayer(this);
+                            }
+                        }
+                    }
+                }
+            }
+        } else {
+            Dice.rollDice();
+            System.out.println(getPlayerName() + " rolled dice: " + Dice.d1() + ", " + Dice.d2());
+            move(Dice.getDiceTotal());
+            if (Dice.getDoubles()) {
+                Dice.rollDice();
+                System.out.println(getPlayerName() + " rolled dice: " + Dice.d1() + ", " + Dice.d2());
+                move(Dice.getDiceTotal());
+                if (Dice.getDoubles()) {
+                    Dice.rollDice();
+                    System.out.println(getPlayerName() + " rolled dice: " + Dice.d1() + ", " + Dice.d2());
+                    move(Dice.getDiceTotal());
+                    if (Dice.getDoubles()) {
+                        System.out.println("three doubles.. player goes to jail");
+                        GoToJail.jailPlayer(this);
+                    }
+                }
+            }
+        }
+    }
 }

@@ -15,12 +15,17 @@ public class GameBoard {
 
     public static void initBoard() {
         initCards();
+        System.out.println("cards initialized");
+        for (Card card : chanceCards) {
+            System.out.println(card.getCardDescription());
+        }
         initTiles();
+        System.out.println("tiles initialized");
     }
 
     public static void initCards(){
+        chanceCards = new ArrayList<Card>();
         for (int i = 0; i < 20; i++){
-            chanceCards = new ArrayList<Card>();
             chanceCards.add(new ChanceCard(Constants.GameBoardConstants.CHANCE_CARD_DESCRIPTIONS[i], (i + 1)));
         }
         Collections.shuffle(chanceCards);
@@ -43,6 +48,8 @@ public class GameBoard {
     public static Tile[] getTiles(){
         return tiles;
     }
+
+    public static Tile getTile( int location) { return tiles[location]; }
 
     public static void initTiles(){
         tiles = new Tile[41];
@@ -128,11 +135,26 @@ public class GameBoard {
         tiles[38] = new ColoredProperty(350, 35, "Park Lane",
                 38, "Dark Blue", 175,500,1100,
                 1300,1500,200,200,175);
+        tiles[39] = new SuperTax(39);
         tiles[40] = new ColoredProperty(400, 50, "Mayfair",
                 40, "Dark Blue", 200,600,1400,
                 1700,2000,200,200,200);
     }
 
-
-
+    public static ColoredProperty[] getPropertiesOfColor( String color) {
+        ColoredProperty[] neighborhood;
+        if (color.equals("Brown") || color.equals("Dark Blue")) {
+            neighborhood = new ColoredProperty[2];
+        } else {
+            neighborhood = new ColoredProperty[3];
+        }
+        int count = 0;
+        for (Tile tile : tiles) {
+            if (tile instanceof ColoredProperty && ((ColoredProperty) tile).getColor().equals(color)){
+                neighborhood[count] = (ColoredProperty) tile;
+                count++;
+            }
+        }
+        return neighborhood;
+    }
 }

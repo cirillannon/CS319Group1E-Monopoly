@@ -21,6 +21,7 @@ public class GameManager {
     public GameManager() {
         gameStarted = false;
         gameOver = false;
+        System.out.println("GameManager initialized");
     }
 
     // methods
@@ -28,24 +29,17 @@ public class GameManager {
                          String playerName3, String playerName4) {
         String[] playerNames = {playerName1, playerName2, playerName3, playerName4};
         Bank bank = initBank();
+        System.out.println("Bank initialized");
         //setPawnStartPosition();
         //startPawnSelection();
         GameBoard.initBoard();
+        System.out.println("Board initialized");
         numOfPlayers = playerNumber;
         players = new Player[playerNumber];
         for (int i = 0; i < numOfPlayers; i++){
-            players[i] = new Player(playerNames[i], i);
+            players[i] = new Player(playerNames[i], i, Constants.PlayerConstants.PAWN_COLORS[i]);
         }
-    }
-
-    // how to reach pawns?
-    public void setPawnStartPosition() {
-
-    }
-
-    //
-    public void startPawnSelection() {
-
+        System.out.println("Players and pawns initialized");
     }
 
     public Bank initBank() {
@@ -54,88 +48,15 @@ public class GameManager {
     }
 
     public void startGame() {
+        Scanner scan = new Scanner(System.in);
         turnOf = 0;
-        char input;
-        while(!isGameOver()){
-            if(GameManager.currentTurn().isInJail()){
-                Dice.rollDice();
-                if(Dice.getDoubles())
-                    players[turnOf].move(Dice.getDiceTotal());
-                else if (players[turnOf].hasOutOfJailFreeCard()) {
-                    System.out.println("Use out of jail card ? Y/N");
-                    input = scan.next().charAt(0);
-                    if ( input == 'Y' || input == 'y'){
-                        players[turnOf].removeJailCard();
-                        GoToJail.releasePlayer(players[turnOf]);
-                        Dice.rollDice();
-                        players[turnOf].move(Dice.getDiceTotal());
-                        if (Dice.getDoubles()){
-                            Dice.rollDice();
-                            players[turnOf].move(Dice.getDiceTotal());
-                            if (Dice.getDoubles()){
-                                Dice.rollDice();
-                                players[turnOf].move(Dice.getDiceTotal());
-                                if(Dice.getDoubles()){
-                                    GoToJail.jailPlayer(players[turnOf]);
-                                    passTurn();
-                                    continue;
-                                }
-                            }
-                        }
-                    }
-                }
-                else if(players[turnOf].getBalance() >= 50){
-                    System.out.println("Pay $50 to leave jail ? Y/N");
-                    input = scan.next().charAt(0);
-                    if ( input == 'Y' || input == 'y'){
-                        players[turnOf].updateBalance(-50);
-                        GoToJail.releasePlayer(players[turnOf]);
-                        Dice.rollDice();
-                        players[turnOf].move(Dice.getDiceTotal());
-                        GameBoard.getTiles()[players[turnOf].getLocation()].onLand(players[turnOf]);
-                        if (Dice.getDoubles()){
-                            Dice.rollDice();
-                            players[turnOf].move(Dice.getDiceTotal());
-                            GameBoard.getTiles()[players[turnOf].getLocation()].onLand(players[turnOf]);
-                            if (Dice.getDoubles()){
-                                Dice.rollDice();
-                                players[turnOf].move(Dice.getDiceTotal());
-                                GameBoard.getTiles()[players[turnOf].getLocation()].onLand(players[turnOf]);
-                                if(Dice.getDoubles()){
-                                    GoToJail.jailPlayer(players[turnOf]);
-                                    passTurn();
-                                    continue;
-                                }
-                            }
-                        }
-                    }
-                    else passTurn();
-                    continue;
-                }
+        while(!isGameOver()) {
+            if (players[turnOf].getBankruptcy() || players[turnOf].hasLeft()) {
+                deletePlayer(turnOf);
             }
-            Dice.rollDice();
-            players[turnOf].move(Dice.getDiceTotal());
-            GameBoard.getTiles()[players[turnOf].getLocation()].onLand(players[turnOf]);
-            if (Dice.getDoubles()){
-                Dice.rollDice();
-                players[turnOf].move(Dice.getDiceTotal());
-                GameBoard.getTiles()[players[turnOf].getLocation()].onLand(players[turnOf]);
-                if (Dice.getDoubles()){
-                    Dice.rollDice();
-                    players[turnOf].move(Dice.getDiceTotal());
-                    GameBoard.getTiles()[players[turnOf].getLocation()].onLand(players[turnOf]);
-                    if(Dice.getDoubles()){
-                        GoToJail.jailPlayer(players[turnOf]);
-                        passTurn();
-                        continue;
-                    }
-                }
-            }
+            passTurn();
         }
-    }
-
-    public void startBank(){
-
+        endGame();
     }
 
     public void endGame() {
@@ -143,14 +64,22 @@ public class GameManager {
     }
 
     public boolean isGameOver() {
+        if (getNumOfPlayers() < 2) {
+            return true;
+        }
         return false;
     }
 
-    private void initCards(){
-
+    public void deletePlayer(int playerIndex) {
+        for (int i = playerIndex; i < numOfPlayers; i++) {
+            players[i] = players[i+1];
+        }
+        players[numOfPlayers-1] = null;
+        numOfPlayers--;
     }
 
     private void passTurn(){
+        players[turnOf].playTurn();
         players[turnOf].setPlayerHasTurn(false);
         turnOf++;
         turnOf = turnOf % numOfPlayers;
@@ -165,11 +94,16 @@ public class GameManager {
         return players;
     }
 
+    public static Player getPlayer(String name) {
+        for (Player player : players) {
+            if (player.getPlayerName().equals(name))
+                return player;
+        }
+        return null;
+    }
+
     public static Player currentTurn(){
         return players[turnOf];
     }
 
-    public Card getDrawnCard() {
-        return drawnCard;
-    }
 }

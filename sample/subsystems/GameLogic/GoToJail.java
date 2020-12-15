@@ -14,6 +14,7 @@ public class GoToJail extends Tile{
     public static void jailPlayer( Player p){
         p.setInJail(true);
         p.setLocation(11);//The location of Jail tile
+        System.out.println("player " + p.getPlayerName() + " going in jail");
     }
 
     //releasePlayer will be used while playing turns (by GameManager ?)

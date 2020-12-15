@@ -73,11 +73,11 @@ public class Bank {
             return false;
     }
 
-
+    /*
     public boolean buyBuilding(Player p, String type, ColoredProperty prp ) {
         boolean flag = false;
-        if (type == "House") {
-            if (p.hasMonopoly() && p.getBalance() >= prp.getHouseCost() && prp.getNumberOfHouses()<4)
+        if (type.equals("House")) {
+            if (p.hasMonopoly(prp.getColor()) && p.getBalance() >= prp.getHouseCost() && prp.getNumberOfHouses()<4)
             {
                 p.updateBalance(-prp.getHouseCost());
                 numberOfHouses = numberOfHouses - 1;
@@ -92,7 +92,7 @@ public class Bank {
                 return flag;
             }
         }
-        if (type == "Hotel") {
+        if (type.equals("Hotel")) {
             if (p.hasMonopoly() && (p.getBalance() >= prp.getHotelCost()) && ((prp.getNumberOfHouses () == 4 && prp.getNumberOfHotels() ==0) || (prp.getNumberOfHouses () == 0 && prp.getNumberOfHotels() <5)) )
             {
 
@@ -119,6 +119,7 @@ public class Bank {
         }
         return flag;
     }
+
     public boolean removeBuilding(Player p, String type, ColoredProperty prp ) {
         boolean flag = false;
         if (type == "House") {
@@ -153,7 +154,7 @@ public class Bank {
         }
         return flag;
     }
-
+    */
 
     public boolean tradeJailCard( Player owner, Player target, int moneyAmount) {
         if(owner.hasOutOfJailFreeCard() && target.getBalance () >= moneyAmount) {

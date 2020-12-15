@@ -6,7 +6,7 @@ public class ChanceCard extends Card {
     }
 
     @Override
-    public void onDraw(Player p, ColoredProperty property){
+    public void onDraw(Player p, Property property){
         if (this.getCardID() == 1) super.chanceCardFunction1(p);
         else if (this.getCardID() == 2) super.chanceCardFunction2(p);
         else if (this.getCardID() == 3) super.chanceCardFunction3(p);

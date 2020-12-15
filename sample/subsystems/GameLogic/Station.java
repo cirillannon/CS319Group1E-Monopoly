@@ -15,4 +15,27 @@ public class Station extends Property {
         this.getOwner().updateBalance(finalRent);
 
     }
+
+    @Override
+    public void applyEvent(int eventID){
+        if (eventID == 1){
+            super.setValue(super.getValue() + super.getValue()/4);
+            super.setRent(super.getRent() + super.getRent()/4);
+        }
+
+        else if (eventID == 2){
+            super.setValue(super.getValue() + super.getValue()/2);
+            super.setRent(super.getRent() + super.getRent()/2);
+        }
+
+        else if (eventID == 3){
+            super.setValue(super.getValue() - super.getValue()/4);
+            super.setRent(super.getRent() - super.getRent()/4);
+        }
+
+        else if (eventID == 4){
+            super.setValue(super.getValue() - super.getValue()/2);
+            super.setRent(super.getRent() - super.getRent()/2);
+        }
+    }
 }

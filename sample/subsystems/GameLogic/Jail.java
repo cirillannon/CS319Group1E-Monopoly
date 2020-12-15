@@ -8,5 +8,6 @@ public class Jail extends Tile {
     @Override
     public void onLand(Player p) {
         //Do nothing
+        System.out.println("Jail");
     }
 }

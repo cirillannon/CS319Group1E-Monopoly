@@ -62,7 +62,8 @@ public class Constants {
     }
 
 
-    public class PlayerConstants {
+    public static class PlayerConstants {
         public static final int STARTING_AMOUNT = 1500;
+        public static final String[] PAWN_COLORS = {"RED", "BLUE", "GREEN", "YELLOW"};
     }
 }

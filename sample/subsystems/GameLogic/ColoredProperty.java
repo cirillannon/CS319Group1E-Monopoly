@@ -47,9 +47,10 @@ public class ColoredProperty extends Property{
             finalRent = rentWithHotel;
         else
             finalRent = super.getRent();
-
+        System.out.println(landed.getPlayerName() + " pays " + finalRent + " to " + this.getOwner().getPlayerName());
         landed.updateBalance(-finalRent);
         this.getOwner().updateBalance(finalRent);
+
     }
 
     public int getNumberOfHotels() {
@@ -96,22 +97,27 @@ public class ColoredProperty extends Property{
         return color;
     }
 
-    public void addHouse(){
-        numberOfHouses++;
+    public boolean updateHouses(int count){
+        int result =  numberOfHouses + count;
+        if (result <= 5) {
+            numberOfHouses = result;
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public void removeHouse(){
-        numberOfHouses--;
+    public boolean updateHotels(int count){
+        int result =  numberOfHotels + count;
+        if (result <= 5) {
+            numberOfHotels = result;
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public void addHotel(){
-        numberOfHotels++;
-    }
-
-    public void removeHotel(){
-        numberOfHotels--;
-    }
-
+    @Override
     public void applyEvent(int eventID){
         if (eventID == 1){
             this.mortgageValue = this.mortgageValue + this.mortgageValue/4;
