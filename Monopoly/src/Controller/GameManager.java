@@ -24,12 +24,12 @@ public class GameManager
 	private void initializePlayers()
 	{
         players = new ArrayList<Player>();
-        players.add(new Player("John"));
-        players.add(new Player("Ann"));
+        players.add(new Player("John", "orange"));
+        players.add(new Player("Ann", "yellow"));
         countOfPlayers = 2;
 	}
 	
-	public int[] diceRolled()
+	public int[] rollDice()
 	{
 		Player player = players.get(turn);
 		
@@ -41,11 +41,59 @@ public class GameManager
 		Tile tile = gameBoard.getTile(player.getLocation());
 		System.out.println(player.getName() + " has landed on " + tile.getName());
 		
+		if(tile instanceof Property)
+		{
+			if(((Property) tile).isOwned() && ((Property) tile).getOwner() != player )
+			{
+				player.setHasRentDebt(true);
+			}
+		}
+		
 		return dice;	
+	}
+
+	public boolean buyProperty()
+	{
+		Player player = players.get(turn);
+		Tile tile = gameBoard.getTile(player.getLocation());
+		
+		if(tile instanceof Property)
+		{
+			if(!((Property) tile).isOwned() && ((Property) tile).getOwner() != player)
+			{
+				if(player.getBalance() > ((Property) tile).getValue())
+				{
+					player.addProperty((Property) tile);
+					player.decrementBalance(((Property) tile).getValue());
+					((Property) tile).setOwner(player);
+					return true;
+				}
+			}
+		}
+	
+		return false;
+	}
+	
+	public int getBalance(String color)
+	{
+		for(int i = 0; i < countOfPlayers; i++)
+		{
+			if(players.get(i).getColor() == color)
+			{
+				return players.get(i).getBalance();
+			}
+		}
+		
+		return -1;
 	}
 	
 	public void turnEnded()
 	{
+		if(players.get(turn).hasRentDebt())
+		{
+			return;
+		}
+		
 		turn = (turn + 1) % countOfPlayers;
 	}
 	
