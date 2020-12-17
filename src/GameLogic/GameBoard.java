@@ -20,15 +20,50 @@ public class GameBoard
     	dice = new Dice();
     	
     }
-    
+
     private void initializeTiles()
     {
     	tiles = new ArrayList<Tile>();
     	tiles.add(new GO());
-    	tiles.add(new ColoredProperty(60, 2, "Mediterranean Avenue", "brown", 50, 50));
+    	tiles.add(new ColoredProperty(60, 2, "Mediterranean Avenue", "brown", 50, 250));
     	tiles.add(new CommunityChestCardTile());
-    	tiles.add(new ColoredProperty(60, 4, "Baltic Avenue", "brown", 50, 50));
+    	tiles.add(new ColoredProperty(60, 4, "Baltic Avenue", "brown", 50, 250));
     	tiles.add(new TaxTile("Income Tax", 200));
+    	tiles.add(new Railroad(200, 25, "King's Cross Station"));
+        tiles.add(new ColoredProperty(100, 6, "The Angel Islington", "light blue", 50, 250));
+        tiles.add(new ChanceCardTile());
+        tiles.add(new ColoredProperty(100, 6, "Euston Road", "light blue", 50, 250));
+        tiles.add(new ColoredProperty(120, 8, "Pentonville Road\n", "light blue", 50, 250));
+        tiles.add(new Jail("Jail"));
+        tiles.add(new ColoredProperty(140, 10, "Pall Mall", "pink", 100, 500));
+        tiles.add(new Utility(150, 1, "Electric Company"));
+        tiles.add(new ColoredProperty(140, 10, "Whitehall", "pink", 100, 500));
+        tiles.add(new ColoredProperty(160, 12, "Northumberland Avenue", "pink", 100, 500));
+        tiles.add(new Railroad(200, 25, "Marylebone Station"));
+        tiles.add(new ColoredProperty(180, 14, "Bow Street", "orange", 100, 500));
+        tiles.add(new CommunityChestCardTile());
+        tiles.add(new ColoredProperty(180,14, "Marlborough Street", "orange", 100, 500));
+        tiles.add(new ColoredProperty(200, 16, "Vine Street", "orange", 100, 500));
+        tiles.add(new FreeParking("Free Parking"));
+        tiles.add(new ColoredProperty(220, 18, "Strand", "red", 150, 750));
+        tiles.add(new ChanceCardTile());
+        tiles.add(new ColoredProperty(220, 18, "Fleet Street", "red", 150, 750));
+        tiles.add(new ColoredProperty(240, 20, "Trafalgar Square", "red", 150, 750));
+        tiles.add(new Railroad(200, 25, "Fenchurch St. Station"));
+        tiles.add(new ColoredProperty(260, 22, "Leicester Square", "yellow", 150, 750));
+        tiles.add(new ColoredProperty(260, 22, "Coventry Street", "yellow", 150, 750));
+        tiles.add(new Utility(150, 1, "Electric Company"));
+        tiles.add(new ColoredProperty(280, 22, "Piccadilly", "yellow", 150, 750));
+        tiles.add(new GoToJail("Go To Jail"));
+        tiles.add(new ColoredProperty(300, 26, "Regent Street", "yellow", 150, 750));
+        tiles.add(new ColoredProperty(300, 26, "Oxford Street", "yellow", 150, 750));
+        tiles.add(new CommunityChestCardTile());
+        tiles.add(new ColoredProperty(320, 28, "Bond Street", "yellow", 150, 750));
+        tiles.add(new Railroad(200, 25, "Liverpool St. Station"));
+        tiles.add(new ChanceCardTile());
+        tiles.add(new ColoredProperty(350, 35, "Park Lane", "dark blue", 200, 1000));
+        tiles.add(new TaxTile("Super Tax", 100));
+        tiles.add(new ColoredProperty(400, 50, "Mayfair", "dark blue", 200, 1000));
     }
     
     private void initializeChanceCards()
