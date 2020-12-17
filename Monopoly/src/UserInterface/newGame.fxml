@@ -96,6 +96,22 @@
                   <Font name="Arial Black" size="15.0" />
                </font>
             </Button>
+            <Button fx:id="endTurnButton1" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="407.0" layoutY="658.0" mnemonicParsing="false" onAction="#buyProperty" prefHeight="33.0" prefWidth="54.0" style="-fx-background-color: #2F4F4F;" text="Buy" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <effect>
+                  <ColorAdjust brightness="-0.05">
+                     <input>
+                        <Reflection bottomOpacity="0.26" fraction="0.0" topOffset="0.1" topOpacity="0.14" />
+                     </input>
+                  </ColorAdjust>
+               </effect>
+               <font>
+                  <Font name="Arial Black" size="15.0" />
+               </font>
+            </Button>
+            <Label fx:id="orangePlayersBalance" layoutX="341.0" layoutY="139.0" prefHeight="43.0" prefWidth="219.0" />
          </children>
       </Pane>
       <Pane layoutX="900.0" layoutY="6.0" prefHeight="908.0" prefWidth="702.0">
