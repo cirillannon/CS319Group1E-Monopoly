@@ -5,111 +5,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9c3580b1-06ea-4386-977c-6f3b19ecc64b" name="Default Changelist" comment="try_game_logic should work now">
-      <change beforePath="$PROJECT_DIR$/1E-319 Design Report.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/319 Design Report.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Analysis Report .pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Analysis Report Iteration 2 .pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/reports/Design Report Iteration 2.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/arrow.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/board.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/border.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/border2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/coin.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/creategame.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/exit.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/exitgame.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/help.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/joingame.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/language.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/logoname.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/password.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/play.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/property.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/user.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/images/volume.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/menu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/Controller/GameManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/Controller/GameStateManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Bank.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Card.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/ChanceCard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/ColoredProperty.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/CommunityChestCard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Constants.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Dice.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/DrawCardTile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/ElectricCompany.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/FreeParking.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/GO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/GameBoard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/GoToJail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/IncomeTax.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Jail.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Pawn.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Player.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Property.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Station.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/SuperTax.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/TaxTile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Tile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Utility.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/GameLogic/Waterworks.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/MenuController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/NewGameController$PawnMover.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/NewGameController$Roller.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/NewGameController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/board.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/dice/dice1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/dice/dice2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/dice/dice3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/dice/dice4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/dice/dice5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/dice/dice6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/mainMenuBackground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/pawns/orangePawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/pawns/yellowPawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/images/settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/menu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/newGame.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/settings.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/soundEffects/buttonClick.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/soundEffects/buttonEntered.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/bin/sample/soundEffects/mainMenuTheme.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/MenuController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/NewGameController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/board.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/dice/dice1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/dice/dice2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/dice/dice3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/dice/dice4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/dice/dice5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/dice/dice6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/mainMenuBackground.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/pawns/orangePawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/pawns/yellowPawn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/images/settings.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/menu.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/newGame.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/settings.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/soundEffects/buttonClick.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/soundEffects/buttonEntered.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/UserInterface/Monopoly/src/sample/soundEffects/mainMenuTheme.mp3" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/communication/Client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/communication/ClientThread.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/communication/Host.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/communication/PlayerDeserializer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/communication/ServerManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sample/subsystems/libraries/gson-2.8.6.jar" beforeDir="false" />
-    </list>
+    <list default="true" id="3bf95f60-5fbe-4588-a5f9-3fc6e9bd919b" name="Default Changelist" comment="Main game structure is implemented in GameManager.java" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,16 +14,139 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors" />
+  </component>
   <component name="TaskManager">
-    <task id="LOCAL-00001" summary="try_game_logic should work now">
-      <created>1608070380698</created>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="3bf95f60-5fbe-4588-a5f9-3fc6e9bd919b" name="Default Changelist" comment="" />
+      <created>1607261363726</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1607261363726</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Created GameLogic classes">
+      <created>1607261795279</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1608070380698</updated>
+      <updated>1607261795279</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added attributes and methods of Player.java">
+      <created>1607280612687</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1607280612687</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Implemented Dice.java and Tile.java classes">
+      <created>1607321723805</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1607321723805</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Created abstract class Tile.java and implemented FreeParking.java, GO.java, GoToJail.java. DrawCardTile.java is on progress.">
+      <created>1607324672376</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1607324672376</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Card.java in progress&#10;Dice.java has now static methods&#10;DrawCardTile.java in progress&#10;Minor changes in GameManager.java, Player.java&#10;Implemented Tile.java">
+      <created>1607336317875</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1607336317875</updated>
+    </task>
+    <task id="LOCAL-00006" summary="More methods implemented in Card.java">
+      <created>1607354616603</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1607354616603</updated>
+    </task>
+    <task id="LOCAL-00007" summary="ChanceCard.java and CommunityChestCard.java implemented">
+      <created>1607361766548</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1607361766548</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Minor changes to GameManager.java">
+      <created>1607361961808</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1607361961808</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Implemented ElectricCompany.java, TaxTile.java, SuperTax.java, IncomeTax.java, Property.java, Station.java, Utility.java, Waterworks.java">
+      <created>1607375136122</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1607375136122</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Finished implementation of Card and Property classes">
+      <created>1607437073785</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1607437073785</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added payRent class to ColoredProperty">
+      <created>1607437553572</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1607437553572</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Added getNumOfJailCards() in Player.java, added currentTurn() in GameManager.java">
+      <created>1607496625671</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1607496625671</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Added getDrawnCard() in GameManager.java">
+      <created>1607496989827</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1607496989827</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Implemented GameBoard.java">
+      <created>1607504005130</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1607504005130</updated>
+    </task>
+    <task id="LOCAL-00015" summary="minor fixes">
+      <created>1607504460057</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1607504460057</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Main game structure is implemented in GameManager.java">
+      <created>1607533172569</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1607533172569</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,21 +162,44 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="try_game_logic should work now" />
-    <option name="LAST_COMMIT_MESSAGE" value="try_game_logic should work now" />
+    <MESSAGE value="Created GameLogic classes" />
+    <MESSAGE value="Added attributes and methods of Player.java" />
+    <MESSAGE value="Implemented Dice.java and Tile.java classes" />
+    <MESSAGE value="Created abstract class Tile.java and implemented FreeParking.java, GO.java, GoToJail.java. DrawCardTile.java is on progress." />
+    <MESSAGE value="Card.java in progress&#10;Dice.java has now static methods&#10;DrawCardTile.java in progress&#10;Minor changes in GameManager.java, Player.java&#10;Implemented Tile.java" />
+    <MESSAGE value="More methods implemented in Card.java" />
+    <MESSAGE value="ChanceCard.java and CommunityChestCard.java implemented" />
+    <MESSAGE value="Minor changes to GameManager.java" />
+    <MESSAGE value="Implemented ElectricCompany.java, TaxTile.java, SuperTax.java, IncomeTax.java, Property.java, Station.java, Utility.java, Waterworks.java" />
+    <MESSAGE value="Finished implementation of Card and Property classes" />
+    <MESSAGE value="Added payRent class to ColoredProperty" />
+    <MESSAGE value="Added getNumOfJailCards() in Player.java, added currentTurn() in GameManager.java" />
+    <MESSAGE value="Added getDrawnCard() in GameManager.java" />
+    <MESSAGE value="Implemented GameBoard.java" />
+    <MESSAGE value="minor fixes" />
+    <MESSAGE value="Main game structure is implemented in GameManager.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Main game structure is implemented in GameManager.java" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="462" y="105" key="FileChooserDialogImpl" timestamp="1608070585280">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="462" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1608070585280" />
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1608070384627">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1608070384627" />
-    <state x="65" y="0" key="new project wizard" timestamp="1608070595176">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1608070595176" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/sample/subsystems/GameLogic/Player.java</url>
+          <line>74</line>
+          <properties class="sample.subsystems.GameLogic.Player" method="setInJail">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/sample/subsystems/GameLogic/Player.java</url>
+          <line>86</line>
+          <properties class="sample.subsystems.GameLogic.Player" method="move">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
