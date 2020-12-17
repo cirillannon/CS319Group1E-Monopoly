@@ -7,13 +7,14 @@ public class Player {
 	private String name;
     private int balance;
     private int location;
+    private boolean hasRentDebt;
     private boolean isBankrupt;
     private boolean isInJail;
     private ArrayList<Card> cards;
     private ArrayList<Property> properties;   
-    private Pawn pawn;
+    private String color;
 
-    public Player( String name)
+    public Player( String name, String color)
     {
     	this.name = name;
         balance = 1500; 
@@ -22,12 +23,18 @@ public class Player {
         isInJail = false;
         cards = new ArrayList<>();
         properties = new ArrayList<>();
-        pawn = new Pawn(this, "");
+        this.color = color;
+        hasRentDebt = false;
     }
     
     public String getName()
     {
     	return name;
+    }
+   
+    public String getColor()
+    {
+    	return color;
     }
     
     public int getBalance()
@@ -69,4 +76,14 @@ public class Player {
     {
         return this.isInJail;
     }
+    
+    public void setHasRentDebt(boolean hasRentDebt)
+    {
+    	this.hasRentDebt = hasRentDebt;
+    }
+    
+    public boolean hasRentDebt()
+    {
+    	return hasRentDebt;
+    }    
 }
