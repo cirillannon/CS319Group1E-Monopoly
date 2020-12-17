@@ -5,8 +5,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3bf95f60-5fbe-4588-a5f9-3fc6e9bd919b" name="Default Changelist" comment="Main game structure is implemented in GameManager.java">
-      <change afterPath="$PROJECT_DIR$/src/GameLogic/ChanceCardTile.java" afterDir="false" />
+    <list default="true" id="3bf95f60-5fbe-4588-a5f9-3fc6e9bd919b" name="Default Changelist" comment="tiles">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameLogic/GameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameLogic/GameBoard.java" afterDir="false" />
     </list>
@@ -63,7 +62,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1607261363726</updated>
-      <workItem from="1608234043927" duration="5089000" />
+      <workItem from="1608234043927" duration="7144000" />
     </task>
     <task id="LOCAL-00001" summary="Created GameLogic classes">
       <created>1607261795279</created>
@@ -177,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1607533172569</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="tiles">
+      <created>1608241529126</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1608241529126</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -212,7 +218,18 @@
     <MESSAGE value="Implemented GameBoard.java" />
     <MESSAGE value="minor fixes" />
     <MESSAGE value="Main game structure is implemented in GameManager.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Main game structure is implemented in GameManager.java" />
+    <MESSAGE value="tiles" />
+    <option name="LAST_COMMIT_MESSAGE" value="tiles" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2" timestamp="1608241834983">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="97" key="Vcs.Push.Dialog.v2/0.0.1366.728@0.0.1366.728" timestamp="1608241834983" />
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608243242545">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="500" y="278" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728@0.0.1366.728" timestamp="1608243242545" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
