@@ -2,26 +2,36 @@ package UserInterface;
 
 import Controller.*;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 public class NewGameController implements Initializable
 {
 	@FXML
 	ImageView diceImage1;
+	
 	@FXML
 	ImageView diceImage2;
+	
 	@FXML
 	Button rollDiceButton;
+	
 	@FXML
 	ImageView orangePawnImage;	
 	
+	@FXML
+	Label orangePlayersBalance;
+	      
 	private Roller roller;
 	private PawnMover pawnMover;
 	private GameManager gameManager;
@@ -29,9 +39,7 @@ public class NewGameController implements Initializable
 	private double[] orangePawnLocation;
 	private int orangePawnLocationIndex;
 	private double[][] orangePawnLocations;
-	
 
-	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
@@ -89,7 +97,7 @@ public class NewGameController implements Initializable
 	public void rollDice()
 	{
 		int[] dice = new int[2];
-		dice = gameManager.diceRolled();
+		dice = gameManager.rollDice();
 		
 		diceImage1.setImage(new Image("UserInterface/images/dice/dice" + dice[0] + ".png"));
 		diceImage2.setImage(new Image("UserInterface/images/dice/dice" + dice[1] + ".png"));
@@ -110,7 +118,23 @@ public class NewGameController implements Initializable
 		diceImage2.setImage(new Image("UserInterface/images/dice/dice" + top2 + ".png"));
 	}
 	
+	public void updateBalances()
+	{
+		int balance = gameManager.getBalance("orange");
+		orangePlayersBalance.setText("Orange players balance: " + balance);
+	}
 	
+	public void buyProperty()
+	{
+		boolean isBought = gameManager.buyProperty();
+		
+		if(isBought)
+		{
+			updateBalances();
+		}
+	}
+	
+
 	// This function is called when a player clicks the roll dice button.
 	public void rollAnimation()
 	{
