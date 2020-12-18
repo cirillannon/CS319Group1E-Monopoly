@@ -1,24 +1,18 @@
-package sample.subsystems.GameLogic;
+package GameLogic;
 
-public abstract class Tile {
-
+public abstract class Tile 
+{
     private String tileName;
-    private int tileLocation;
 
-    public Tile ( String tName, int tLocation){
-        tileName = tName;
-        tileLocation = tLocation;
+    public Tile(String tileName)
+    {
+        this.tileName = tileName;
     }
 
-    public abstract void onLand(Player p);
+//    public abstract void onLand(Player p);
 
-    public String getTileName(){
+    public String getName()
+    {
         return tileName;
     }
-
-    public int getTileLocation() {
-        return tileLocation;
-    }
-
-
 }

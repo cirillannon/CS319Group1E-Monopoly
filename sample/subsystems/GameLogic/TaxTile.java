@@ -1,12 +1,17 @@
-package sample.subsystems.GameLogic;
+package GameLogic;
 
-public abstract class TaxTile extends Tile {
-    public TaxTile( String tName, int tLocation) {
-            super( tName, tLocation);
+public class TaxTile extends Tile 
+{
+	private int taxAmount;
+	
+    public TaxTile(String tileName, int taxAmount) 
+    {
+    	super(tileName);
+    	this.taxAmount = taxAmount;
     }
-    public abstract void payTax(Player p);
-
-    public void onLand(Player p){
-        payTax(p);
+    
+    public int getTaxAmount()
+    {
+    	return taxAmount;
     }
 }

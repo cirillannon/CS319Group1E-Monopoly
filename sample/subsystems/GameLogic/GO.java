@@ -1,19 +1,17 @@
-package sample.subsystems.GameLogic;
+package GameLogic;
 
 public class GO extends Tile{
 
-    // private static final int salary = 200;
+    private final int SALARY = 200;
 
-    public GO(){
-        super("GO", 1); //GO is unique so I hardcoded the name and location in constructor
+    public GO()
+    {
+        super("GO");
     }
     
-    public static void paySalary( Player p){
-        p.updateBalance(Constants.TileConstants.SALARY);
+    public int getSalaryAmount()
+    {
+    	return SALARY;
     }
-
-    @Override
-    public void onLand(Player p) {
-        paySalary(p);
-    }
+    
 }

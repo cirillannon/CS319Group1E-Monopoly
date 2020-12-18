@@ -1,7 +1,7 @@
-package sample.subsystems.communication;
+package communication;
 
-import sample.subsystems.Controller.*;
-import sample.subsystems.GameLogic.*;
+import Controller.*;
+import GameLogic.*;
 
 import com.google.gson.*;
 // import jdk.crypto.ec.ECDHKeyAgreement; ???????

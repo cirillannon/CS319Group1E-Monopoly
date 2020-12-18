@@ -1,13 +1,19 @@
-package sample.subsystems.communication;
+package communication;
 
-import sample.subsystems.GameLogic.*;
-import sample.subsystems.Controller.*;
+import GameLogic.*;
+import Controller.*;
+import UserInterface.*;
 // import sample.subsystems.UserInterface.Monopoly.src.sample.*;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.BufferedReader;
@@ -134,7 +140,7 @@ public class Client {
                         break;
                     }
                     case 0: { //received player details
-                        // id = Integer.parseInt( res.get( "player_id").getAsString());
+                        id = Integer.parseInt( res.get( "player_id").getAsString());
 
                         JsonObject req = new JsonObject();
                         req.addProperty("op_code", 1);
@@ -142,31 +148,22 @@ public class Client {
                         break;
 
                     } case 1: { //receive players first time
-                        Type stringArraylist = new TypeToken<List<String>>() {}.getType();
-                        ArrayList<String> players = gson.fromJson( res.get("all_players").getAsString(), stringArraylist);
-                        for (int i = 4 - players.size(); i < 4; i++) {
-                            players.add("");
-                        }
-                        gameManager.initGame(players.size(), players.get(0), players.get(1), players.get(2), players.get(3));
-                        System.out.println( "Players updated: " + players.toString());
+                        Type playersListType = new TypeToken<List<Player>>() {}.getType();
+                        ArrayList<Player> players = gson.fromJson( res.get("all_players").getAsString(), playersListType );
 
-                        // initialize pawns, give them to players (or other way around), put them in starting point
-                        ArrayList<Pawn> pawns = new ArrayList<>();
-                        /*
-                        houses.add( engine.getCurrentPlayer().house.name);
-                        for( Player a: engine.players){
-                            if( a != engine.getCurrentPlayer())
-                                houses.add( a.house.name);
-                        }
-                        */
-                        // WaitScreenController.updateHouses( houses);
-                        // NewGameController?
+                        gameManager.initializePlayers(players);
+                        gameManager.getCurrentPlayer().setId(id);
+                        System.out.println( "Players updated: " + players.size());
 
                         acknowledgeRequest();
                         break;
                     } case 2: { //start game
                         System.out.println( "SERVER SAID: START GAME");
-                        // WaitScreenController.showMainScreen();
+                        Parent menuStage = FXMLLoader.load(getClass().getResource("newGame.fxml"));
+                        Scene newGameScene = new Scene(menuStage);
+                        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        window.setScene(newGameScene);
+                        window.show();
                         acknowledgeRequest();
                         break;
                     } case 3: { // update players for when someone leaves. Below stuff not ours

@@ -1,22 +1,32 @@
-package sample.subsystems.GameLogic;
+package GameLogic;
 
-public abstract class Utility extends Property{
+public class Utility extends Property
+{
+	private boolean isBuffed;
+	
+	public Utility(int value, int rent, String tileName) 
+	{
+		super(value, rent, tileName);
+		isBuffed = false;
+	}
 
-    public Utility(int value,int rent, String tName, int tLocation){
-        super(value, rent, tName, tLocation);
-    }
+	public void buff()
+	{
+		if(!isBuffed)
+		{
+			rent = 4 * rent;
+			isBuffed = true;
+		}
+	}
+	
+	public void debuff()
+	{
+		if(isBuffed)
+		{
+			rent = rent / 4;
+			isBuffed = false;
+		}
+	}
 
-    @Override
-    public void payRent(Player landed) {
-        int finalRent;
-        int d = Dice.getDiceTotal();
-        if( this.getOwner().hasBothUtilities())
-            finalRent = d * this.getRent() * 10;
-        else
-            finalRent = d * this.getRent() * 4;
 
-        landed.updateBalance(-finalRent);
-        this.getOwner().updateBalance(finalRent);
-
-    }
 }

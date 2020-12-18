@@ -1,209 +1,99 @@
-package sample.subsystems.GameLogic;
+package GameLogic;
 
 import java.util.ArrayList;
 
 public class Player {
 
+    private int id;
+	private String name;
     private int balance;
-    private int housesOwned;
-    private int hotelsOwned;
     private int location;
-    private boolean bankruptcy;
-    private boolean inJail;
-    private String playerName;
-    private int playerID;
-    private ArrayList<String> monopolyColor;
-    private int numberOfStations;
-    private boolean playerHasTurn;
-    private ArrayList<Integer> cardsOwned;
-    private int numOfJailCards;
-    private boolean bothUtilities;
-    private boolean outOfJailCard;
-    private ArrayList<Property> propertiesOwned;
-    // private Pawn pawn;
+    private boolean hasRentDebt;
+    private boolean isBankrupt;
+    private boolean isInJail;
+    private ArrayList<Card> cards;
+    private ArrayList<Property> properties;   
+    private String color;
 
-    public Player( String name, int ID){
-        balance = Constants.PlayerConstants.STARTING_AMOUNT; // Start balance can be changed
-        location = 1;
-        housesOwned = 0;
-        hotelsOwned = 0;
-        bankruptcy = false;
-        inJail = false;
-        playerName = name;
-        playerID = ID;
-        monopolyColor = new ArrayList<>();
-        numberOfStations = 0;
-        playerHasTurn = false;
-        cardsOwned = new ArrayList<>();
-        propertiesOwned = new ArrayList<>();
-        bothUtilities = false;
-        numOfJailCards = 0;
-        outOfJailCard = false;
-        // this.pawn = pawn;
+    public Player( String name, String color)
+    {
+    	this.name = name;
+        balance = 1500; 
+        location = 0;
+        isBankrupt = false;
+        isInJail = false;
+        cards = new ArrayList<>();
+        properties = new ArrayList<>();
+        this.color = color;
+        hasRentDebt = false;
+        id = -1;
     }
 
-    public int getBalance(){
-        return this.balance;
+    public int getId() {
+        return id;
     }
 
-    public void updateBalance(int changeBalance){
-        this.balance += changeBalance;
-
-        if(this.balance < 0)
-            this.balance = 0;
-            this.setBankruptcy(true);
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public int getLocation(){
-        return this.location;
+    public String getName()
+    {
+    	return name;
+    }
+   
+    public String getColor()
+    {
+    	return color;
+    }
+    
+    public int getBalance()
+    {
+        return balance;
+    }
+    
+    public void addProperty(Property property)
+    {
+    	properties.add(property);
+    }
+    
+    public void decrementBalance(int amount)
+    {
+    	balance = balance - amount;
+    }
+    
+    public void incrementBalance(int amount)
+    {
+    	balance = balance + amount;
     }
 
-    public void setLocation( int loc){
-        this.location = loc;
+    public void move(int movementAmount)
+    {
+        location = (location + movementAmount) % Constants.TileConstants.TILE_COUNT;
+    }
+    
+    public int getLocation()
+    {
+        return location;
     }
 
-    public boolean getBankruptcy(){
-        return this.bankruptcy;
+    public boolean isBankrupt()
+    {
+        return isBankrupt;
     }
 
-    public void setBankruptcy( boolean b){
-        this.bankruptcy = b;
+    public boolean isInJail()
+    {
+        return this.isInJail;
     }
-
-    public boolean getInJail(){
-        return this.inJail;
+    
+    public void setHasRentDebt(boolean hasRentDebt)
+    {
+    	this.hasRentDebt = hasRentDebt;
     }
-
-    public void setInJail( boolean b){
-        this.inJail = b;
-    }
-
-    public void setBothUtilities( boolean b){
-        this.bothUtilities = b;
-    }
-
-    public boolean hasBothUtilities(){
-        return bothUtilities;
-    }
-
-    public void move(int diceTotal){
-        this.location = (this.location + diceTotal)%40;
-    }
-
-    public String getPlayerName(){
-        return this.playerName;
-    }
-
-    public void setPlayerName(String s){
-        this.playerName = s;
-    }
-
-    public boolean isTurnOver(){
-        return !(this.playerHasTurn);
-    }
-
-    public boolean hasTurn(){
-        return this.playerHasTurn;
-    }
-
-    public void setPlayerHasTurn(boolean b){
-        playerHasTurn = b;
-    }
-
-    public boolean isInJail(){
-        return this.inJail;
-    }
-
-    public boolean hasOutOfJailFreeCard(){
-        return this.outOfJailCard;
-    }
-
-    public void setOutOfJailCard(boolean b){
-        this.outOfJailCard = b;
-    }
-
-    public boolean hasMonopoly(){
-        return !(this.monopolyColor.isEmpty());
-    }
-
-    public void addMonopoly( String color){
-        this.monopolyColor.add(color);
-    }
-
-    public void removeMonopoly( String color){
-        this.monopolyColor.remove(color);
-    }
-
-    public int getNumberOfStations(){
-        return this.numberOfStations;
-    }
-
-    public void setNumberOfStations(int i){
-        this.numberOfStations = i;
-    }
-
-    public void addCard( int cardID){
-        this.cardsOwned.add(cardID);
-    }
-
-    public void removeCard( int cardID){
-        this.cardsOwned.remove(cardID);
-    }
-
-    public void addProperty( Property p){
-        this.propertiesOwned.add(p);
-    }
-
-    public void addJailCard(){
-        this.outOfJailCard = true;
-        this.numOfJailCards++;
-    }
-
-    public void removeJailCard(){
-        if (outOfJailCard){
-            this.numOfJailCards--;
-            if (numOfJailCards == 0)
-                this.outOfJailCard = false;
-        }
-    }
-
-    public int getNumOfJailCards(){
-        return numOfJailCards;
-    }
-
-    public void addHouse(){
-        this.housesOwned++;
-    }
-
-    public void addHotels(){
-        this.hotelsOwned++;
-    }
-
-    public void removeHouse(){
-        if(this.housesOwned != 0){
-            housesOwned--;
-        }
-    }
-
-    public void removeHotels(){
-        if(this.hotelsOwned != 0){
-            hotelsOwned--;
-        }
-    }
-
-    public int getHousesOwned(){
-        return this.housesOwned;
-    }
-
-    public int getHotelsOwned(){
-        return this.hotelsOwned;
-    }
-
-    public int getPlayerID(){
-        return this.playerID;
-    }
-
-
-
-
+    
+    public boolean hasRentDebt()
+    {
+    	return hasRentDebt;
+    }    
 }

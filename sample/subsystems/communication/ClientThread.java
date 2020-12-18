@@ -1,6 +1,5 @@
-package sample.subsystems.communication;
+package communication;
 
-import sample.subsystems.GameLogic.*;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 
@@ -13,7 +12,7 @@ import java.net.Socket;
 
 public class ClientThread implements Runnable {
 
-    public Host host;
+    public Server server;
 
     public Socket socket;
     public BufferedReader in;
@@ -28,13 +27,13 @@ public class ClientThread implements Runnable {
     private volatile boolean isRunning = true;
 
 
-    public ClientThread( int id, Socket socket, Host host) {
+    public ClientThread( int id, Socket socket, Server server) {
         try {
             gson = new Gson();
 
             this.id = id;
             this.socket = socket;
-            this.host = host;
+            this.server = server;
 
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             out = new PrintWriter(socket.getOutputStream(), true);
@@ -63,7 +62,7 @@ public class ClientThread implements Runnable {
                     input = in.readLine();
                     JsonObject ob =  gson.fromJson( input, JsonObject.class);
 //                    System.out.println("data received on server: " + input);
-                    host.receiveRequest( id, ob);
+                    server.receiveRequest( id, ob);
                 }
             }
 
