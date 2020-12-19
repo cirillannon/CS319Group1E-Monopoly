@@ -4,21 +4,23 @@ import java.util.ArrayList;
 
 public class Player {
 
-	private String name;
+    private String name;
     private int balance;
     private int location;
     private boolean hasRentDebt;
     private boolean isBankrupt;
     private boolean isInJail;
     private ArrayList<Card> cards;
-    private ArrayList<Property> properties;   
+    private ArrayList<Property> properties;
     private String color;
     private boolean hasRolledDice;
+    private int turnsSpentInJail;
+    private int countOfGetOutOfJailCards;
 
     public Player( String name, String color)
     {
-    	this.name = name;
-        balance = 1500; 
+        this.name = name;
+        balance = 1500;
         location = 0;
         isBankrupt = false;
         isInJail = false;
@@ -27,102 +29,117 @@ public class Player {
         this.color = color;
         hasRentDebt = false;
         hasRolledDice = false;
+        countOfGetOutOfJailCards = 0;
+        turnsSpentInJail = 0;
     }
-    
-    public Property getProperty(int index)
+
+    public void incrementTurnsSpentInJail()
     {
-    	return properties.get(index);
+        turnsSpentInJail++;
     }
-    
-    public int getPropertyCount()
+
+    public void addGetOutOfJailCard()
     {
-        int propertyCount = 0;    	
-        
-        for(int i = 0; i < properties.size(); i++)
-        {
-        	propertyCount++;
-        }
-        
-        return propertyCount;
+        countOfGetOutOfJailCards++;
     }
-    
+
+    public boolean hasGetOutOfJailCard()
+    {
+        return countOfGetOutOfJailCards > 0;
+    }
+
+    public void takeGetOutOfJailCard()
+    {
+        countOfGetOutOfJailCards--;
+    }
     public void changeBalance(int change)
     {
-    	balance = balance + change;
+        balance = balance + change;
     }
-    
+
     public ArrayList<Property> getProperties(){return properties;}
-    
+
     public int getHouseCount()
     {
-    	int houseCount = 0;
-    	
-    	for(int i = 0; i < properties.size(); i++)
-    	{
-    		if(properties.get(i) instanceof ColoredProperty)
-    		{
-    			houseCount = houseCount + ((ColoredProperty) properties.get(i)).getNumberOfHouses();
-    		}
-    	}
-    	
-    	return houseCount;
+        int houseCount = 0;
+
+        for(int i = 0; i < properties.size(); i++)
+        {
+            if(properties.get(i) instanceof ColoredProperty)
+            {
+                houseCount = houseCount + ((ColoredProperty) properties.get(i)).getNumberOfHouses();
+            }
+        }
+
+        return houseCount;
     }
-    
+
     public int getHotelCount()
     {
-    	int hotelCount = 0;
-    	
-    	for(int i = 0; i < properties.size(); i++)
-    	{
-    		if(properties.get(i) instanceof ColoredProperty)
-    		{
-    			hotelCount = hotelCount + ((ColoredProperty) properties.get(i)).getNumberOfHotels();
-    		}
-    	}
-    	
-    	return hotelCount;
+        int hotelCount = 0;
+
+        for(int i = 0; i < properties.size(); i++)
+        {
+            if(properties.get(i) instanceof ColoredProperty)
+            {
+                hotelCount = hotelCount + ((ColoredProperty) properties.get(i)).getNumberOfHotels();
+            }
+        }
+
+        return hotelCount;
     }
-    
+
+    public boolean hasProperty(String name)
+    {
+        for(int i = 0; i < properties.size(); i++)
+        {
+            if(properties.get(i) instanceof ColoredProperty)
+            {
+                if(properties.get(i).getName().equals(name) && properties.get(i).isMortgaged() == false)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+
     public String getName()
     {
-    	return name;
+        return name;
     }
-   
+
     public String getColor()
     {
-    	return color;
+        return color;
     }
-    
+
     public int getBalance()
     {
         return balance;
     }
-    
+
     public void addProperty(Property property)
     {
-    	properties.add(property);
+        properties.add(property);
     }
 
-    public void removeProperty(Property property)
-    {
-        properties.remove(property);
-    }
-    
     public void decrementBalance(int amount)
     {
-    	balance = balance - amount;
+        balance = balance - amount;
     }
-    
+
     public void incrementBalance(int amount)
     {
-    	balance = balance + amount;
+        balance = balance + amount;
     }
 
     public void move(int movementAmount)
     {
         location = (location + movementAmount) % Constants.TileConstants.TILE_COUNT;
     }
-    
+
     public int getLocation()
     {
         return location;
@@ -137,40 +154,39 @@ public class Player {
     {
         return this.isInJail;
     }
-    
+
     public void setHasRentDebt(boolean hasRentDebt)
     {
-    	this.hasRentDebt = hasRentDebt;
+        this.hasRentDebt = hasRentDebt;
     }
-    
+
     public boolean hasRentDebt()
     {
-    	return hasRentDebt;
-    }   
+        return hasRentDebt;
+    }
 
     public void setHasRolledDice(boolean hasRolledDice)
     {
-    	this.hasRolledDice = hasRolledDice;
+        this.hasRolledDice = hasRolledDice;
     }
-    
+
     public boolean hasRolledDice()
     {
-    	return hasRolledDice;
+        return hasRolledDice;
     }
 
+    public void setLocation(int location)
+    {
+        this.location = location;
 
-	public void setLocation(int location) 
-	{
-		this.location = location;
-		
-	}  
-	
-	public void setIsInJail(boolean isInJail)
-	{
-		this.isInJail = isInJail;
-	}
-	
-	//method that checks if the player has a monopoly on a specific color block
+    }
+
+    public void setIsInJail(boolean isInJail)
+    {
+        this.isInJail = isInJail;
+    }
+
+    //method that checks if the player has a monopoly on a specific color block
     public boolean hasMonopoly(String color)
     {
         int count = 0;
@@ -200,5 +216,21 @@ public class Player {
         {
             return false;
         }
+    }
+
+    public Property getProperty(int index)
+    {
+        return properties.get(index);
+    }
+    public int getPropertyCount()
+    {
+        int propertyCount = 0;
+
+        for(int i = 0; i < properties.size(); i++)
+        {
+            propertyCount++;
+        }
+
+        return propertyCount;
     }
 }

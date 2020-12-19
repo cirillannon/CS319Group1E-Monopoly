@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.paint.*?>
-<?import java.lang.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -22,7 +14,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserInterface.NewGameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UserInterface.NewGameController">
     <children>
         <ImageView fitHeight="900.0" fitWidth="900.0" layoutX="14.0" layoutY="6.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
             <image>
@@ -123,7 +115,7 @@
                         <Font name="Arial Black" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="payRentButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="386.0" layoutY="520.0" mnemonicParsing="false" onAction="#payRent" prefHeight="33.0" prefWidth="96.0" style="-fx-background-color: #2F4F4F;" text="Pay Rent" textFill="WHITE">
+                <Button fx:id="payRentButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="386.0" layoutY="520.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="96.0" style="-fx-background-color: #2F4F4F;" text="Pay Rent" textFill="WHITE">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -161,7 +153,7 @@
                 <ImageView fx:id="parkView" fitHeight="56.0" fitWidth="57.0" layoutX="824.0" layoutY="580.0" pickOnBounds="true" preserveRatio="true" />
                 <ImageView fx:id="boardView" fitHeight="56.0" fitWidth="57.0" layoutX="828.0" layoutY="727.0" pickOnBounds="true" preserveRatio="true" />
                 <ImageView fx:id="illView" fitHeight="56.0" fitWidth="57.0" layoutX="339.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" />
-                <Pane fx:id="buildHousePane" layoutX="130.0" layoutY="125.0" prefHeight="178.0" prefWidth="662.0" />
+                <Pane fx:id="buildHousePane" layoutX="112.0" layoutY="202.0" prefHeight="178.0" prefWidth="662.0" />
                 <Pane fx:id="medPane" layoutX="721.0" layoutY="796.0" onMouseClicked="#medPaneClicked" prefHeight="106.0" prefWidth="82.0" />
                 <Pane fx:id="statesPane" layoutX="4.0" layoutY="564.0" onMouseClicked="#statesPaneClicked" prefHeight="82.0" prefWidth="88.0" />
                 <Pane fx:id="connPane" layoutX="85.0" layoutY="801.0" onMouseClicked="#connPaneClicked" prefHeight="100.0" prefWidth="82.0" />
@@ -174,7 +166,7 @@
                 <Pane fx:id="atlanticPane" layoutX="483.0" onMouseClicked="#atlanticPaneClicked" prefHeight="92.0" prefWidth="82.0" />
                 <Pane fx:id="ventPane" layoutX="564.0" layoutY="3.0" onMouseClicked="#ventnorPaneClicked" prefHeight="80.0" prefWidth="73.0" />
                 <Pane fx:id="marvinPane" layoutX="719.0" layoutY="5.0" onMouseClicked="#marvinPaneClicked" prefHeight="90.0" prefWidth="82.0" />
-                <Pane fx:id="medPane15" layoutX="795.0" layoutY="170.0" onMouseClicked="#carolinaPaneClicked" prefHeight="77.0" prefWidth="105.0" />
+                <Pane fx:id="carolinaPane" layoutX="795.0" layoutY="170.0" onMouseClicked="#carolinaPaneClicked" prefHeight="77.0" prefWidth="105.0" />
                 <Pane fx:id="pennPane" layoutX="796.0" layoutY="329.0" onMouseClicked="#pennPaneClicked" prefHeight="78.0" prefWidth="110.0" />
                 <Pane fx:id="parkPane" layoutX="804.0" layoutY="562.0" onMouseClicked="#parkPaneClicked" prefHeight="76.0" prefWidth="90.0" />
                 <Pane fx:id="boardPane" layoutX="812.0" layoutY="727.0" onMouseClicked="#boardPaneClicked" prefHeight="61.0" prefWidth="82.0" />
@@ -189,16 +181,37 @@
                         <Font name="Calibri Light" size="43.0" />
                     </font>
                 </Label>
-            <ImageView fx:id="yellowPawnImage" fitHeight="26.0" fitWidth="19.0" layoutX="810.0" layoutY="815.0">
-               <image>
-                  <Image url="@images/pawns/yellowPawn.png" />
-               </image>
-            </ImageView>
+                <ImageView fx:id="yellowPawnImage" fitHeight="26.0" fitWidth="19.0" layoutX="810.0" layoutY="815.0">
+                    <image>
+                        <Image url="@images/pawns/yellowPawn.png" />
+                    </image>
+                </ImageView>
+                <Label fx:id="orangePlayersBalance" layoutX="101.0" layoutY="625.0" prefHeight="43.0" prefWidth="662.0" />
+                <Label fx:id="yellowPlayersBalance" layoutX="122.0" layoutY="679.0" prefHeight="36.0" prefWidth="643.0" />
+            <Pane fx:id="boRailPane" layoutX="409.0" layoutY="2.0" onMouseClicked="#boRailPaneClicked" prefHeight="92.0" prefWidth="73.0" />
+            <Pane fx:id="pennRailPane" layoutY="407.0" onMouseClicked="#pennRailPaneClicked" prefHeight="77.0" prefWidth="90.0" />
+            <Pane fx:id="readRailPane" layoutX="404.0" layoutY="802.0" onMouseClicked="#readingRalePaneClicked" prefHeight="92.0" prefWidth="82.0" />
+            <Pane fx:id="shortRailPane" layoutX="796.0" layoutY="405.0" onMouseClicked="#shortRailPaneClicked" prefHeight="78.0" prefWidth="105.0" />
+            <Pane fx:id="electricPane" layoutX="2.0" layoutY="640.0" onMouseClicked="#electricPaneClicked" prefHeight="78.0" prefWidth="86.0" />
+            <Pane fx:id="waterPane" layoutX="642.0" layoutY="-2.0" onMouseClicked="#waterPaneClicked" prefHeight="90.0" prefWidth="82.0" />
             </children>
         </Pane>
-        <Pane layoutX="900.0" prefHeight="900.0" prefWidth="702.0">
+        <Pane layoutX="900.0" layoutY="6.0" prefHeight="908.0" prefWidth="702.0">
             <children>
-                <Button layoutX="604.0" layoutY="14.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="Help">
+                <ImageView fitHeight="373.0" fitWidth="702.0" layoutY="-7.0">
+                    <image>
+                        <Image url="@images/scoreboard.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="496.0" layoutY="3.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="Settings">
+                    <effect>
+                        <ImageInput>
+                            <source>
+                                <Image url="@images/volume.png" />
+                            </source>
+                        </ImageInput>
+                    </effect></Button>
+                <Button layoutX="598.0" layoutY="3.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="Help">
                     <effect>
                         <ImageInput>
                             <source>
@@ -206,103 +219,107 @@
                             </source>
                         </ImageInput>
                     </effect></Button>
-                <Button layoutX="492.0" layoutY="15.0" mnemonicParsing="false" prefHeight="90.0" prefWidth="90.0" text="Settings">
+                <ImageView fitHeight="434.0" fitWidth="702.0" layoutX="-2.0" layoutY="460.0">
+                    <image>
+                        <Image url="@images/chat.png" />
+                    </image>
+                </ImageView>
+                <Button fx:id="rollDiceButton21" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="621.0" layoutY="852.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="67.0" style="-fx-background-color: #2F4F4F;" text="Send" textFill="WHITE">
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
                     <effect>
-                        <ImageInput>
-                            <source>
-                                <Image url="@images/volume.png" />
-                            </source>
-                        </ImageInput>
+                        <ColorAdjust brightness="-0.05">
+                            <input>
+                                <Reflection bottomOpacity="0.26" fraction="0.0" topOffset="0.1" topOpacity="0.14" />
+                            </input>
+                        </ColorAdjust>
                     </effect>
-            </Button>
-            <ImageView>
-               <image>
-                  <Image url="@images/informationBackground.png" />
-               </image>
-            </ImageView>
-                <Label fx:id="orangePlayersBalance" layoutX="14.0" layoutY="96.0" prefHeight="56.0" prefWidth="286.0" textFill="#da412c">
-               <font>
-                  <Font name="Arial Black" size="35.0" />
-               </font></Label>
-            <Label fx:id="yellowPlayersBalance" layoutX="14.0" layoutY="152.0" prefHeight="53.0" prefWidth="275.0" textFill="#f8ea53">
-               <font>
-                  <Font name="Arial Black" size="35.0" />
-               </font></Label>
-                  <Button fx:id="rollDiceButton5" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="24.0" layoutY="400.0" mnemonicParsing="false" onAction="#mortgageProperty" prefHeight="43.0" prefWidth="133.0" style="-fx-background-color: #2F4F4F;" text="Mortgage" textFill="WHITE">
-                      <cursor>
-                          <Cursor fx:constant="HAND" />
-                      </cursor>
-                      <effect>
-                          <ColorAdjust brightness="-0.05">
-                              <input>
-                                  <Reflection bottomOpacity="0.26" fraction="0.0" topOffset="0.1" topOpacity="0.14" />
-                              </input>
-                          </ColorAdjust>
-                      </effect>
-                      <font>
-                          <Font name="Arial Black" size="20.0" />
-                      </font>
-                  </Button>
-                  <Button fx:id="rollDiceButton6" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="175.0" layoutY="400.0" mnemonicParsing="false" onAction="#unMortageProperty" prefHeight="43.0" prefWidth="164.0" style="-fx-background-color: #2F4F4F;" text="Unmortgage" textFill="WHITE">
-                      <cursor>
-                          <Cursor fx:constant="HAND" />
-                      </cursor>
-                      <effect>
-                          <ColorAdjust brightness="-0.05">
-                              <input>
-                                  <Reflection bottomOpacity="0.26" fraction="0.0" topOffset="0.1" topOpacity="0.14" />
-                              </input>
-                          </ColorAdjust>
-                      </effect>
-                      <font>
-                          <Font name="Arial Black" size="20.0" />
-                      </font>
-                  </Button>
-                  <Button fx:id="buildButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="359.0" layoutY="400.0" mnemonicParsing="false" onAction="#buildHouse" onMouseClicked="#buildHouse" prefHeight="30.0" prefWidth="91.0" style="-fx-background-color: #2F4F4F;" text="Build" textFill="WHITE">
-                      <cursor>
-                          <Cursor fx:constant="HAND" />
-                      </cursor>
-                      <effect>
-                          <ColorAdjust brightness="-0.05">
-                              <input>
-                                  <Reflection bottomOpacity="0.26" fraction="0.0" topOffset="0.1" topOpacity="0.14" />
-                              </input>
-                          </ColorAdjust>
-                      </effect>
-                      <font>
-                          <Font name="Arial Black" size="20.0" />
-                      </font>
-                  </Button>
-                  <Button fx:id="rollDiceButton4" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="473.0" layoutY="400.0" mnemonicParsing="false" onAction="#sellProperty" prefHeight="43.0" prefWidth="86.0" style="-fx-background-color: #2F4F4F;" text="Sell" textFill="WHITE">
-                      <cursor>
-                          <Cursor fx:constant="HAND" />
-                      </cursor>
-                      <effect>
-                          <ColorAdjust brightness="-0.05">
-                              <input>
-                                  <Reflection bottomOpacity="0.26" fraction="0.0" topOffset="0.1" topOpacity="0.14" />
-                              </input>
-                          </ColorAdjust>
-                      </effect>
-                      <font>
-                          <Font name="Arial Black" size="20.0" />
-                      </font>
-                  </Button>
-                  <Button fx:id="rollDiceButton7" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="579.0" layoutY="400.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #2F4F4F;" text="Trade" textFill="WHITE">
-                      <cursor>
-                          <Cursor fx:constant="HAND" />
-                      </cursor>
-                      <effect>
-                          <ColorAdjust brightness="-0.05">
-                              <input>
-                                  <Reflection bottomOpacity="0.26" fraction="0.0" topOffset="0.1" topOpacity="0.14" />
-                              </input>
-                          </ColorAdjust>
-                      </effect>
-                      <font>
-                          <Font name="Arial Black" size="20.0" />
-                      </font>
-                  </Button>
+                    <font>
+                        <Font name="Arial Black" size="16.0" />
+                    </font>
+                </Button>
+                <TextArea layoutX="14.0" layoutY="542.0" prefHeight="294.0" prefWidth="629.0" />
+                <HBox layoutX="44.0" layoutY="624.0" prefHeight="64.0" prefWidth="653.0" />
+                <Pane layoutY="366.0" prefHeight="122.0" prefWidth="702.0">
+                    <children>
+                        <Button fx:id="buildButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="23.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#buildHouse" prefHeight="30.0" prefWidth="91.0" style="-fx-background-color: #2F4F4F;" text="Build" textFill="WHITE">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <effect>
+                                <ColorAdjust brightness="-0.05">
+                                    <input>
+                                        <Reflection bottomOpacity="0.26" fraction="0.0" topOffset="0.1" topOpacity="0.14" />
+                                    </input>
+                                </ColorAdjust>
+                            </effect>
+                            <font>
+                                <Font name="Arial Black" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="sellButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="148.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#sellButtonClicked" prefHeight="43.0" prefWidth="86.0" style="-fx-background-color: #2F4F4F;" text="Sell" textFill="WHITE">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <effect>
+                                <ColorAdjust brightness="-0.05">
+                                    <input>
+                                        <Reflection bottomOpacity="0.26" fraction="0.0" topOffset="0.1" topOpacity="0.14" />
+                                    </input>
+                                </ColorAdjust>
+                            </effect>
+                            <font>
+                                <Font name="Arial Black" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="mortgageButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="260.0" layoutY="26.0" mnemonicParsing="false" onMouseClicked="#mortgageBtnClicked" prefHeight="43.0" prefWidth="133.0" style="-fx-background-color: #2F4F4F;" text="Mortgage" textFill="WHITE">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <effect>
+                                <ColorAdjust brightness="-0.05">
+                                    <input>
+                                        <Reflection bottomOpacity="0.26" fraction="0.0" topOffset="0.1" topOpacity="0.14" />
+                                    </input>
+                                </ColorAdjust>
+                            </effect>
+                            <font>
+                                <Font name="Arial Black" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="unmortgageButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="411.0" layoutY="26.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="164.0" style="-fx-background-color: #2F4F4F;" text="Unmortgage" textFill="WHITE">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <effect>
+                                <ColorAdjust brightness="-0.05">
+                                    <input>
+                                        <Reflection bottomOpacity="0.26" fraction="0.0" topOffset="0.1" topOpacity="0.14" />
+                                    </input>
+                                </ColorAdjust>
+                            </effect>
+                            <font>
+                                <Font name="Arial Black" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="tradeButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="592.0" layoutY="26.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="96.0" style="-fx-background-color: #2F4F4F;" text="Trade" textFill="WHITE">
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                            <effect>
+                                <ColorAdjust brightness="-0.05">
+                                    <input>
+                                        <Reflection bottomOpacity="0.26" fraction="0.0" topOffset="0.1" topOpacity="0.14" />
+                                    </input>
+                                </ColorAdjust>
+                            </effect>
+                            <font>
+                                <Font name="Arial Black" size="20.0" />
+                            </font>
+                        </Button>
+                    </children>
+                </Pane>
             </children></Pane>
     </children>
 </AnchorPane>

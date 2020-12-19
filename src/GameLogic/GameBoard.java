@@ -3,31 +3,31 @@ package GameLogic;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class GameBoard 
+public class GameBoard
 {
     private ArrayList<Card> chanceCards;
     private ArrayList<Card> communityChestCards;
     private ArrayList<Tile> tiles;
     private Dice dice;
-    
+
     public GameBoard()
     {
-    	initializeChanceCards();
-    	initializeCommunityChestCards();
-    	initializeTiles();   	
-    	dice = new Dice();
-    	
+        initializeChanceCards();
+        initializeCommunityChestCards();
+        initializeTiles();
+        dice = new Dice();
+
     }
-    
+
     private void initializeTiles()
     {
-    	tiles = new ArrayList<Tile>();
-    	tiles.add(new GO());
-    	tiles.add(new ColoredProperty(60, 2, "Mediterranean Avenue", "brown", 50, 250));
-    	tiles.add(new CommunityChestCardTile());
-    	tiles.add(new ColoredProperty(60, 4, "Baltic Avenue", "brown", 50, 250));
-    	tiles.add(new TaxTile("Income Tax", 200));
-    	tiles.add(new Railroad(200, 25, "Reading Railboard"));
+        tiles = new ArrayList<Tile>();
+        tiles.add(new GO());
+        tiles.add(new ColoredProperty(60, 2, "Mediterranean Avenue", "brown", 50, 250));
+        tiles.add(new CommunityChestCardTile());
+        tiles.add(new ColoredProperty(60, 4, "Baltic Avenue", "brown", 50, 250));
+        tiles.add(new TaxTile("Income Tax", 200));
+        tiles.add(new Railroad(200, 25, "Reading Railboard"));
         tiles.add(new ColoredProperty(100, 6, "Oriental Avenue", "light blue", 50, 250));
         tiles.add(new ChanceCardTile());
         tiles.add(new ColoredProperty(100, 6, "Vermont Avenue", "light blue", 50, 250));
@@ -54,7 +54,7 @@ public class GameBoard
         tiles.add(new ColoredProperty(280, 22, "Marven Gardens", "yellow", 150, 750));
         tiles.add(new GoToJail("Go To Jail"));
         tiles.add(new ColoredProperty(300, 26, "Pacific Avenue", "green", 150, 750));
-        tiles.add(new ColoredProperty(300, 26, "Nort Carolina Avenue", "green", 150, 750));
+        tiles.add(new ColoredProperty(300, 26, "North Carolina Avenue", "green", 150, 750));
         tiles.add(new CommunityChestCardTile());
         tiles.add(new ColoredProperty(320, 28, "Pennysylvania Avenue", "green", 150, 750));
         tiles.add(new Railroad(200, 25, "Short Line"));
@@ -63,28 +63,28 @@ public class GameBoard
         tiles.add(new TaxTile("Luxury Tax", 100));
         tiles.add(new ColoredProperty(400, 50, "Board Walk", "dark blue", 200, 1000));
     }
-    
+
     public ChanceCard drawChanceCard()
     {
-    	ChanceCard drawnCard = (ChanceCard) chanceCards.get(0);
-    	chanceCards.remove(0);
-    	chanceCards.add(drawnCard);
-    	return drawnCard;
+        ChanceCard drawnCard = (ChanceCard) chanceCards.get(0);
+        chanceCards.remove(0);
+        chanceCards.add(drawnCard);
+        return drawnCard;
     }
-    
+
     public CommunityChestCard drawCommunityChestCard()
     {
-    	CommunityChestCard drawnCard = (CommunityChestCard) communityChestCards.get(0);
-    	communityChestCards.remove(0);
-    	communityChestCards.add(drawnCard);
-    	return drawnCard;    	
+        CommunityChestCard drawnCard = (CommunityChestCard) communityChestCards.get(0);
+        communityChestCards.remove(0);
+        communityChestCards.add(drawnCard);
+        return drawnCard;
     }
-    
+
     private void initializeChanceCards()
     {
-    	chanceCards = new ArrayList<Card>();
-    	
-    	chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[0], new ChangeLocation(0, true)));
+        chanceCards = new ArrayList<Card>();
+
+        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[0], new ChangeLocation(0, true)));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[1], new ChangeLocation(24, true)));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[2], new ChangeLocation(11, true)));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[3], new ChangeLocation(-1, true)));
@@ -93,13 +93,13 @@ public class GameBoard
 
 //    	// Get out of jail card
 //      // chanceCards.add(null);
-        
+
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[7], new ChangeLocation(-1, true)));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[8], new ChangeLocation(10,false)));
-    	chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[9], new ChangeBalance(-1)));    	
-    	chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[10], new ChangeBalance(-15)));
-        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[11], new ChangeLocation(5, true)));   
-            
+        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[9], new ChangeBalance(-1)));
+        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[10], new ChangeBalance(-15)));
+        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[11], new ChangeLocation(5, true)));
+
 
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[12], new ChangeLocation(39,false)));
 
@@ -107,16 +107,16 @@ public class GameBoard
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[14], new ChangeBalance(150)));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[15], new ChangeBalance(100)));
 
-        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[15], new ChangePropertyRent(true,25,null)));
-        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[16], new ChangePropertyRent(true,50,null)));
-        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[17], new ChangePropertyRent(false,-25,null)));
-        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[18], new ChangePropertyRent(false,-50,null)));
+//        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[15], new ChangePropertyRent(true,25,null)));
+//        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[16], new ChangePropertyRent(true,50,null)));
+//        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[17], new ChangePropertyRent(false,-25,null)));
+//        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[18], new ChangePropertyRent(false,-25,null)));
     }
 
     private void initializeCommunityChestCards()
     {
         communityChestCards = new ArrayList<Card>();
-   
+
         communityChestCards.add(new CommunityChestCard(Constants.CardConstants.COMMUNITY_CHEST_CARD_CONSTANTS[0], new ChangeLocation(0,true)));
         communityChestCards.add(new CommunityChestCard(Constants.CardConstants.COMMUNITY_CHEST_CARD_CONSTANTS[1], new ChangeBalance(200)));
         communityChestCards.add(new CommunityChestCard(Constants.CardConstants.COMMUNITY_CHEST_CARD_CONSTANTS[2], new ChangeBalance(-50)));
@@ -136,29 +136,30 @@ public class GameBoard
         communityChestCards.add(new CommunityChestCard(Constants.CardConstants.COMMUNITY_CHEST_CARD_CONSTANTS[15], new ChangeBalance(10)));
         communityChestCards.add(new CommunityChestCard(Constants.CardConstants.COMMUNITY_CHEST_CARD_CONSTANTS[16], new ChangeBalance(100)));
     }
-    
+
     public void rollDice()
     {
-    	dice.rollDice();
+        dice.rollDice();
     }
-    
+
     public int getDice1()
     {
-    	return dice.getDice1();
+        return dice.getDice1();
     }
-   
+
     public int getDice2()
     {
-    	return dice.getDice2();
+        return dice.getDice2();
     }
-    
+
     public int getDiceSum()
     {
-    	return dice.getDiceSum();
+        return dice.getDiceSum();
     }
-    
+
     public Tile getTile(int index)
     {
-		return tiles.get(index);	
+        return tiles.get(index);
     }
+
 }

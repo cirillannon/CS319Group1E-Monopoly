@@ -20,6 +20,7 @@ public class Constants
     {
         public static final int STARTING_AMOUNT = 1500;
         public static final int SALARY = 200;
+        public static final int JAIL_BAIL = 50;
     }
     
     public static class CardConstants 
@@ -29,9 +30,9 @@ public class Constants
                 "Advance to Illinois Ave — If you pass Go, collect $200",
                 "Advance to St. Charles Place – If you pass Go, collect $200",
                 "Advance token to nearest Utility. If unowned, you may buy it from the Bank. " +
-                        "If owned, throw dice and pay the owner a total ten times the amount thrown.",
+                "If owned, throw dice and pay the owner a total ten times the amount thrown.",
                 "Advance token to the nearest Railroad and pay the owner twice the rental to which he/she {he} is otherwise entitled." +
-                        " If Railroad is unowned, you may buy it from the Bank.",
+                " If Railroad is unowned, you may buy it from the Bank.",
                 "Bank pays you dividend of $50",
                 "Get Out of Jail Free",
                 "Go Back 3 Spaces",
