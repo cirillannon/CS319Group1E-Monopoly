@@ -1,6 +1,8 @@
 package communication;
 
+import Controller.GameManager;
 import GameLogic.*;
+import UserInterface.Monopoly;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
@@ -20,6 +22,7 @@ public class Server {
 
     public ArrayList<ClientThread> clients;
     public ServerSocket serverSocket;
+    // taking players in
     public boolean isReceiving = true;
     public String serverIP="";
 
@@ -43,7 +46,7 @@ public class Server {
 
 
     public void startServer() {
-        String port = constants.PORT_NO;
+        String port = Constants.CommunicationConstants.PORT_NO;
         try {
 
             int portNo = Integer.valueOf(port);
@@ -60,10 +63,9 @@ public class Server {
 
             while (isReceiving ) {
                 Socket socket = serverSocket.accept();
-                if( clients.size() < 7) {
+                // don't start until 4 players??
+                if( clients.size() < 4) {
                     clients.add(new ClientThread(clients.size(), socket, this));
-
-                    serverManager.initHouse();
 
                 }
                 else {
@@ -85,8 +87,8 @@ public class Server {
 
     public void addCurrentClient( String ip) {
         (new Thread(() -> {
-            Main.gameEngine.client = new GameClient( ip, Main.gameEngine);
-            Main.gameEngine.client.startClient();
+            Monopoly.gameManager.client = new Client( ip, Monopoly.gameManager);
+            Monopoly.gameManager.client.startClient();
         })).start();
 
 //        addSampleClients( ip);
@@ -94,11 +96,11 @@ public class Server {
 
     public void addSampleClients( String ip){
         (new Thread(() -> {
-            GameClient client = new GameClient( ip, new GameEngine());
+            Client client = new Client( ip, new GameManager());
             client.startClient();
         })).start();
         (new Thread(() -> {
-            GameClient client = new GameClient( ip, new GameEngine());
+            Client client = new Client( ip, new GameManager());
             client.startClient();
         })).start();
     }
@@ -153,37 +155,35 @@ public class Server {
                 sendRequest( id, outOb);
                 break;
             }
-            case 1: { //update players on all clients during wait
-                serverManager.sendHouseJoined();
+            case 1: { //update players on all clients during wait ??
+                // serverManager.sendHouseJoined();
                 break;
             } case 2: { //card selected
-                serverManager.cardsSelectedCount++;
-                Player player = playerGson.fromJson( request.get("player").getAsString(), Player.class );
-                serverManager.updatePlayer( player, id);
-                if( serverManager.cardsSelectedCount >= (clients.size())) {
-                    System.out.println("Play next turn");
-                    serverManager.playTurn();
-                }
+//                serverManager.cardsSelectedCount++;
+//                Player player = playerGson.fromJson( request.get("player").getAsString(), Player.class );
+//                serverManager.updatePlayer( player, id);
+//                if( serverManager.cardsSelectedCount >= (clients.size())) {
+//                    System.out.println("Play next turn");
+//                    serverManager.playTurn();
+//                }
                 break;
             } case 3: { //playScreen initialized
                 serverManager.viewInitialized();
-
-
                 break;
-            } case 4: { //crisis card played
-                serverManager.militaryConflictCount++;
-                serverManager.cardsSelectedCount++;
-                Player player = playerGson.fromJson( request.get("player").getAsString(), Player.class );
-                serverManager.updatePlayer( player, id);
-                if( serverManager.cardsSelectedCount >= (clients.size())) {
-                    System.out.println("Play next turn");
-                    serverManager.playTurn();
-                }
+            } case 4: { //sth happened
+//                serverManager.militaryConflictCount++;
+//                serverManager.cardsSelectedCount++;
+//                Player player = playerGson.fromJson( request.get("player").getAsString(), Player.class );
+//                serverManager.updatePlayer( player, id);
+//                if( serverManager.cardsSelectedCount >= (clients.size())) {
+//                    System.out.println("Play next turn");
+//                    serverManager.playTurn();
+//                }
                 break;
             } case 5:{ //trading done
-                int playerId = request.get("player_id").getAsInt();
-                int cost = request.get("cost").getAsInt();
-                serverManager.tradingCosts.add( new PlayerCost( playerId, cost));
+//                int playerId = request.get("player_id").getAsInt();
+//                int cost = request.get("cost").getAsInt();
+//                serverManager.tradingCosts.add( new PlayerCost( playerId, cost));
                 break;
             }
             default:

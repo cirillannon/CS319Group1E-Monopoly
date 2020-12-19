@@ -5,13 +5,14 @@ import java.util.Collections;
 
 public class GameBoard 
 {
+    private static GameBoard instance = null;
     private ArrayList<Card> chanceCards;
     private ArrayList<Card> communityChestCards;
     private ArrayList<Tile> tiles;
     private ArrayList<Pawn> pawns;
     private Dice dice;
-    
-    public GameBoard()
+
+    private GameBoard()
     {
     	initializeChanceCards();
     	initializeCommunityChestCards();
@@ -19,6 +20,14 @@ public class GameBoard
     	initializePawns();
     	dice = new Dice();
     	
+    }
+
+    public static GameBoard initGameBoard()
+    {
+        if (instance == null)
+            instance = new GameBoard();
+
+        return instance;
     }
 
     private void initializeTiles()

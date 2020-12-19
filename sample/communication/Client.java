@@ -160,27 +160,22 @@ public class Client {
                     } case 2: { //start game
                         System.out.println( "SERVER SAID: START GAME");
                         Parent menuStage = FXMLLoader.load(getClass().getResource("newGame.fxml"));
-                        Scene newGameScene = new Scene(menuStage);
-                        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                        window.setScene(newGameScene);
-                        window.show();
+                        // show game screen ????
                         acknowledgeRequest();
                         break;
-                    } case 3: { // update players for when someone leaves. Below stuff not ours
-                        /*
+                    } case 3: { // update players
                         Type playersListType = new TypeToken<List<Player>>() {}.getType();
                         ArrayList<Player> players = playerGson.fromJson( res.get("all_players").getAsString(), playersListType );
 
-                        engine.players = players;
-                        engine.getCurrentPlayer().id = id;
-                        engine.updateNeighbors();
+                        gameManager.initializePlayers(players);
+                        gameManager.getCurrentPlayer().setId(id);
 
-                        // call something to update all cards, all player reaources etc.
-                        PlayScreenController.updateDeck( engine.getCurrentPlayer().cards);
+                        // call something to update all cards, all player resources etc.
+                        gameManager.updatePlayers(players);
 
                         acknowledgeRequest();
                         break;
-                         */
+
                     } case 4: { // update a players belongings ( money + properties )
                         /*
                         Scoreboard scoreboard = gson.fromJson( res.get("scoreboard").getAsString(), Scoreboard.class);
@@ -209,7 +204,7 @@ public class Client {
 
                          */
                     } case 7: { // game ended
-                        gameManager.endGame();
+                        // gameManager.endGame();
                         break;
                     } case 8: { // ?????????
 

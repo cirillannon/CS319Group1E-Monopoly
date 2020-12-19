@@ -17,17 +17,39 @@ public class GameManager
 	
 	public GameManager()
     {
-	    gameBoard = new GameBoard();
+	    gameBoard = GameBoard.initGameBoard();
         players = new ArrayList<Player>();
 
         isGameOver = false;
         turn = 0;
     }
-	
+
+	public void initClient( String ip){
+		(new Thread(() -> {
+			this.client = new Client( ip, this);
+			this.client.startClient();
+		})).start();
+	}
+
 	public void initializePlayers(ArrayList<Player> players)
 	{
         this.players = players;
         countOfPlayers = players.size();
+	}
+
+	public void updatePlayers(ArrayList<Player> players)
+	{
+		for (Player player : this.players) {
+			for (Property property : player.properties) {
+				property.setOwner(null);
+			}
+		}
+		this.players = players;
+		countOfPlayers = players.size();
+		for (Player player : players) {
+			player.updateProperties();
+			// what else ???
+		}
 	}
 
 	public Player getCurrentPlayer(){

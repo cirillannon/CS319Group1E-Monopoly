@@ -45,7 +45,8 @@ public class MenuController implements Initializable
 	private boolean  onVolumePane = false;
 
 	public void newGameButtonClicked(ActionEvent event) throws IOException
-	{	
+	{
+
 		buttonClicked();
 		Monopoly.mediaPlayer.stop();
 		Parent menuStage = FXMLLoader.load(getClass().getResource("newGame.fxml"));

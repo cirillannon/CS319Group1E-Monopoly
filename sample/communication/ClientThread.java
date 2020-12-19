@@ -58,7 +58,7 @@ public class ClientThread implements Runnable {
                 if (!in.ready())
                     continue;
 
-                if( Main.state == 1){
+                if( UserInterface.Monopoly.state == 1){
                     input = in.readLine();
                     JsonObject ob =  gson.fromJson( input, JsonObject.class);
 //                    System.out.println("data received on server: " + input);

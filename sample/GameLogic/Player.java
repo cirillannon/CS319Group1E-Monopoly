@@ -5,28 +5,32 @@ import java.util.ArrayList;
 public class Player {
 
     private int id;
-	private String name;
     private int balance;
     private int location;
     private boolean hasRentDebt;
     private boolean isBankrupt;
     private boolean isInJail;
     private ArrayList<Card> cards;
-    private ArrayList<Property> properties;   
+    public ArrayList<Property> properties;
     private String color;
 
-    public Player( String name, String color)
+    public Player(String color)
     {
-    	this.name = name;
         balance = 1500; 
         location = 0;
         isBankrupt = false;
         isInJail = false;
-        cards = new ArrayList<>();
-        properties = new ArrayList<>();
+        cards = null;
+        properties = null;
         this.color = color;
         hasRentDebt = false;
-        id = -1;
+        id = 0;
+    }
+
+    public void updateProperties() {
+        for (Property property : properties) {
+            property.setOwner(this);
+        }
     }
 
     public int getId() {
@@ -39,9 +43,9 @@ public class Player {
 
     public String getName()
     {
-    	return name;
+    	return "name";
     }
-   
+
     public String getColor()
     {
     	return color;
