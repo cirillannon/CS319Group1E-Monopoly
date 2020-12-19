@@ -1,38 +1,72 @@
 package GameLogic;
 
+public class ChangeLocation implements EffectStrategy 
+{
+    private int targetLocation;
+    private Player player;
+    private int movementAmount;
+    private boolean isEligibleForSalary;
 
-public class ChangeLocation implements EffectStrategy {
-
-    private int target;
-    private Player p;
-    private Property prp;
-
-    public ChangeLocation(int target, Player p){
-        this.target = target;
-        this.p = p;
-        prp = null;
+    public ChangeLocation(int targetLocation, boolean isEligibleForSalary)
+    {
+        this.targetLocation = targetLocation;
+        player = null;
+        movementAmount = 0;
+        this.isEligibleForSalary = isEligibleForSalary;
+    }
+    
+    private boolean hasPassedGO()
+    {
+    	int playersLocation = player.getLocation();
+    	
+    	for(int i = 0; i < 40; i++)
+    	{
+    		playersLocation = (playersLocation + 1) % 39;
+    		
+    		if(playersLocation == 0)
+    		{
+    			return true;
+    		}
+    		
+    		if(playersLocation == targetLocation)
+    		{
+    			return false;
+    		}
+    	}
+		return false;
     }
 
     @Override
-    public void affect() {
-        p.setLocation(target);
-        if(target != 31 || (target < p.getLocation()))
-            p.incrementBalance(GameLogic.Constants.TileConstants.SALARY);
-        if(target == 31)
-            p.setInJail(true);
+    public void affect() 
+    {	
+    	if(targetLocation == 10)
+    	{
+    		player.setIsInJail(true);
+    		player.setLocation(targetLocation);
+    		
+    	}
+    	
+    	if(hasPassedGO() && isEligibleForSalary)
+    	{
+    		player.incrementBalance(Constants.PlayerConstants.SALARY);
+    	}
+    	
+    	player.setLocation(targetLocation);
+    	
     }
 
-    @Override
-    public void setTargetPlayer(Player p){
-        this.p = p;
+    public void setTargetPlayer(Player player)
+    {
+        this.player = player;
     }
 
-    @Override
-    public void setTargetProperty(Property prp) {
-        this.prp = prp;
+    public void setTargetLocation(int targetLocation)
+    {
+        this.targetLocation = targetLocation;
     }
-
-    public void setTarget(int target){
-        this.target = target;
+    
+    public int getMovementAmount()
+    {
+        return movementAmount;
     }
 }

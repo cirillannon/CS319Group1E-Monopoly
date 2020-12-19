@@ -1,3 +1,4 @@
+  
 package GameLogic;
 
 public class ChanceCard extends Card

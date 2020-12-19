@@ -2,22 +2,28 @@ package GameLogic;
 
 public abstract class Card 
 {
-
     private String cardDescription;
-    private EffectStrategy strategy;
+    private EffectStrategy effectStrategy;
 
-    public Card(String cardDescription, EffectStrategy strategy )
+    public Card(String cardDescription, EffectStrategy effectStrategy )
     {
-        this.strategy = strategy;
+        this.effectStrategy = effectStrategy;
         this.cardDescription = cardDescription;
     }
 
-    String getCardDescription() 
+    public String getCardDescription() 
     {
         return cardDescription;
     }
 
-    public EffectStrategy getStrategy(){
-        return this.strategy;
+    public void setEffectStrategy(EffectStrategy effectStrategy)
+    {
+        this.effectStrategy = effectStrategy;
+    }
+    
+    public void affect(Player player)
+    {    	
+    	effectStrategy.setTargetPlayer(player);
+    	effectStrategy.affect();
     }
 }

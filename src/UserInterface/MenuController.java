@@ -3,6 +3,7 @@ package UserInterface;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
@@ -21,12 +22,19 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javax.swing.text.html.ImageView;
+
 import com.sun.glass.ui.Window;
 
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.net.URISyntaxException;
 
 public class MenuController implements Initializable
@@ -48,6 +56,7 @@ public class MenuController implements Initializable
 	{	
 		buttonClicked();
 		Monopoly.mediaPlayer.stop();
+		
 		Parent menuStage = FXMLLoader.load(getClass().getResource("newGame.fxml"));
 		Scene newGameScene = new Scene(menuStage);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -77,7 +86,6 @@ public class MenuController implements Initializable
 	    stage.close();
 	}
 	
-	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) 
 	{
 		volumeSlider.setValue(Monopoly.mediaPlayer.getVolume() * 100);
@@ -88,6 +96,4 @@ public class MenuController implements Initializable
 			}
 		});
 	}
-
-
 }

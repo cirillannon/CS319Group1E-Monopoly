@@ -1,36 +1,29 @@
 package GameLogic;
 
-public class ChangeBalance implements EffectStrategy {
-
+public class ChangeBalance implements EffectStrategy 
+{
     private int amount;
-    private Player p;
-    private Property prp;
+    private Player player;
 
-    public ChangeBalance(int amount, Player p){
+    public ChangeBalance(int amount)
+    {
         this.amount = amount;
-        this.p = p;
-        prp = null;
+        player = null;
     }
 
     @Override
-    public void affect() {
-        if(amount > 0)
-           p.incrementBalance(amount);
-        else
-            p.decrementBalance(amount);
+    public void affect() 
+    {
+    	player.changeBalance(amount);
+    }
+   
+    public void setTargetPlayer(Player player)
+    {
+        this.player = player;
     }
 
-    @Override
-    public void setTargetPlayer(Player p){
-        this.p = p;
-    }
-
-    @Override
-    public void setTargetProperty(Property prp) {
-        this.prp = prp;
-    }
-
-    public void setAmount(int amount) {
+    public void setAmount(int amount) 
+    {
         this.amount = amount;
     }
 }

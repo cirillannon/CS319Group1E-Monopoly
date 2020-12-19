@@ -2,8 +2,8 @@ package GameLogic;
 
 public class CommunityChestCard extends Card
 {
-    public CommunityChestCard(String cardDescription, EffectStrategy strategy)
+    public CommunityChestCard(String cardDescription, EffectStrategy effectStrategy)
     {
-        super(cardDescription, strategy);
+        super(cardDescription, effectStrategy);
     }
 }
