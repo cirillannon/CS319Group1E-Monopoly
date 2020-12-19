@@ -250,13 +250,13 @@ public class NewGameController implements Initializable
 	
 	public void movePawn(String color, int amount)
 	{
-		if(color == "orange")
+		if(color.equals("orange"))
 		{
 			orangePawnMover.start();
 			orangePawnLocationIndex = (orangePawnLocationIndex + amount) % 40;
 			orangePawnLocation = orangePawnLocations[orangePawnLocationIndex];
 		}
-		else if(color == "yellow")
+		else if(color.equals("yellow"))
 		{
 			yellowPawnMover.start();
 			yellowPawnLocationIndex = (yellowPawnLocationIndex + amount) % 40;
@@ -266,7 +266,7 @@ public class NewGameController implements Initializable
 	
 	public void teleportPawn(String color, int teleportAmount)
 	{
-		if(color == "orange")
+		if(color.equals("orange"))
 		{
 			orangePawnLocationIndex = (orangePawnLocationIndex + teleportAmount) % 40;
 			orangePawnLocation = orangePawnLocations[orangePawnLocationIndex];
@@ -274,7 +274,7 @@ public class NewGameController implements Initializable
 			orangePawnImage.setLayoutY(orangePawnLocation[1]);
 
 		}
-		else if(color == "yellow")
+		else if(color.equals("yellow"))
 		{
 			yellowPawnLocationIndex = (yellowPawnLocationIndex + teleportAmount) % 40;
 			yellowPawnLocation = yellowPawnLocations[yellowPawnLocationIndex];
@@ -364,7 +364,23 @@ public class NewGameController implements Initializable
 			updateBalances();
 		}
 	}
-	
+
+	public void sellProperty()
+	{
+		if(gameManager.sellProperty())
+		{
+			updateBalances();
+		}
+	}
+	public void mortgageProperty()
+	{
+		gameManager.mortgage();
+		updateBalances();
+	}
+	public void unMortageProperty(){
+		gameManager.unmortgage();
+		updateBalances();
+	}
 //    there are imageviews on each property so they will need to be altered depending on the state of the property
 //    the user will tell us a string property
 //    we need to get that imageview according to the string

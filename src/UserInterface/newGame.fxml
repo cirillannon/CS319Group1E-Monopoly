@@ -123,7 +123,7 @@
                         <Font name="Arial Black" size="15.0" />
                     </font>
                 </Button>
-                <Button fx:id="payRentButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="386.0" layoutY="520.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="96.0" style="-fx-background-color: #2F4F4F;" text="Pay Rent" textFill="WHITE">
+                <Button fx:id="payRentButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="386.0" layoutY="520.0" mnemonicParsing="false" onAction="#payRent" prefHeight="33.0" prefWidth="96.0" style="-fx-background-color: #2F4F4F;" text="Pay Rent" textFill="WHITE">
                     <cursor>
                         <Cursor fx:constant="HAND" />
                     </cursor>
@@ -228,7 +228,7 @@
                <font>
                   <Font name="Arial Black" size="35.0" />
                </font></Label>
-                  <Button fx:id="rollDiceButton5" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="24.0" layoutY="400.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="133.0" style="-fx-background-color: #2F4F4F;" text="Mortgage" textFill="WHITE">
+                  <Button fx:id="rollDiceButton5" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="24.0" layoutY="400.0" mnemonicParsing="false" onAction="#mortgageProperty" prefHeight="43.0" prefWidth="133.0" style="-fx-background-color: #2F4F4F;" text="Mortgage" textFill="WHITE">
                       <cursor>
                           <Cursor fx:constant="HAND" />
                       </cursor>
@@ -243,7 +243,7 @@
                           <Font name="Arial Black" size="20.0" />
                       </font>
                   </Button>
-                  <Button fx:id="rollDiceButton6" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="175.0" layoutY="400.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="164.0" style="-fx-background-color: #2F4F4F;" text="Unmortgage" textFill="WHITE">
+                  <Button fx:id="rollDiceButton6" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="175.0" layoutY="400.0" mnemonicParsing="false" onAction="#unMortageProperty" prefHeight="43.0" prefWidth="164.0" style="-fx-background-color: #2F4F4F;" text="Unmortgage" textFill="WHITE">
                       <cursor>
                           <Cursor fx:constant="HAND" />
                       </cursor>
@@ -258,7 +258,7 @@
                           <Font name="Arial Black" size="20.0" />
                       </font>
                   </Button>
-                  <Button fx:id="buildButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="359.0" layoutY="400.0" mnemonicParsing="false" onMouseClicked="#buildHouse" prefHeight="30.0" prefWidth="91.0" style="-fx-background-color: #2F4F4F;" text="Build" textFill="WHITE">
+                  <Button fx:id="buildButton" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="359.0" layoutY="400.0" mnemonicParsing="false" onAction="#buildHouse" onMouseClicked="#buildHouse" prefHeight="30.0" prefWidth="91.0" style="-fx-background-color: #2F4F4F;" text="Build" textFill="WHITE">
                       <cursor>
                           <Cursor fx:constant="HAND" />
                       </cursor>
@@ -273,7 +273,7 @@
                           <Font name="Arial Black" size="20.0" />
                       </font>
                   </Button>
-                  <Button fx:id="rollDiceButton4" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="473.0" layoutY="400.0" mnemonicParsing="false" prefHeight="43.0" prefWidth="86.0" style="-fx-background-color: #2F4F4F;" text="Sell" textFill="WHITE">
+                  <Button fx:id="rollDiceButton4" alignment="TOP_LEFT" contentDisplay="TOP" layoutX="473.0" layoutY="400.0" mnemonicParsing="false" onAction="#sellProperty" prefHeight="43.0" prefWidth="86.0" style="-fx-background-color: #2F4F4F;" text="Sell" textFill="WHITE">
                       <cursor>
                           <Cursor fx:constant="HAND" />
                       </cursor>

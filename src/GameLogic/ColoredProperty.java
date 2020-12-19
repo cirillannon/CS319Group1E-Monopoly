@@ -42,5 +42,6 @@ public class ColoredProperty extends Property{
     {
         return color;
     }
+
     public void setHouses(int setNo){numberOfHouses = setNo;}
 }

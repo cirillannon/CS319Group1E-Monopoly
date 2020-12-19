@@ -125,7 +125,76 @@ public class GameManager
 	
 		return false;
 	}
-	
+
+	public boolean sellProperty()
+	{
+		Player player = players.get(turn);
+		Tile tile = gameBoard.getTile(player.getLocation());
+
+		if(tile instanceof Property)
+		{
+			if(((Property) tile).isOwned() && ((Property) tile).getOwner() == player)
+			{
+				if(player.getBalance() > ((Property) tile).getValue())
+				{
+					player.removeProperty((Property) tile);
+					player.incrementBalance(((Property) tile).getValue());
+					((Property) tile).setOwner(null);
+					return true;
+				}
+			}
+		}
+
+		return false;
+	}
+
+	public void mortgage() {
+			Player player = players.get(turn);
+			Tile tile = gameBoard.getTile(player.getLocation());
+			if(tile instanceof Property){
+				if (((Property) tile).getOwner()==player)
+				{
+					if (((Property) tile).isMortgaged())
+					{
+						return;
+					}
+					else {
+						player.incrementBalance(((Property)tile).getValue() / 2);
+						((Property)tile).setMortgaged(true);
+					}
+
+				}
+				else
+					return;
+
+			}
+	}
+
+	public void unmortgage() {
+		Player player = players.get(turn);
+		Tile tile = gameBoard.getTile(player.getLocation());
+		if(tile instanceof Property){
+			if (((Property) tile).getOwner()==player)
+			{
+				if (((Property) tile).isMortgaged())
+				{
+					player.decrementBalance(((Property)tile).getValue() / 2);
+					((Property)tile).setMortgaged(false);
+				}
+				else {
+					return;
+				}
+
+			}
+			else
+				return;
+
+		}
+	}
+
+
+
+
 	public int getBalance(String color)
 	{
 		for(int i = 0; i < countOfPlayers; i++)

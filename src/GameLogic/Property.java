@@ -60,4 +60,5 @@ public abstract class Property extends Tile
     {
         this.value = value;
     }
+
 }

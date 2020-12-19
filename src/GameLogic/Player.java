@@ -102,6 +102,11 @@ public class Player {
     {
     	properties.add(property);
     }
+
+    public void removeProperty(Property property)
+    {
+        properties.remove(property);
+    }
     
     public void decrementBalance(int amount)
     {
@@ -152,6 +157,7 @@ public class Player {
     {
     	return hasRolledDice;
     }
+
 
 	public void setLocation(int location) 
 	{
