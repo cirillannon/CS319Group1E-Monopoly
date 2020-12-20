@@ -460,7 +460,7 @@ public class GameManager
     // This methods changes the turn, if it is possible.
     public void turnEnded()
     {
-        if(players.get(turn).hasRentDebt())
+        if(players.get(turn).hasRentDebt() || players.get(turn).hasTaxDebt())
         {
             return;
         }
