@@ -3,6 +3,7 @@ package GameLogic;
 import java.util.ArrayList;
 import java.util.Collections;
 
+// Facade design pattern
 public class GameBoard
 {
     private ArrayList<Card> chanceCards;
@@ -80,6 +81,7 @@ public class GameBoard
         return drawnCard;
     }
 
+    // Some of the cards require information that can be determined on run time. So strategy pattern is suitible for use.
     private void initializeChanceCards()
     {
         chanceCards = new ArrayList<Card>();
@@ -90,27 +92,21 @@ public class GameBoard
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[3], new ChangeLocation(-1, true)));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[4], new ChangeLocation(-1, true)));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[5], new ChangeBalance(50)));
-
-//    	// Get out of jail card
-//      // chanceCards.add(null);
-
+    	// Get out of jail card
+        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[6], null));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[7], new ChangeLocation(-1, true)));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[8], new ChangeLocation(10,false)));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[9], new ChangeBalance(-1)));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[10], new ChangeBalance(-15)));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[11], new ChangeLocation(5, true)));
-
-
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[12], new ChangeLocation(39,false)));
-
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[13], new ChangeBalance(-1)));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[14], new ChangeBalance(150)));
         chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[15], new ChangeBalance(100)));
-
-//        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[15], new ChangePropertyRent(true,25,null)));
-//        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[16], new ChangePropertyRent(true,50,null)));
-//        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[17], new ChangePropertyRent(false,-25,null)));
-//        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[18], new ChangePropertyRent(false,-25,null)));
+        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[15], new ChangePropertyRent(true,25,null)));
+        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[16], new ChangePropertyRent(true,50,null)));
+        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[17], new ChangePropertyRent(false,-25,null)));
+        chanceCards.add(new ChanceCard(Constants.CardConstants.CHANCE_CARD_DESCRIPTIONS[18], new ChangePropertyRent(false,-25,null)));
     }
 
     private void initializeCommunityChestCards()
@@ -121,8 +117,6 @@ public class GameBoard
         communityChestCards.add(new CommunityChestCard(Constants.CardConstants.COMMUNITY_CHEST_CARD_CONSTANTS[1], new ChangeBalance(200)));
         communityChestCards.add(new CommunityChestCard(Constants.CardConstants.COMMUNITY_CHEST_CARD_CONSTANTS[2], new ChangeBalance(-50)));
         communityChestCards.add(new CommunityChestCard(Constants.CardConstants.COMMUNITY_CHEST_CARD_CONSTANTS[3], new ChangeBalance(50)));
-//        // JailCard Will be implemented
-//        communityChestCards.add(null);
         communityChestCards.add(new CommunityChestCard(Constants.CardConstants.COMMUNITY_CHEST_CARD_CONSTANTS[5], new ChangeLocation(10,false)));
         communityChestCards.add(new CommunityChestCard(Constants.CardConstants.COMMUNITY_CHEST_CARD_CONSTANTS[6], new ChangeBalance(-1)));
         communityChestCards.add(new CommunityChestCard(Constants.CardConstants.COMMUNITY_CHEST_CARD_CONSTANTS[7], new ChangeBalance(100)));
@@ -161,5 +155,4 @@ public class GameBoard
     {
         return tiles.get(index);
     }
-
 }
