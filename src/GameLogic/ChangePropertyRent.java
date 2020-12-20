@@ -1,8 +1,8 @@
 package GameLogic;
 
-public class ChangePropertyRent implements EffectStrategy 
+public class ChangePropertyRent implements EffectStrategy
 {
-	private boolean isEventPositive;
+    private boolean isEventPositive;
     private int percentage; //Rent change percentage
     private Property property; //Target property
     private Player player;
@@ -16,7 +16,7 @@ public class ChangePropertyRent implements EffectStrategy
     }
 
     @Override
-    public void affect() 
+    public void affect()
     {
         int rentBefore = property.getRent();
         int rentFinal;
@@ -27,14 +27,14 @@ public class ChangePropertyRent implements EffectStrategy
         }
         else
         {
-            rentFinal = rentBefore - ((rentBefore * percentage) / 100);       	
+            rentFinal = rentBefore - ((rentBefore * percentage) / 100);
         }
-        
+
         property.setRent(rentFinal);
     }
 
-	public void setTargetPlayer(Player player) 
-	{
-		this.player = player;
-	}
+    public void setTargetPlayer(Player player)
+    {
+        this.player = player;
+    }
 }

@@ -2,40 +2,70 @@ package GameLogic;
 
 import java.util.ArrayList;
 
-public class Player {
-
-    private String name;
+public class Player
+{
     private int balance;
     private int location;
     private boolean hasRentDebt;
-    private boolean isBankrupt;
     private boolean isInJail;
-    private ArrayList<Card> cards;
     private ArrayList<Property> properties;
     private String color;
     private boolean hasRolledDice;
     private int turnsSpentInJail;
     private int countOfGetOutOfJailCards;
+    private boolean hasTaxDebt;
 
-    public Player( String name, String color)
+    public Player(String color)
     {
-        this.name = name;
         balance = 1500;
         location = 0;
-        isBankrupt = false;
         isInJail = false;
-        cards = new ArrayList<>();
         properties = new ArrayList<>();
         this.color = color;
         hasRentDebt = false;
         hasRolledDice = false;
         countOfGetOutOfJailCards = 0;
         turnsSpentInJail = 0;
+        hasTaxDebt = false;
     }
+
+    public int[] setBankrupt()
+    {
+        int noOfHouses = 0;
+        int noOfHotels = 0;
+        int[] housesAndHotelsCount = new int[2];
+
+        for(int i = 0; i < properties.size(); i++)
+        {
+            if(properties.get(i) instanceof ColoredProperty)
+            {
+                ColoredProperty coloredProperty = ((ColoredProperty) properties.get(i));
+                noOfHouses = noOfHouses + coloredProperty.getNumberOfHouses();
+                noOfHotels = noOfHotels + coloredProperty.getNumberOfHotels();
+            }
+        }
+
+        for(int i = 0; i < properties.size(); i++)
+        {
+            properties.get(i).setOwner(null);
+        }
+
+        housesAndHotelsCount[0] = noOfHouses;
+        housesAndHotelsCount[0] = noOfHotels;
+        return housesAndHotelsCount;
+    }
+
+
+
 
     public void incrementTurnsSpentInJail()
     {
         turnsSpentInJail++;
+    }
+
+    public int getTurnsSpentInJail()
+    {
+        return turnsSpentInJail;
     }
 
     public void addGetOutOfJailCard()
@@ -55,6 +85,18 @@ public class Player {
     public void changeBalance(int change)
     {
         balance = balance + change;
+    }
+
+    public String propertiesToString()
+    {
+        String propertiesString = "";
+
+        for(int i = 0; i < properties.size(); i++)
+        {
+            propertiesString = propertiesString + properties.get(i).getName() + "\n";
+        }
+
+        return propertiesString;
     }
 
     public ArrayList<Property> getProperties(){return properties;}
@@ -104,10 +146,9 @@ public class Player {
         return false;
     }
 
-
-    public String getName()
+    public int countOfJailCards()
     {
-        return name;
+        return countOfGetOutOfJailCards;
     }
 
     public String getColor()
@@ -145,11 +186,6 @@ public class Player {
         return location;
     }
 
-    public boolean isBankrupt()
-    {
-        return isBankrupt;
-    }
-
     public boolean isInJail()
     {
         return this.isInJail;
@@ -163,6 +199,16 @@ public class Player {
     public boolean hasRentDebt()
     {
         return hasRentDebt;
+    }
+
+    public void setHasTaxDebt(boolean hasTaxDebt)
+    {
+        this.hasTaxDebt = hasTaxDebt;
+    }
+
+    public boolean hasTaxDebt()
+    {
+        return hasTaxDebt;
     }
 
     public void setHasRolledDice(boolean hasRolledDice)
@@ -183,6 +229,11 @@ public class Player {
 
     public void setIsInJail(boolean isInJail)
     {
+        if(!isInJail)
+        {
+            turnsSpentInJail = 0;
+        }
+
         this.isInJail = isInJail;
     }
 
@@ -216,6 +267,17 @@ public class Player {
         {
             return false;
         }
+    }
+    public boolean hasUnMortgageProperty(String name)
+    {
+        for(int i = 0; i < properties.size(); i++)
+        {
+            if(properties.get(i).getName().equals(name) && properties.get(i).isMortgaged() == true)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public Property getProperty(int index)

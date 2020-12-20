@@ -1,6 +1,6 @@
 package GameLogic;
 
-public abstract class Tile 
+public abstract class Tile
 {
     private String tileName;
 

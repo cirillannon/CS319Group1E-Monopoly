@@ -5,6 +5,8 @@ import java.nio.file.Paths;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+
+import javafx.application.Application;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
 import javafx.event.ActionEvent;
@@ -37,63 +39,68 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URISyntaxException;
 
-public class MenuController implements Initializable
+public class MenuController  extends Application implements Initializable
 {
+    @FXML
+    public AnchorPane volumePane;
 
-	@FXML
-	public AnchorPane volumePane;
-	@FXML
-	public Button exitButton;
-	@FXML
-	public Button newGameButton;
-	@FXML
-	public Slider volumeSlider;
+    @FXML
+    public Button exitButton;
 
-	MediaPlayer mediaPlayer;
-	private boolean  onVolumePane = false;
+    @FXML
+    public Slider volumeSlider;
 
-	public void newGameButtonClicked(ActionEvent event) throws IOException
-	{	
-		buttonClicked();
-		Monopoly.mediaPlayer.stop();
-		
-		Parent menuStage = FXMLLoader.load(getClass().getResource("newGame.fxml"));
-		Scene newGameScene = new Scene(menuStage);
+    MediaPlayer mediaPlayer;
+    private boolean  onVolumePane = false;
+
+    public void playButtonClicked(ActionEvent event) throws IOException
+    {
+        buttonClicked();
+        Monopoly.mediaPlayer.stop();
+
+        Parent menuStage = FXMLLoader.load(getClass().getResource("game.fxml"));
+        Scene newGameScene = new Scene(menuStage);
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
         window.setScene(newGameScene);
         window.show();
-	}
-	
-	public void buttonClicked()
-	{
-		String path = "src\\UserInterface\\soundEffects\\buttonClick.mp3";
-		Media h = new Media(Paths.get(path).toUri().toString());
-		mediaPlayer = new MediaPlayer(h);
-		mediaPlayer.play();	
-	}
+    }
 
-	public void openVolumeSetting()
-	{
-		onVolumePane = !onVolumePane;
-		volumePane.setVisible(onVolumePane);
-		volumePane.setDisable(!onVolumePane);
-	}
+    public void buttonClicked()
+    {
 
-	
-	public void exitButtonClicked()
-	{
-	    Stage stage = (Stage) exitButton.getScene().getWindow();
-	    stage.close();
-	}
-	
-	public void initialize(URL arg0, ResourceBundle arg1) 
-	{
-		volumeSlider.setValue(Monopoly.mediaPlayer.getVolume() * 100);
-		volumeSlider.valueProperty().addListener(new InvalidationListener() {
-			@Override
-			public void invalidated(Observable observable) {
-				Monopoly.mediaPlayer.setVolume(volumeSlider.getValue() / 100);
-			}
-		});
-	}
+        String base = getHostServices().getDocumentBase();
+        Media h = new Media(base + "/src/UserInterface/soundEffects/" + "buttonClick" + ".mp3");
+        mediaPlayer = new MediaPlayer(h);
+        mediaPlayer.play();
+    }
+
+    public void openVolumeSetting()
+    {
+        onVolumePane = !onVolumePane;
+        volumePane.setVisible(onVolumePane);
+        volumePane.setDisable(!onVolumePane);
+    }
+
+
+    public void exitButtonClicked()
+    {
+        Stage stage = (Stage) exitButton.getScene().getWindow();
+        stage.close();
+    }
+
+    public void initialize(URL arg0, ResourceBundle arg1)
+    {
+        volumeSlider.setValue(Monopoly.mediaPlayer.getVolume() * 100);
+        volumeSlider.valueProperty().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                Monopoly.mediaPlayer.setVolume(volumeSlider.getValue() / 100);
+            }
+        });
+    }
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        //
+    }
 }

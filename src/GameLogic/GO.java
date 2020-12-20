@@ -8,10 +8,10 @@ public class GO extends Tile{
     {
         super("GO");
     }
-    
+
     public int getSalaryAmount()
     {
-    	return SALARY;
+        return SALARY;
     }
-    
+
 }

@@ -8,6 +8,7 @@ public class ColoredProperty extends Property{
     private int houseCost;
     private int hotelCost;
 
+    // it is estabilised that properties will be either brown, light purple, purple, yellow,
     public ColoredProperty(int value, int rent, String tileName, String color, int houseCost, int hotelCost)
     {
         super(value, rent, tileName);
@@ -16,31 +17,32 @@ public class ColoredProperty extends Property{
         numberOfHouses = 0;
         this.houseCost = houseCost;
         this.hotelCost = hotelCost;
+
     }
 
-    public int getNumberOfHotels() 
+    public int getNumberOfHotels()
     {
         return numberOfHotels;
     }
 
-    public int getNumberOfHouses() 
+    //sets the number of houses
+    public void setHouses(int setNo){numberOfHouses = setNo;}
+
+    public int getNumberOfHouses()
     {
         return numberOfHouses;
     }
 
-    public int getHouseCost() 
+    public int getHouseCost()
     {
         return houseCost;
     }
-    
-    public int getHotelCost() 
+
+    public int getHotelCost()
     {
         return hotelCost;
     }
 
-    public String getColor() 
-    {
-        return color;
-    }
-    public void setHouses(int setNo){numberOfHouses = setNo;}
+    public String getColor() { return color; }
+
 }
