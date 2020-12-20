@@ -23,14 +23,19 @@ public class GameManager
         turn = 0;
     }
 
+    // This method returns the color of the pawn of the player in turn
     public String getTurnsColor()
     {
         return players.get(turn).getColor();
     }
+    
+    // This methods returns whether the player in turn has rolled the dice.
     public boolean getIsDiceRolled()
     {
         return players.get(turn).hasRolledDice();
     }
+    
+    // This method initializes the players with colors that will be the colors of their pawns.
     private void initializePlayers()
     {
         players = new ArrayList<Player>();
@@ -38,10 +43,10 @@ public class GameManager
         players.add(new Player("yellow"));
         players.add(new Player("green"));
         players.add(new Player("blue"));
-        countOfPlayers = 4;
-   
-
+        countOfPlayers = 4; 
     }
+    
+    // This method returns the properties of the player whose color is specified in string format, line by line.
     public String getPlayersProperties(String color)
     {
         for(int i = 0; i < countOfPlayers; i++)
@@ -56,14 +61,18 @@ public class GameManager
     }
 
 
+    // This method returns whether the player in turn is in jail.
     public boolean isTurnInJail()
     {
         return players.get(turn).isInJail();
     }
+    
+    // This method rolls the dice of the gameBoard object. 
     public int[] rollDice()
     {
         Player player = players.get(turn);
 
+        // When the player rolls the dice, if they were in jail, turns spent in jail is incremented.
         if(player.isInJail())
         {
             player.incrementTurnsSpentInJail();
@@ -99,6 +108,7 @@ public class GameManager
         Tile tile = gameBoard.getTile(player.getLocation());
         System.out.println(player.getColor() + " has landed on " + tile.getName());
 
+        // If the player lands on an owned property, they will have a rent debt.
         if(tile instanceof Property)
         {
             if(((Property) tile).isOwned() && ((Property) tile).getOwner() != player && !((Property) tile).isMortgaged() )
@@ -115,6 +125,7 @@ public class GameManager
         return dice;
     }
 
+    // This method is called when a player presses the pay tax button.
     public boolean payTax()
     {
         Player player = players.get(turn);
@@ -167,6 +178,7 @@ public class GameManager
         return false;
     }
 
+    // This method is called when a player presses pay jail button.
     public boolean payJailBail()
     {
         Player player = players.get(turn);
@@ -181,6 +193,7 @@ public class GameManager
         return false;
     }
 
+    // This method is called when a player clicks buy button
     public boolean buyProperty()
     {
         Player player = players.get(turn);
@@ -203,6 +216,7 @@ public class GameManager
         return false;
     }
 
+    // This method returns the balance of the player whose pawns color is indicated.
     public int getBalance(String color)
     {
         for(int i = 0; i < countOfPlayers; i++)
@@ -217,6 +231,7 @@ public class GameManager
     }
 
 
+    // Helper method
     private int calculateMovementAmount(int previousLocation, int newLocation)
     {
         if(previousLocation == newLocation)
@@ -241,6 +256,7 @@ public class GameManager
     }
 
 
+    // Helper method that for determining the nearest utility.
     private int getNearestUtility(int location)
     {
         location = (location + 1) % 40;
@@ -258,7 +274,7 @@ public class GameManager
         return -1;
     }
 
-
+    // Helper method that for determining the nearest railroad.
     private int getNearestRailroad(int location)
     {
         location = (location + 1) % 40;
@@ -287,15 +303,17 @@ public class GameManager
 
         return -1;
     }
+    
+    // This method draws a chance card from the deck that is on gamemanager. It utilizes strategy design pattern.
     public int drawChanceCard()
     {
         Player player = players.get(turn);
         Tile tile = gameBoard.getTile(player.getLocation());
 
-//		if(!(tile instanceof ChanceCardTile))
-//		{
-//			return 0;
-//		}
+		if(!(tile instanceof ChanceCardTile))
+		{
+			return 0;
+		}
 
         ChanceCard cardDrawn = gameBoard.drawChanceCard();
         System.out.println(cardDrawn.getCardDescription());
@@ -402,6 +420,7 @@ public class GameManager
         return calculateMovementAmount(playersFirstLocation, player.getLocation());
     }
 
+    // This method draws a community chest card from the deck that is on gameboard.
     public int drawCommunityChestCard()
     {
         Player player = players.get(turn);
@@ -438,7 +457,7 @@ public class GameManager
         return calculateMovementAmount(playersFirstLocation, player.getLocation());
     }
 
-
+    // This methods changes the turn, if it is possible.
     public void turnEnded()
     {
         if(players.get(turn).hasRentDebt())
