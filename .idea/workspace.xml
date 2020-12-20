@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="3bf95f60-5fbe-4588-a5f9-3fc6e9bd919b" name="Default Changelist" comment="tiles">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/.idea/libraries/lib.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/1E-319 Design Report.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/CS319Group1E-Monopoly.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/reports/319 Design Report.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/reports/Analysis Report .pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/reports/Analysis Report updated.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/images/board.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/images/dice/dice1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/images/dice/dice2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/images/dice/dice3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/images/dice/dice4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/images/dice/dice5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/images/dice/dice6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/images/mainMenuBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/images/pawns/orangePawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/images/pawns/yellowPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/images/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/newGame.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/settings.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/soundEffects/buttonClick.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/soundEffects/buttonEntered.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/bin/sample/soundEffects/mainMenuTheme.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/images/board.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/images/dice/dice1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/images/dice/dice2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/images/dice/dice3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/images/dice/dice4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/images/dice/dice5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/images/dice/dice6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/images/mainMenuBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/images/pawns/orangePawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/images/pawns/yellowPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/images/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/newGame.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/settings.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/soundEffects/buttonClick.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/soundEffects/buttonEntered.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/Monopoly/src/sample/soundEffects/mainMenuTheme.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/board.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/chanceCard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/chat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/communityChestCardpng.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/dice/dice1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/dice/dice2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/dice/dice3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/dice/dice4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/dice/dice5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/dice/dice6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/help.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/mainMenuBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/pawns/orangePawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/pawns/yellowPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/scoreboard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/images/volume.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/newGame.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/settings.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/soundEffects/buttonClick.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/soundEffects/buttonEntered.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/UserInterface/soundEffects/mainMenuTheme.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/board.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/border.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/border2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/coin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/creategame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/exit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/exitgame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/help.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/joingame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/language.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/logoname.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/password.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/property.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/images/volume.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/jar/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/jar/jar.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/libraries/gson-2.8.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/libraries/libraries.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/try/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS319Group1E-Monopoly/sample/try/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/board.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/chanceCard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/chat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/communityChestCardpng.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/dice/dice1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/dice/dice2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/dice/dice3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/dice/dice4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/dice/dice5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/dice/dice6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/help.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/mainMenuBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/pawns/orangePawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/pawns/yellowPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/scoreboard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/images/volume.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/newGame.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/settings.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/soundEffects/buttonClick.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/soundEffects/buttonEntered.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Monopoly/UserInterface/soundEffects/mainMenuTheme.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/319 Design Report.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/Analysis Report .pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/reports/Analysis Report updated.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/Controller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/Controller/GameManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/Controller/GameStateManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Bank.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Card.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/ChanceCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/ChanceCardTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/ChangeBalance.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/ChangeLocation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/ChangePropertyRent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/ColoredProperty.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/CommunityChestCard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/CommunityChestCardTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Constants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Dice.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/DrawCardTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/EffectStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/ElectricCompany.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/FreeParking.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/GO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/GameBoard.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/GoToJail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/IncomeTax.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Jail.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Pawn.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Property.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Railroad.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Station.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/SuperTax.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/TaxTile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Tile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Utility.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/GameLogic/Waterworks.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/MenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/MenuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/NewGameController$PawnMover.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/NewGameController$Roller.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/NewGameController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/images/board.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/images/dice/dice1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/images/dice/dice2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/images/dice/dice3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/images/dice/dice4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/images/dice/dice5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/images/dice/dice6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/images/mainMenuBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/images/pawns/orangePawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/images/pawns/yellowPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/images/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/newGame.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/settings.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/soundEffects/buttonClick.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/soundEffects/buttonEntered.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/bin/sample/soundEffects/mainMenuTheme.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/MenuController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/NewGameController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/images/board.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/images/dice/dice1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/images/dice/dice2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/images/dice/dice3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/images/dice/dice4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/images/dice/dice5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/images/dice/dice6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/images/mainMenuBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/images/pawns/orangePawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/images/pawns/yellowPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/images/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/newGame.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/settings.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/soundEffects/buttonClick.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/soundEffects/buttonEntered.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/Monopoly/src/sample/soundEffects/mainMenuTheme.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/NewGameController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/board.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/chanceCard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/chat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/communityChestCardpng.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/dice/dice1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/dice/dice2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/dice/dice3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/dice/dice4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/dice/dice5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/dice/dice6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/help.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/mainMenuBackground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/pawns/orangePawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/pawns/yellowPawn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/scoreboard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/images/volume.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/newGame.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/settings.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/soundEffects/buttonClick.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/soundEffects/buttonEntered.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/UserInterface/soundEffects/mainMenuTheme.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/communication/Client.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/communication/ClientThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/communication/Host.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/communication/PlayerDeserializer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/communication/Server.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/communication/ServerManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/arrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/board.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/border.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/border2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/coin.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/creategame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/exit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/exitgame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/help.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/joingame.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/language.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/logo.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/logoname.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/password.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/play.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/property.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/settings.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/images/volume.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/jar/META-INF/MANIFEST.MF" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/jar/jar.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/libraries/gson-2.8.6.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/libraries/libraries.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/menu.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/try/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sample/try/.idea/modules.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="462" y="105" key="FileChooserDialogImpl" timestamp="1608434625025">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="462" y="105" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1608434625025" />
+    <state x="65" y="0" key="new project wizard" timestamp="1608434636658">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1608434636658" />
+  </component>
+</project>
