@@ -9,8 +9,6 @@ public abstract class Tile
         this.tileName = tileName;
     }
 
-//    public abstract void onLand(Player p);
-
     public String getName()
     {
         return tileName;
