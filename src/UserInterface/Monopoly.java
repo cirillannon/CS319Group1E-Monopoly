@@ -24,6 +24,7 @@ public class Monopoly extends Application
     {
         playMusic();
 
+        // Shows the menu
         Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
         primaryStage.setTitle("Monopoly");
         scene = new Scene(root);
@@ -33,6 +34,7 @@ public class Monopoly extends Application
     }
 
 
+    // for playing the main menu theme music
     public void playMusic()
     {
         String base = getHostServices().getDocumentBase();
