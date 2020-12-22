@@ -1254,6 +1254,7 @@ public class GameController implements Initializable {
                 event -> buildbtnPrompt.setVisible(false)
         );
         visiblePause.play();
+        updateBalances();
     }
 
     //method that runs when unmortgage button is pressed
@@ -1284,7 +1285,7 @@ public class GameController implements Initializable {
 
         );
         visiblePause.play();
-
+        updateBalances();
     }
 
     //buildbtnPrompt will be modified here
@@ -1305,6 +1306,7 @@ public class GameController implements Initializable {
 
         );
         visiblePause.play();
+        updateBalances();
     }
 
     //sell all the houses on that property
@@ -1336,6 +1338,7 @@ public class GameController implements Initializable {
 
         );
         visiblePause.play();
+        updateBalances();
     }
 
     public void setAllPanesDisabled() {
